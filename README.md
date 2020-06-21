@@ -40,30 +40,30 @@ Signature is required for this part.
 ```
 
 #### Rest/User/UserInfo
-- [] getSubUsers
+- [ ] getSubUsers
 #### Rest/User/Account
-- [] createAccount
-- [] getAccountsList
-- [] getAccountInformation
-- [] getAccountLedgers
-- [] getHolds
-- [] getAccount
-- [] getBalanceOfSubAccount
-- [] getAggregatedBalanceOfAllSubAccounts
-- [] getTransferable
-- [] transferBetweenMasterUserAndSubUser
-- [] innerTransfer
+- [ ] createAccount
+- [ ] getAccountsList
+- [ ] getAccountInformation
+- [ ] getAccountLedgers
+- [ ] getHolds
+- [ ] getAccount
+- [ ] getBalanceOfSubAccount
+- [ ] getAggregatedBalanceOfAllSubAccounts
+- [ ] getTransferable
+- [ ] transferBetweenMasterUserAndSubUser
+- [ ] innerTransfer
 #### Rest/User/Deposit
-- [] createDepositAddress
-- [] getDepositAddress
-- [] getDepositList
-- [] getV1HistoricalDepositsList
+- [ ] createDepositAddress
+- [ ] getDepositAddress
+- [ ] getDepositList
+- [ ] getV1HistoricalDepositsList
 #### Rest/User/Withdrawals
-- [] getWithdrawalsList
-- [] getV1HistoricalWithdrawalsList
-- [] getWithdrawalQuotas
-- [] applyWithdraw
-- [] cancelWithdrawal
+- [ ] getWithdrawalsList
+- [ ] getV1HistoricalWithdrawalsList
+- [ ] getWithdrawalQuotas
+- [ ] applyWithdraw
+- [ ] cancelWithdrawal
 
 ### Rest/Trade
 ```
