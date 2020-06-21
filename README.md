@@ -19,7 +19,7 @@ yarn add kucoin-node-sdk
 /** Require SDK */
 const API = require('kucoin-node-sdk');
 
-/** init configure */
+/** Init Configure */
 API.init(require('./config'));
 
 /** API use */
@@ -28,7 +28,7 @@ const main = async () => {
   console.log(getTimestampRl.data);
 };
 
-/** run demo */
+/** Run Demo */
 main();
 ```
 
