@@ -10,8 +10,7 @@ exports.sign = function sign(text, secret, outputType = 'base64') {
     .digest(outputType);
 }
 
-// kucoin auth
-exports.auth =  function auth(ApiKey, method, url, data) {
+exports.auth = function auth(ApiKey, method, url, data) {
   const timestamp = Date.now();
   const signature = sign(timestamp + method.toUpperCase() + url + data, ApiKey.secret);
 
