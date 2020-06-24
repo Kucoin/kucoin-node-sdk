@@ -24,6 +24,7 @@ exports.rest = {
     UserInfo: require('./rest/User/UserInfo'),
     Account: require('./rest/User/Account'),
     Deposit: require('./rest/User/Deposit'),
+    Withdrawals: require('./rest/User/Withdrawals'),
   },
   Others: require('./rest/Others'),
 };

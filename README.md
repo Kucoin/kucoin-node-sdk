@@ -58,11 +58,11 @@ Signature is required for this part.
 - [x] getDepositList
 - [x] getV1HistoricalDepositsList
 #### Rest/User/Withdrawals
-- [ ] getWithdrawalsList
-- [ ] getV1HistoricalWithdrawalsList
-- [ ] getWithdrawalQuotas
-- [ ] applyWithdraw
-- [ ] cancelWithdrawal
+- [x] getWithdrawalsList
+- [x] getV1HistoricalWithdrawalsList
+- [x] getWithdrawalQuotas
+- [x] applyWithdraw
+- [x] cancelWithdrawal
 
 ### Rest/Trade
 ```
