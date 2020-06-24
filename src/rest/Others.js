@@ -1,7 +1,11 @@
 
 const Http = require('../lib/http');
 
-/** Get the server time. */
+/**
+ * @name getTimestamp
+ * @description Get the server time.
+ * @return {Object} { code, success, data }
+ */
 exports.getTimestamp = async function getTimestamp() {
   /*
   {
@@ -13,7 +17,11 @@ exports.getTimestamp = async function getTimestamp() {
   return await Http().GET('/api/v1/timestamp');
 };
 
-/** Get the service status. */
+/**
+ * @name getStatus
+ * @description Get the service status.
+ * @return {Object} { code, success, data }
+ */
 exports.getStatus = async function getStatus() {
   /*
   {

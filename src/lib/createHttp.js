@@ -1,5 +1,6 @@
 // type Header
 const fetch = require('node-fetch');
+const _ = require('lodash');
 const Middleware = require('./middleware');
 
 const RequestMethods = {
@@ -36,14 +37,21 @@ class HttpBase {
    * @return  {RequestData}             [return description]
    */
   resolveData(method, data = {}) {
+    const d = {};
+    _.each(data || {}, (value, key) => {
+      if (typeof value !== 'undefined') {
+        d[key] = value;
+      }
+    });
+
     if(method === RequestMethods.POST) {
       return {
         query: '',
-        body: JSON.stringify(data || {}),
+        body: JSON.stringify(d),
       }
     } else {
       return {
-        query: Object.keys(data).map(v => `${v}=${data[v]}`).join('&'),
+        query: Object.keys(d).map(v => `${v}=${d[v]}`).join('&'),
         body: undefined,
       }
     }

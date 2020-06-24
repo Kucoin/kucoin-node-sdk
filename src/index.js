@@ -20,5 +20,9 @@ exports.init = (cfg) => {
 
 /** Exports REST APIs */
 exports.rest = {
-  others: require('./rest/others'),
+  User: {
+    UserInfo: require('./rest/User/UserInfo'),
+    Account: require('./rest/User/Account'),
+  },
+  Others: require('./rest/Others'),
 };

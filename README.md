@@ -40,19 +40,18 @@ Signature is required for this part.
 ```
 
 #### Rest/User/UserInfo
-- [ ] getSubUsers
+- [x] getSubUsers
 #### Rest/User/Account
-- [ ] createAccount
-- [ ] getAccountsList
-- [ ] getAccountInformation
-- [ ] getAccountLedgers
-- [ ] getHolds
-- [ ] getAccount
-- [ ] getBalanceOfSubAccount
-- [ ] getAggregatedBalanceOfAllSubAccounts
-- [ ] getTransferable
-- [ ] transferBetweenMasterUserAndSubUser
-- [ ] innerTransfer
+- [x] createAccount
+- [x] getAccountsList
+- [x] getAccountInformation
+- [x] getAccountLedgers
+- [x] getHolds
+- [x] getBalanceOfSubAccount
+- [x] getAggregatedBalanceOfAllSubAccounts
+- [x] getTransferable
+- [x] transferBetweenMasterUserAndSubUser
+- [x] innerTransfer
 #### Rest/User/Deposit
 - [ ] createDepositAddress
 - [ ] getDepositAddress
