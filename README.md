@@ -53,10 +53,10 @@ Signature is required for this part.
 - [x] transferBetweenMasterUserAndSubUser
 - [x] innerTransfer
 #### Rest/User/Deposit
-- [ ] createDepositAddress
-- [ ] getDepositAddress
-- [ ] getDepositList
-- [ ] getV1HistoricalDepositsList
+- [x] createDepositAddress
+- [x] getDepositAddress
+- [x] getDepositList
+- [x] getV1HistoricalDepositsList
 #### Rest/User/Withdrawals
 - [ ] getWithdrawalsList
 - [ ] getV1HistoricalWithdrawalsList

@@ -23,6 +23,7 @@ exports.rest = {
   User: {
     UserInfo: require('./rest/User/UserInfo'),
     Account: require('./rest/User/Account'),
+    Deposit: require('./rest/User/Deposit'),
   },
   Others: require('./rest/Others'),
 };
