@@ -113,26 +113,26 @@ Signature is not required for this part
 - [x] getCurrencyDetail
 - [x] getFiatPrice
 #### Rest/Margin/MarginInfo
-- [ ] getMarkPrice
-- [ ] getMarginConfigurationInfo
-- [ ] getMarginAccount
+- [x] getMarkPrice
+- [x] getMarginConfigurationInfo
+- [x] getMarginAccount
 #### Rest/Margin/BorrowAndLend
-- [ ] postBorrowOrder
-- [ ] getBorrowOrder
-- [ ] getRepayRecord
-- [ ] getRepaymentRecord
-- [ ] repayAll
-- [ ] repaySingle
-- [ ] postLendOrder
-- [ ] cancelLendOrder
-- [ ] setAutoLend
-- [ ] getActiveOrder
-- [ ] getLentHistory
-- [ ] getActiveLendOrdersList
-- [ ] getSettledLendOrderHistory
-- [ ] getAccountLendRecord
-- [ ] getLendingMarketData
-- [ ] getMarginFillsTradeData
+- [x] postBorrowOrder
+- [x] getBorrowOrder
+- [x] getRepayRecord
+- [x] getRepaymentRecord
+- [x] repayAll
+- [x] repaySingle
+- [x] postLendOrder
+- [x] cancelLendOrder
+- [x] setAutoLend
+- [x] getActiveOrder
+- [x] getLentHistory
+- [x] getActiveLendOrdersList
+- [x] getSettledLendOrderHistory
+- [x] getAccountLendRecord
+- [x] getLendingMarketData
+- [x] getMarginFillsTradeData
 
 #### Rest/Others
 - [x] getTimestamp

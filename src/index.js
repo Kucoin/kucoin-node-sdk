@@ -37,5 +37,9 @@ exports.rest = {
     Histories: require('./rest/Market/Histories'),
     Currencies: require('./rest/Market/Currencies'),
   },
+  Margin: {
+    MarginInfo: require('./rest/Margin/MarginInfo'),
+    BorrowAndLend: require('./rest/Margin/BorrowAndLend'),
+  },
   Others: require('./rest/Others'),
 };
