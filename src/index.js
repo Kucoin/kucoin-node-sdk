@@ -31,5 +31,11 @@ exports.rest = {
     StopOrder: require('./rest/Trade/StopOrder'),
     Fills: require('./rest/Trade/Fills'),
   },
+  Market: {
+    Symbols: require('./rest/Market/Symbols'),
+    OrderBook: require('./rest/Market/OrderBook'),
+    Histories: require('./rest/Market/Histories'),
+    Currencies: require('./rest/Market/Currencies'),
+  },
   Others: require('./rest/Others'),
 };

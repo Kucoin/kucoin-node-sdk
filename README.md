@@ -94,23 +94,24 @@ Signature is required for this part.
 Signature is not required for this part
 ```
 #### Rest/Market/Symbols
-- [ ] getSymbolsList
-- [ ] getTicker
-- [ ] getAllTickers
-- [ ] get24hrStats
-- [ ] getMarketList
+- [x] getSymbolsList
+- [x] getTicker
+- [x] getAllTickers
+- [x] get24hrStats
+- [x] getMarketList
 #### Rest/Market/OrderBook
-- [ ] getLevel2_20
-- [ ] getLevel2_100
-- [ ] getLevel2_full
-- [ ] getLevel3_full
+- [x] getLevel2_20
+- [x] getLevel2_100
+- [x] getLevel2_full
+- [x] getLevel3_full_v1
+- [x] getLevel3_full
 #### Rest/Market/Histories
-- [ ] getMarketHistories
-- [ ] getMarketCandles
+- [x] getMarketHistories
+- [x] getMarketCandles
 #### Rest/Market/Currencies
-- [ ] getCurrencies
-- [ ] getCurrencyDetail
-- [ ] getFiatPrice
+- [x] getCurrencies
+- [x] getCurrencyDetail
+- [x] getFiatPrice
 #### Rest/Margin/MarginInfo
 - [ ] getMarkPrice
 - [ ] getMarginConfigurationInfo
