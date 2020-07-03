@@ -5,10 +5,10 @@ const Http = require('../lib/http');
  * @name getWithdrawalsList
  * @description Get Withdrawals List.
  * @param {Object}
- *  - currency [Optional] Currency
- *  - status [Optional] Status. Available value: PROCESSING, WALLET_PROCESSING, SUCCESS, and FAILURE
- *  - startAt [Optional] Start time (milisecond)
- *  - endAt [Optional] End time (milisecond)
+ *  - {string} currency - [Optional] Currency
+ *  - {string} status - [Optional] Status. Available value: PROCESSING, WALLET_PROCESSING, SUCCESS, and FAILURE
+ *  - {number} startAt - [Optional] Start time (milisecond)
+ *  - {number} endAt - [Optional] End time (milisecond)
  * @return {Object} { code, success, data }
  */
 exports.getWithdrawalsList = async function getWithdrawalsList({
@@ -55,12 +55,12 @@ exports.getWithdrawalsList = async function getWithdrawalsList({
  * @name getV1HistoricalWithdrawalsList
  * @description Get V1 Historical Withdrawals List.
  * @param {Object}
- *  - currentPage [Optional] The current page.
- *  - pageSize [Optional] Number of entries per page.
- *  - currency [Optional] Currency
- *  - status [Optional] Status. Available value: PROCESSING, SUCCESS, and FAILURE
- *  - startAt [Optional] Start time (milisecond)
- *  - endAt [Optional] End time (milisecond)
+ *  - {number} currentPage - [Optional] The current page.
+ *  - {number} pageSize - [Optional] Number of entries per page.
+ *  - {string} currency - [Optional] Currency
+ *  - {string} status - [Optional] Status. Available value: PROCESSING, SUCCESS, and FAILURE
+ *  - {number} startAt - [Optional] Start time (milisecond)
+ *  - {number} endAt - [Optional] End time (milisecond)
  * @return {Object} { code, success, data }
  */
 exports.getV1HistoricalWithdrawalsList = async function getV1HistoricalWithdrawalsList({
@@ -105,9 +105,9 @@ exports.getV1HistoricalWithdrawalsList = async function getV1HistoricalWithdrawa
 /**
  * @name getWithdrawalQuotas
  * @description Get Withdrawal Quotas.
- * @param currency currency. e.g. BTC
+ * @param {string} currency - currency. e.g. BTC
  * @param {Object}
- *  - chain [Optional] The chain name of currency, e.g. The available value for USDT are OMNI, ERC20, TRC20, default is ERC20. This only apply for multi-chain currency, and there is no need for single chain currency.
+ *  - {string} chain - [Optional] The chain name of currency, e.g. The available value for USDT are OMNI, ERC20, TRC20, default is ERC20. This only apply for multi-chain currency, and there is no need for single chain currency.
  * @return {Object} { code, success, data }
  */
 exports.getWithdrawalQuotas = async function getWithdrawalQuotas(currency, {
@@ -141,14 +141,14 @@ exports.getWithdrawalQuotas = async function getWithdrawalQuotas(currency, {
 /**
  * @name applyWithdraw
  * @description Apply Withdraw.
- * @param currency Currency
- * @param address Withdrawal address
- * @param amount Withdrawal amount, a positive number which is a multiple of the amount precision (fees excluded)
+ * @param {string} currency - Currency
+ * @param {string} address - Withdrawal address
+ * @param {number} amount - Withdrawal amount, a positive number which is a multiple of the amount precision (fees excluded)
  * @param {Object}
- *  - memo [Optional] Address remark. If there’s no remark, it is empty. When you withdraw from other platforms to the KuCoin, you need to fill in memo(tag). If you do not fill memo (tag), your deposit may not be available, please be cautious.
- *  - isInner [Optional] Internal withdrawal or not. Default setup: false
- *  - remark [Optional] Remark
- *  - chain [Optional] The chain name of currency, e.g. The available value for USDT are OMNI, ERC20, TRC20, default is ERC20. This only apply for multi-chain currency, and there is no need for single chain currency.
+ *  - {string} memo - [Optional] Address remark. If there’s no remark, it is empty. When you withdraw from other platforms to the KuCoin, you need to fill in memo(tag). If you do not fill memo (tag), your deposit may not be available, please be cautious.
+ *  - {boolean} isInner - [Optional] Internal withdrawal or not. Default setup: false
+ *  - {string} remark - [Optional] Remark
+ *  - {string} chain - [Optional] The chain name of currency, e.g. The available value for USDT are OMNI, ERC20, TRC20, default is ERC20. This only apply for multi-chain currency, and there is no need for single chain currency.
  * @return {Object} { code, success, data }
  */
 exports.applyWithdraw = async function applyWithdraw(currency, address, amount, {
@@ -179,6 +179,7 @@ exports.applyWithdraw = async function applyWithdraw(currency, address, amount, 
 /**
  * @name cancelWithdrawal
  * @description Cancel Withdrawal. Only withdrawals requests of PROCESSING status could be canceled.
+ * @param {string} withdrawalId - Path parameter, a unique ID for a withdrawal order
  * @return {Object} { code, success, data }
  */
 exports.cancelWithdrawal = async function cancelWithdrawal(withdrawalId) {

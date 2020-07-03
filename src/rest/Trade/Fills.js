@@ -4,14 +4,14 @@ const Http = require('../lib/http');
 /**
  * @name getFillsList
  * @description List Fills
- * @param tradeType The type of trading : TRADE（Spot Trading）, MARGIN_TRADE (Margin Trading).
+ * @param {string} tradeType - The type of trading : TRADE（Spot Trading）, MARGIN_TRADE (Margin Trading).
  * @param optional
- *   - orderId [Optional] Limit the list of fills to this orderId（If you specify orderId, ignore other conditions）
- *   - symbol [Optional] Limit the list of fills to this symbol
- *   - side [Optional] buy or sell
- *   - type [Optional] limit, market, limit_stop or market_stop
- *   - startAt [Optional] Start time (milisecond)
- *   - endAt [Optional] End time (milisecond)
+ *   - {string} orderId - [Optional] Limit the list of fills to this orderId（If you specify orderId, ignore other conditions）
+ *   - {string} symbol - [Optional] Limit the list of fills to this symbol
+ *   - {string} side - [Optional] buy or sell
+ *   - {string} type - [Optional] limit, market, limit_stop or market_stop
+ *   - {number} startAt - [Optional] Start time (milisecond)
+ *   - {number} endAt - [Optional] End time (milisecond)
  * @return {Object} { code, success, data }
  */
 exports.getFillsList = async function getFillsList(tradeType, optional = {}) {

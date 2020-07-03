@@ -4,9 +4,9 @@ const Http = require('../lib/http');
 /**
  * @name createDepositAddress
  * @description Create Deposit Address.
- * @param currency Currency
+ * @param {string} currency - Currency
  * @param {Object}
- *   - chain [Optional] The chain name of currency, e.g. The available value for USDT are OMNI, ERC20, TRC20, default is ERC20. This only apply for multi-chain currency, and there is no need for single chain currency.
+ *   - {string} chain - [Optional] The chain name of currency, e.g. The available value for USDT are OMNI, ERC20, TRC20, default is ERC20. This only apply for multi-chain currency, and there is no need for single chain currency.
  * @return {Object} { code, success, data }
  */
 exports.createDepositAddress = async function createDepositAddress(currency, { chain } = {}) {
@@ -29,9 +29,9 @@ exports.createDepositAddress = async function createDepositAddress(currency, { c
 /**
  * @name getDepositAddress
  * @description Get Deposit Address.
- * @param currency Currency
+ * @param {string} currency - Currency
  * @param {Object}
- *   - chain [Optional] The chain name of currency, e.g. The available value for USDT are OMNI, ERC20, TRC20, default is ERC20. This only apply for multi-chain currency, and there is no need for single chain currency.
+ *   - {string} chain - [Optional] The chain name of currency, e.g. The available value for USDT are OMNI, ERC20, TRC20, default is ERC20. This only apply for multi-chain currency, and there is no need for single chain currency.
  * @return {Object} { code, success, data }
  */
 exports.getDepositAddress = async function getDepositAddress(currency, { chain } = {}) {
@@ -55,10 +55,10 @@ exports.getDepositAddress = async function getDepositAddress(currency, { chain }
  * @name getDepositList
  * @description Get Deposit List.
  * @param {Object}
- *   - currency [Optional] Currency
- *   - startAt [Optional] Start time (milisecond)
- *   - endAt [Optional] End time (milisecond)
- *   - status [Optional] Status. Available value: PROCESSING, SUCCESS, and FAILURE
+ *   - {string} currency - [Optional] Currency
+ *   - {number} startAt - [Optional] Start time (milisecond)
+ *   - {number} endAt - [Optional] End time (milisecond)
+ *   - {string} status - [Optional] Status. Available value: PROCESSING, SUCCESS, and FAILURE
  * @return {Object} { code, success, data }
  */
 exports.getDepositList = async function getDepositList({
@@ -115,10 +115,10 @@ exports.getDepositList = async function getDepositList({
  * @name getV1HistoricalDepositsList
  * @description Get V1 Historical Deposits List
  * @param {Object}
- *   - currency [Optional] Currency
- *   - startAt [Optional] Start time (milisecond)
- *   - endAt [Optional] End time (milisecond)
- *   - status [Optional] Status. Available value: PROCESSING, SUCCESS, and FAILURE
+ *   - {string} currency - [Optional] Currency
+ *   - {number} startAt - [Optional] Start time (milisecond)
+ *   - {number} endAt - [Optional] End time (milisecond)
+ *   - {string} status - [Optional] Status. Available value: PROCESSING, SUCCESS, and FAILURE
  * @return {Object} { code, success, data }
  */
 exports.getV1HistoricalDepositsList = async function getV1HistoricalDepositsList({

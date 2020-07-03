@@ -4,7 +4,7 @@ const Http = require('../lib/http');
 /**
  * @name getSymbolsList
  * @description Get Symbols List
- * @param market [Optional] The trading market.
+ * @param {string} market - [Optional] The trading market.
  * @return {Object} { code, success, data }
  */
 exports.getSymbolsList = async function getSymbolsList(market) {
@@ -38,7 +38,7 @@ exports.getSymbolsList = async function getSymbolsList(market) {
 /**
  * @name getTicker
  * @description Get Ticker
- * @param symbol symbol
+ * @param {string} symbol - symbol
  * @return {Object} { code, success, data }
  */
 exports.getTicker = async function getTicker(symbol) {
@@ -108,7 +108,7 @@ exports.getAllTickers = async function getAllTickers() {
 /**
  * @name get24hrStats
  * @description Get 24hr Stats
- * @param symbol symbol
+ * @param {string} symbol - symbol
  * @return {Object} { code, success, data }
  */
 exports.get24hrStats = async function get24hrStats(symbol) {

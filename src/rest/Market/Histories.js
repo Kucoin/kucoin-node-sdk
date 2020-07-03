@@ -4,7 +4,7 @@ const Http = require('../lib/http');
 /**
  * @name getMarketHistories
  * @description Get Trade Histories
- * @param symbol symbol
+ * @param {string} symbol - symbol
  * @return {Object} { code, success, data }
  */
 exports.getMarketHistories = async function getMarketHistories(symbol) {
@@ -35,11 +35,11 @@ exports.getMarketHistories = async function getMarketHistories(symbol) {
 /**
  * @name getMarketCandles
  * @description Get Klines
- * @param symbol symbol
- * @param type Type of candlestick patterns: 1min, 3min, 5min, 15min, 30min, 1hour, 2hour, 4hour, 6hour, 8hour, 12hour, 1day, 1week
+ * @param {string} symbol - symbol
+ * @param {string} type - Type of candlestick patterns: 1min, 3min, 5min, 15min, 30min, 1hour, 2hour, 4hour, 6hour, 8hour, 12hour, 1day, 1week
  * @param {Object}
- *   - startAt [Optional] Start time (second), default is 0
- *   - endAt [Optional] End time (second), default is 0
+ *   - {number} startAt - [Optional] Start time (second), default is 0
+ *   - {number} endAt - [Optional] End time (second), default is 0
  * @return {Object} { code, success, data }
  */
 exports.getMarketCandles = async function getMarketCandles(symbol, type, { startAt, endAt } = {}) {

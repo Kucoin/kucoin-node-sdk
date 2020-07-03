@@ -4,7 +4,7 @@ const Http = require('../lib/http');
 /**
  * @name getMarkPrice
  * @description Request via this endpoint to get the index price of the specified symbol.
- * @param symbol symbol
+ * @param {string} symbol - symbol
  * @return {Object} { code, success, data }
  */
 exports.getMarkPrice = async function getMarkPrice(symbol) {

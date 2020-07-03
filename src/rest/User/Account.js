@@ -4,8 +4,8 @@ const Http = require('../lib/http');
 /**
  * @name createAccount
  * @description Create an Account.
- * @param type Account type: main, trade, margin
- * @param currency currency https://sandbox-docs.kucoin.com/#get-currencies
+ * @param {string} type - Account type: main, trade, margin
+ * @param {string} currency - currency https://sandbox-docs.kucoin.com/#get-currencies
  * @return {Object} { code, success, data }
  */
 exports.createAccount = async function createAccount(type, currency) {
@@ -27,8 +27,8 @@ exports.createAccount = async function createAccount(type, currency) {
  * @name getAccountsList
  * @description List Accounts.
  * @param {Object}
- *   - type [Optional] Account type: main, trade, margin or pool
- *   - currency [Optional] currency https://sandbox-docs.kucoin.com/#get-currencies
+ *   - {string} type - [Optional] Account type: main, trade, margin or pool
+ *   - {string} currency - [Optional] currency https://sandbox-docs.kucoin.com/#get-currencies
  * @return {Object} { code, success, data }
  */
 exports.getAccountsList = async function getAccountsList({ type, currency } = {}) {
@@ -62,7 +62,7 @@ exports.getAccountsList = async function getAccountsList({ type, currency } = {}
 /**
  * @name getAccountInformation
  * @description Get an Account.
- * @param accountId ID of the account
+ * @param {string} accountId - ID of the account
  * @return {Object} { code, success, data }
  */
 exports.getAccountInformation = async function getAccountInformation(accountId) {
@@ -83,12 +83,12 @@ exports.getAccountInformation = async function getAccountInformation(accountId) 
 /**
  * @name getAccountLedgers
  * @description Get Account Ledgers.
- * @param accountId ID of the account
+ * @param {string} accountId - ID of the account
  * @param {Object}
- *   - direction [Optional] Side: in - Receive, out - Send
- *   - bizType [Optional] Business type: DEPOSIT, WITHDRAW, TRANSFER, SUB_TRANSFER,TRADE_EXCHANGE, MARGIN_EXCHANGE, KUCOIN_BONUS.
- *   - startAt [Optional] Start time (milisecond)
- *   - endAt [Optional] End time (milisecond)
+ *   - {string} direction - [Optional] Side: in - Receive, out - Send
+ *   - {string} bizType - [Optional] Business type: DEPOSIT, WITHDRAW, TRANSFER, SUB_TRANSFER,TRADE_EXCHANGE, MARGIN_EXCHANGE, KUCOIN_BONUS.
+ *   - {number} startAt - [Optional] Start time (milisecond)
+ *   - {number} endAt - [Optional] End time (milisecond)
  * @return {Object} { code, success, data }
  */
 exports.getAccountLedgers = async function getAccountLedgers(
@@ -166,7 +166,7 @@ exports.getAccountLedgers = async function getAccountLedgers(
 /**
  * @name getHolds
  * @description Get Holds.
- * @param accountId ID of the account.
+ * @param {string} accountId - ID of the account.
  * @return {Object} { code, success, data }
  */
 exports.getHolds = async function getHolds(accountId) {
@@ -204,8 +204,8 @@ exports.getHolds = async function getHolds(accountId) {
 
 /**
  * @name getBalanceOfSubAccount
- * @param subUserId the user ID of a sub-account.
  * @description Get Account Balance of a Sub-Account.
+ * @param {string} subUserId - the user ID of a sub-account.
  * @return {Object} { code, success, data }
  */
 exports.getBalanceOfSubAccount = async function getBalanceOfSubAccount(subUserId) {
@@ -298,8 +298,8 @@ exports.getAggregatedBalanceOfAllSubAccounts = async function getAggregatedBalan
 /**
  * @name getTransferable
  * @description Get the Transferable.
- * @param type The account type: MAIN, TRADE, MARGIN or POOL
- * @param currency currency https://sandbox-docs.kucoin.com/#Get-Currencies
+ * @param {string} type - The account type: MAIN, TRADE, MARGIN or POOL
+ * @param {string} currency - currency https://sandbox-docs.kucoin.com/#Get-Currencies
  * @return {Object} { code, success, data }
  */
 exports.getTransferable = async function getTransferable(type, currency) {
@@ -324,14 +324,14 @@ exports.getTransferable = async function getTransferable(type, currency) {
 /**
  * @name transferBetweenMasterUserAndSubUser
  * @description Transfer between Master user and Sub-user.
- * @param clientOid Unique order id created by users to identify their orders, e.g. UUID.
- * @param currency currency https://sandbox-docs.kucoin.com/#Get-Currencies
- * @param amount Transfer amount, the amount is a positive integer multiple of the currency precision.
- * @param direction OUT — the master user to sub user, IN — the sub user to the master user.
- * @param subUserId the user ID of a sub-account.
+ * @param {string} clientOid - Unique order id created by users to identify their orders, e.g. UUID.
+ * @param {string} currency - currency https://sandbox-docs.kucoin.com/#Get-Currencies
+ * @param {string} amount - Transfer amount, the amount is a positive integer multiple of the currency precision.
+ * @param {string} direction - OUT — the master user to sub user, IN — the sub user to the master user.
+ * @param {string} subUserId - the user ID of a sub-account.
  * @param {Object}
- *   - accountType [Optional] The account type of the master user: MAIN
- *   - subAccountType [Optional] The account type of the sub user: MAIN, TRADE or MARGIN, default is MAIN.
+ *   - {string} accountType - [Optional] The account type of the master user: MAIN
+ *   - {string} subAccountType - [Optional] The account type of the sub user: MAIN, TRADE or MARGIN, default is MAIN.
  * @return {Object} { code, success, data }
  */
 exports.transferBetweenMasterUserAndSubUser = async function transferBetweenMasterUserAndSubUser(
@@ -367,11 +367,11 @@ exports.transferBetweenMasterUserAndSubUser = async function transferBetweenMast
 /**
  * @name innerTransfer
  * @description Inner Transfer
- * @param clientOid Unique order id created by users to identify their orders, e.g. UUID.
- * @param currency currency https://sandbox-docs.kucoin.com/#Get-Currencies
- * @param from Account type of payer: main, trade, margin or pool
- * @param to Account type of payee: main, trade, margin or pool
- * @param amount Transfer amount, the amount is a positive integer multiple of the currency precision.
+ * @param {string} clientOid - Unique order id created by users to identify their orders, e.g. UUID.
+ * @param {string} currency - currency https://sandbox-docs.kucoin.com/#Get-Currencies
+ * @param {string} from - Account type of payer: main, trade, margin or pool
+ * @param {string} to - Account type of payee: main, trade, margin or pool
+ * @param {string} amount - Transfer amount, the amount is a positive integer multiple of the currency precision.
  * @return {Object} { code, success, data }
  */
 exports.innerTransfer = async function innerTransfer(

@@ -5,29 +5,29 @@ const Http = require('../lib/http');
  * @name postOrder
  * @description Place a new order. This endpoint requires the "Trade" permission.
  * @param baseParams
- *   - clientOid Unique order id created by users to identify their orders, e.g. UUID.
- *   - side	buy or sell
- *   - symbol a valid trading symbol code. e.g. ETH-BTC
- *   - type [Optional] limit or market (default is limit)
- *   - remark [Optional] remark for the order, length cannot exceed 100 utf8 characters
- *   - stop [Optional] Either loss or entry. Requires stopPrice to be defined
- *   - stopPrice [Optional] Need to be defined if stop is specified.
- *   - stp [Optional] self trade prevention , CN, CO, CB or DC
- *   - tradeType [Optional] The type of trading : TRADE（Spot Trade）, MARGIN_TRADE (Margin Trade). Default is TRADE
+ *   - {string} clientOid - Unique order id created by users to identify their orders, e.g. UUID.
+ *   - {string} side - buy or sell
+ *   - {string} symbol - a valid trading symbol code. e.g. ETH-BTC
+ *   - {string} type - [Optional] limit or market (default is limit)
+ *   - {string} remark - [Optional] remark for the order, length cannot exceed 100 utf8 characters
+ *   - {string} stop - [Optional] Either loss or entry. Requires stopPrice to be defined
+ *   - {string} stopPrice - [Optional] Need to be defined if stop is specified.
+ *   - {string} stp - [Optional] self trade prevention , CN, CO, CB or DC
+ *   - {string} tradeType - [Optional] The type of trading : TRADE（Spot Trade）, MARGIN_TRADE (Margin Trade). Default is TRADE
  * @param orderParams
  *   LIMIT ORDER PARAMETERS
- *   - price price per base currency
- *   - size amount of base currency to buy or sell
- *   - timeInForce [Optional] GTC, GTT, IOC, or FOK (default is GTC), read Time In Force.
- *   - cancelAfter [Optional] cancel after n seconds, requires timeInForce to be GTT
- *   - postOnly [Optional] Post only flag, invalid when timeInForce is IOC or FOK
- *   - hidden [Optional] Order will not be displayed in the order book
- *   - iceberg [Optional] Only aportion of the order is displayed in the order book
- *   - visibleSize [Optional] The maximum visible size of an iceberg order
+ *   - {string} price - price per base currency
+ *   - {string} size - amount of base currency to buy or sell
+ *   - {string} timeInForce - [Optional] GTC, GTT, IOC, or FOK (default is GTC), read Time In Force.
+ *   - {number} cancelAfter - [Optional] cancel after n seconds, requires timeInForce to be GTT
+ *   - {boolean} postOnly - [Optional] Post only flag, invalid when timeInForce is IOC or FOK
+ *   - {boolean} hidden - [Optional] Order will not be displayed in the order book
+ *   - {boolean} iceberg - [Optional] Only aportion of the order is displayed in the order book
+ *   - {string} visibleSize - [Optional] The maximum visible size of an iceberg order
  * 
  *   MARKET ORDER PARAMETERS / It is required that you use one of the two parameters, size or funds.
- *   - size [Optional] Desired amount in base currency
- *   - funds [Optional] The desired amount of quote currency to use
+ *   - {string} size [Optional] - Desired amount in base currency
+ *   - {string} funds [Optional] - The desired amount of quote currency to use
  * @return {Object} { code, success, data }
  */
 exports.postOrder = async function postOrder(baseParams = {}, orderParams = {}) {
@@ -49,23 +49,23 @@ exports.postOrder = async function postOrder(baseParams = {}, orderParams = {}) 
  * @name postMultiOrders
  * @description Place Bulk Orders. This endpoint requires the "Trade" permission.
  * @param param
- *   - clientOid Unique order id created by users to identify their orders, e.g. UUID.
- *   - side buy or sell
- *   - symbol a valid trading symbol code. e.g. ETH-BTC
- *   - type [Optional] limit or market (default is limit)
- *   - remark [Optional] remark for the order, length cannot exceed 100 utf8 characters
- *   - stop [Optional] Either loss or entry. Requires stopPrice to be defined
- *   - stopPrice [Optional] Need to be defined if stop is specified.
- *   - stp [Optional] self trade prevention , CN, CO, CB or DC
- *   - tradeType [Optional] Default is TRADE
- *   - price price per base currency
- *   - size amount of base currency to buy or sell
- *   - timeInForce [Optional] GTC, GTT, IOC, or FOK (default is GTC), read Time In Force.
- *   - cancelAfter [Optional] cancel after n seconds, requires timeInForce to be GTT
- *   - postOnly [Optional] Post only flag, invalid when timeInForce is IOC or FOK
- *   - hidden [Optional] Order will not be displayed in the order book
- *   - iceberg [Optional] Only aportion of the order is displayed in the order book
- *   - visibleSize [Optional] The maximum visible size of an iceberg order
+ *   - {string} clientOid - Unique order id created by users to identify their orders, e.g. UUID.
+ *   - {string} side - buy or sell
+ *   - {string} symbol - a valid trading symbol code. e.g. ETH-BTC
+ *   - {string} type - [Optional] limit or market (default is limit)
+ *   - {string} remark - [Optional] remark for the order, length cannot exceed 100 utf8 characters
+ *   - {string} stop - [Optional] Either loss or entry. Requires stopPrice to be defined
+ *   - {string} stopPrice - [Optional] Need to be defined if stop is specified.
+ *   - {string} stp - [Optional] self trade prevention , CN, CO, CB or DC
+ *   - {string} tradeType - [Optional] Default is TRADE
+ *   - {string} price - price per base currency
+ *   - {string} size - amount of base currency to buy or sell
+ *   - {string} timeInForce - [Optional] GTC, GTT, IOC, or FOK (default is GTC), read Time In Force.
+ *   - {number} cancelAfter - [Optional] cancel after n seconds, requires timeInForce to be GTT
+ *   - {boolean} postOnly - [Optional] Post only flag, invalid when timeInForce is IOC or FOK
+ *   - {boolean} hidden - [Optional] Order will not be displayed in the order book
+ *   - {boolean} iceberg - [Optional] Only aportion of the order is displayed in the order book
+ *   - {string} visibleSize - [Optional] The maximum visible size of an iceberg order
  * @return {Object} { code, success, data }
  */
 exports.postMultiOrders = async function postMultiOrders(param = {}) {
@@ -107,7 +107,7 @@ exports.postMultiOrders = async function postMultiOrders(param = {}) {
 /**
  * @name cancelOrder
  * @description Cancel an order. This endpoint requires the "Trade" permission.
- * @param orderId Order ID, unique ID of the order.
+ * @param {string} orderId - Order ID, unique ID of the order.
  * @return {Object} { code, success, data }
  */
 exports.cancelOrder = async function cancelOrder(orderId) {
@@ -128,8 +128,8 @@ exports.cancelOrder = async function cancelOrder(orderId) {
  * @name cancelAllOrders
  * @description Cancel all orders. This endpoint requires the "Trade" permission.
  * @param {Object}
- *   - symbol [Optional] symbol, cancel the orders for the specified trade pair.
- *   - tradeType [Optional] the type of trading, cancel the orders for the specified trading type, and the default is to cancel the spot trading order (TRADE).
+ *   - {string} symbol - [Optional] symbol, cancel the orders for the specified trade pair.
+ *   - {string} tradeType - [Optional] the type of trading, cancel the orders for the specified trading type, and the default is to cancel the spot trading order (TRADE).
  * @return {Object} { code, success, data }
  */
 exports.cancelAllOrders = async function cancelAllOrders({ symbol, tradeType } = {}) {
@@ -155,14 +155,14 @@ exports.cancelAllOrders = async function cancelAllOrders({ symbol, tradeType } =
 /**
  * @name getOrdersList
  * @description List Orders
- * @param tradeType The type of trading : TRADE（Spot Trading）, MARGIN_TRADE (Margin Trading).
+ * @param {string} tradeType - The type of trading : TRADE（Spot Trading）, MARGIN_TRADE (Margin Trading).
  * @param optional
- *   - status [Optional] active or done(done as default), Only list orders with a specific status .
- *   - symbol [Optional] Only list orders for a specific symbol.
- *   - side [Optional] buy or sell
- *   - type [Optional] limit, market, limit_stop or market_stop
- *   - startAt [Optional] Start time (milisecond)
- *   - endAt [Optional] End time (milisecond)
+ *   - {string} status - [Optional] active or done(done as default), Only list orders with a specific status .
+ *   - {string} symbol - [Optional] Only list orders for a specific symbol.
+ *   - {string} side - [Optional] buy or sell
+ *   - {string} type - [Optional] limit, market, limit_stop or market_stop
+ *   - {number} startAt - [Optional] Start time (milisecond)
+ *   - {number} endAt - [Optional] End time (milisecond)
  * @return {Object} { code, success, data }
  */
 exports.getOrdersList = async function getOrdersList(tradeType, optional = {}) {
@@ -223,12 +223,12 @@ exports.getOrdersList = async function getOrdersList(tradeType, optional = {}) {
  * @name getV1HistoricalOrdersList
  * @description Get V1 Historical Orders List
  * @param params
- *   - currentPage [Optional] The current page.
- *   - pageSize [Optional] Number of entries per page.
- *   - symbol [Optional] a valid trading symbol code. e.g. ETH-BTC.
- *   - startAt [Optional] Start time (milisecond)
- *   - endAt [Optional] End time (milisecond)
- *   - side [Optional] buy or sell
+ *   - {number} currentPage - [Optional] The current page.
+ *   - {number} pageSize - [Optional] Number of entries per page.
+ *   - {string} symbol - [Optional] a valid trading symbol code. e.g. ETH-BTC.
+ *   - {number} startAt - [Optional] Start time (milisecond)
+ *   - {number} endAt - [Optional] End time (milisecond)
+ *   - {string} side - [Optional] buy or sell
  * @return {Object} { code, success, data }
  */
 exports.getV1HistoricalOrdersList = async function getV1HistoricalOrdersList(params = {}) {
@@ -314,7 +314,7 @@ exports.getRecentOrders = async function getRecentOrders() {
 /**
  * @name getOrderByID
  * @description Get an order
- * @param orderId Order ID, unique identifier of an order, obtained via the List orders.
+ * @param {string} orderId - Order ID, unique identifier of an order, obtained via the List orders.
  * @return {Object} { code, success, data }
  */
 exports.getOrderByID = async function getOrderByID(orderId) {

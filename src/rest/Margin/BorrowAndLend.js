@@ -5,11 +5,11 @@ const Http = require('../lib/http');
  * @name postBorrowOrder
  * @description Post Borrow Order. This endpoint requires the "Trade" permission.
  * @param params
- *   - currency Currency to Borrow
- *   - type Type: FOK, IOC
- *   - size Total size
- *   - maxRate [Optional] The max interest rate. All interest rates are acceptable if this field is left empty.
- *   - term [Optional] Term (Unit: Day). All terms are acceptable if this field is left empty. Please note to separate the terms via comma. For example, 7,14,28.
+ *   - {string} currency - Currency to Borrow
+ *   - {string} type - Type: FOK, IOC
+ *   - {number} size - Total size
+ *   - {number} maxRate - [Optional] The max interest rate. All interest rates are acceptable if this field is left empty.
+ *   - {string} term - [Optional] Term (Unit: Day). All terms are acceptable if this field is left empty. Please note to separate the terms via comma. For example, 7,14,28.
  * @return {Object} { code, success, data }
  */
 exports.postBorrowOrder = async function postBorrowOrder(params = {}) {
@@ -28,7 +28,7 @@ exports.postBorrowOrder = async function postBorrowOrder(params = {}) {
 /**
  * @name getBorrowOrder
  * @description Request via this endpoint to get the info of the borrow order through the orderId retrieved from Post Borrow Order .
- * @param orderId Borrow order ID
+ * @param {string} orderId - Borrow order ID
  * @return {Object} { code, success, data }
  */
 exports.getBorrowOrder = async function getBorrowOrder(orderId) {
@@ -60,7 +60,7 @@ exports.getBorrowOrder = async function getBorrowOrder(orderId) {
 /**
  * @name getRepayRecord
  * @description Get Repay Record
- * @param currency [Optional] Currency. All currencies will be quried if this field is not required.
+ * @param {string} currency - [Optional] Currency. All currencies will be quried if this field is not required.
  * @return {Object} { code, success, data }
  */
 exports.getRepayRecord = async function getRepayRecord(currency) {
@@ -95,7 +95,7 @@ exports.getRepayRecord = async function getRepayRecord(currency) {
 /**
  * @name getRepaymentRecord
  * @description Get Repayment Record
- * @param currency [Optional] Currency. All currencies will be quried if this field is not required.
+ * @param {string} currency - [Optional] Currency. All currencies will be quried if this field is not required.
  * @return {Object} { code, success, data }
  */
 exports.getRepaymentRecord = async function getRepaymentRecord(currency) {
@@ -128,9 +128,9 @@ exports.getRepaymentRecord = async function getRepaymentRecord(currency) {
 /**
  * @name repayAll
  * @description One-Click Repayment. This endpoint requires the "Trade" permission..
- * @param currency Currency
- * @param sequence Repayment strategy. RECENTLY_EXPIRE_FIRST: Time priority, namely to repay the loans of the nearest maturity time first, HIGHEST_RATE_FIRST: Rate Priority: Repay the loans of the highest interest rate first.
- * @param size Repayment size
+ * @param {string} currency - Currency
+ * @param {string} sequence - Repayment strategy. RECENTLY_EXPIRE_FIRST: Time priority, namely to repay the loans of the nearest maturity time first, HIGHEST_RATE_FIRST: Rate Priority: Repay the loans of the highest interest rate first.
+ * @param {number} size - Repayment size
  * @return {Object} { code, success, data }
  */
 exports.repayAll = async function repayAll(currency, sequence, size) {
@@ -151,9 +151,9 @@ exports.repayAll = async function repayAll(currency, sequence, size) {
 /**
  * @name repaySingle
  * @description One-Click Repayment. This endpoint requires the "Trade" permission..
- * @param currency Currency
- * @param tradeId Trade ID
- * @param size Repayment size
+ * @param {string} currency - Currency
+ * @param {string} tradeId - Trade ID
+ * @param {number} size - Repayment size
  * @return {Object} { code, success, data }
  */
 exports.repaySingle = async function repaySingle(currency, tradeId, size) {
@@ -174,10 +174,10 @@ exports.repaySingle = async function repaySingle(currency, tradeId, size) {
 /**
  * @name postLendOrder
  * @description Request via this endpoint to post lend order. This endpoint requires the "Trade" permission..
- * @param currency Currency
- * @param size Total size
- * @param dailyIntRate Daily interest rate. e.g. 0.002 is 0.2%
- * @param term Term (Unit: Day)
+ * @param {string} currency - Currency
+ * @param {string} size - Total size
+ * @param {string} dailyIntRate - Daily interest rate. e.g. 0.002 is 0.2%
+ * @param {number} term - Term (Unit: Day)
  * @return {Object} { code, success, data }
  */
 exports.postLendOrder = async function postLendOrder(currency, size, dailyIntRate, term) {
@@ -200,7 +200,7 @@ exports.postLendOrder = async function postLendOrder(currency, size, dailyIntRat
 /**
  * @name cancelLendOrder
  * @description Request via this endpoint to cancel lend order. This endpoint requires the "Trade" permission..
- * @param orderId Lend order ID
+ * @param {string} orderId - Lend order ID
  * @return {Object} { code, success, data }
  */
 exports.cancelLendOrder = async function cancelLendOrder(orderId) {
@@ -217,11 +217,11 @@ exports.cancelLendOrder = async function cancelLendOrder(orderId) {
 /**
  * @name setAutoLend
  * @description Request via this endpoint to post lend order. This endpoint requires the "Trade" permission..
- * @param currency Currency
- * @param isEnable Auto-lend enabled or not
- * @param retainSize Reserved size in main account. Required when isEnable is true.
- * @param dailyIntRate Daily interest rate. e.g. 0.002 is 0.2%. Required when isEnable is true.
- * @param term Term (Unit: Day). Required when isEnable is true.
+ * @param {string} currency - Currency
+ * @param {boolean} isEnable - Auto-lend enabled or not
+ * @param {string} retainSize - Reserved size in main account. Required when isEnable is true.
+ * @param {string} dailyIntRate - Daily interest rate. e.g. 0.002 is 0.2%. Required when isEnable is true.
+ * @param {number} term - Term (Unit: Day). Required when isEnable is true.
  * @return {Object} { code, success, data }
  */
 exports.setAutoLend = async function setAutoLend(currency, isEnable, retainSize, dailyIntRate, term) {
@@ -244,10 +244,10 @@ exports.setAutoLend = async function setAutoLend(currency, isEnable, retainSize,
 /**
  * @name getActiveOrder
  * @description Get Active Order. This endpoint requires the "Trade" permission..
- * @param currency [Optional] Currency
+ * @param {string} currency - [Optional] Currency
  * @param {Object}
- *   - currentPage
- *   - pageSize
+ *   - {number} currentPage
+ *   - {number} pageSize
  * @return {Object} { code, success, data }
  */
 exports.getActiveOrder = async function getActiveOrder(currency, { currentPage, pageSize } = {}) {
@@ -281,10 +281,10 @@ exports.getActiveOrder = async function getActiveOrder(currency, { currentPage, 
 /**
  * @name getLentHistory
  * @description Get Lent History. This endpoint requires the "Trade" permission..
- * @param currency [Optional] Currency
+ * @param {string} currency - [Optional] Currency
  * @param {Object}
- *   - currentPage
- *   - pageSize
+ *   - {number} currentPage
+ *   - {number} pageSize
  * @return {Object} { code, success, data }
  */
 exports.getLentHistory = async function getLentHistory(currency, { currentPage, pageSize } = {}) {
@@ -319,10 +319,10 @@ exports.getLentHistory = async function getLentHistory(currency, { currentPage, 
 /**
  * @name getActiveLendOrdersList
  * @description Get Active Lend Order List. This endpoint requires the "Trade" permission..
- * @param currency [Optional] Currency
+ * @param {string} currency - [Optional] Currency
  * @param {Object}
- *   - currentPage
- *   - pageSize
+ *   - {number} currentPage
+ *   - {number} pageSize
  * @return {Object} { code, success, data }
  */
 exports.getActiveLendOrdersList = async function getActiveLendOrdersList(currency, { currentPage, pageSize } = {}) {
@@ -357,10 +357,10 @@ exports.getActiveLendOrdersList = async function getActiveLendOrdersList(currenc
 /**
  * @name getSettledLendOrderHistory
  * @description Get Settled Lend Order History. This endpoint requires the "Trade" permission..
- * @param currency [Optional] Currency
+ * @param {string} currency - [Optional] Currency
  * @param {Object}
- *   - currentPage
- *   - pageSize
+ *   - {number} currentPage
+ *   - {number} pageSize
  * @return {Object} { code, success, data }
  */
 exports.getSettledLendOrderHistory = async function getSettledLendOrderHistory(currency, { currentPage, pageSize } = {}) {
@@ -396,7 +396,7 @@ exports.getSettledLendOrderHistory = async function getSettledLendOrderHistory(c
 /**
  * @name getAccountLendRecord
  * @description Request via this endpoint to get the lending history of the main account. This endpoint requires the "Trade" permission..
- * @param currency [Optional] Currency
+ * @param {string} currency - [Optional] Currency
  * @return {Object} { code, success, data }
  */
 exports.getAccountLendRecord = async function getAccountLendRecord(currency) {
@@ -419,8 +419,8 @@ exports.getAccountLendRecord = async function getAccountLendRecord(currency) {
 /**
  * @name getLendingMarketData
  * @description Lending Market Data.
- * @param currency Currency
- * @param term [Optional] Term (Unit: Day)
+ * @param {string} currency - Currency
+ * @param {number} term - [Optional] Term (Unit: Day)
  * @return {Object} { code, success, data }
  */
 exports.getLendingMarketData = async function getLendingMarketData(currency, term) {
@@ -443,7 +443,7 @@ exports.getLendingMarketData = async function getLendingMarketData(currency, ter
 /**
  * @name getMarginFillsTradeData
  * @description Request via this endpoint to get the last 300 fills in the lending and borrowing market.
- * @param currency Currency
+ * @param {string} currency - Currency
  * @return {Object} { code, success, data }
  */
 exports.getMarginFillsTradeData = async function getMarginFillsTradeData(currency) {
