@@ -26,5 +26,10 @@ exports.rest = {
     Deposit: require('./rest/User/Deposit'),
     Withdrawals: require('./rest/User/Withdrawals'),
   },
+  Trade: {
+    Orders: require('./rest/Trade/Orders'),
+    StopOrder: require('./rest/Trade/StopOrder'),
+    Fills: require('./rest/Trade/Fills'),
+  },
   Others: require('./rest/Others'),
 };

@@ -24,7 +24,7 @@ API.init(require('./config'));
 
 /** API use */
 const main = async () => {
-  const getTimestampRl = await API.rest.others.getTimestamp();
+  const getTimestampRl = await API.rest.Others.getTimestamp();
   console.log(getTimestampRl.data);
 };
 
@@ -70,24 +70,24 @@ Signature is required for this part.
 ```
 
 #### Rest/Trade/Orders
-- [ ] postOrder
-- [ ] postMultiOrders
-- [ ] cancelOrder
-- [ ] cancelAllOrders
-- [ ] getOrdersList
-- [ ] getV1HistoricalOrdersList
-- [ ] getRecentOrders
-- [ ] getOrderByID
-#### Rest/Trade/止盈止损
-- [ ] 下单
-- [ ] 单个撤单
-- [ ] 批量撤单
-- [ ] 单个订单详情
-- [ ] 获取止盈止损单列表
-- [ ] 根据clientOid获取单个订单详情
+- [x] postOrder
+- [x] postMultiOrders
+- [x] cancelOrder
+- [x] cancelAllOrders
+- [x] getOrdersList
+- [x] getV1HistoricalOrdersList
+- [x] getRecentOrders
+- [x] getOrderByID
+#### Rest/Trade/StopOrder
+- [x] postStopOrder
+- [x] cancelOrder
+- [x] cancelMultiOrders
+- [x] getOrder
+- [x] getStopOrderList
+- [x] getOrderByClientOid
 #### Rest/Trade/Fills
-- [ ] getFillsList
-- [ ] getRecentFills
+- [x] getFillsList
+- [x] getRecentFills
 
 ### Rest/Market
 ```
