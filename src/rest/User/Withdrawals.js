@@ -1,5 +1,5 @@
 
-const Http = require('../lib/http');
+const Http = require('../../lib/http');
 
 /**
  * @name getWithdrawalsList

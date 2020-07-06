@@ -3,12 +3,14 @@ const path =  require('path');
 const fs = require('fs');
 const uuid =  require('uuid');
 
-exports.sign = function sign(text, secret, outputType = 'base64') {
+function sign(text, secret, outputType = 'base64') {
   return CryptoJS
     .createHmac('sha256', secret)
     .update(text)
     .digest(outputType);
 }
+
+exports.sign = sign;
 
 exports.auth = function auth(ApiKey, method, url, data) {
   const timestamp = Date.now();
