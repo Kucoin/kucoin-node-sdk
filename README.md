@@ -1,6 +1,11 @@
 # kucoin-node-sdk
 KuCoin API SDK for Node.js language
 
+## Env
+
+```
+Nodejs version >= 10.0
+```
 
 ## Install
 ```
