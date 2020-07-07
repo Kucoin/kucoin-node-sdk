@@ -47,4 +47,5 @@ exports.rest = {
 /** Exports Datafeed */
 exports.websocket = {
   Datafeed: require('./lib/datafeed'),
+  Level2: require('./datafeed/Level2'),
 };

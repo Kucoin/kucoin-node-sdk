@@ -145,35 +145,22 @@ Signature is not required for this part
 
 ## Websocket Datafeed
 
-DEMO:
-```
-// ws demo
-const datafeed = new API.websocket.Datafeed();
+### API.websocket.Datafeed
 
-// close callback
-datafeed.onClose(() => {
-  console.log('ws closed, status ', datafeed.trustConnected);
-});
+Manage websocket connect/private/subscribe/unsubscribe and get realtime datafeed.
 
-// connect
-datafeed.connectSocket();
+DEMO: [demo/ticker_demo.js](demo/ticker_demo.js)
 
-// subscribe
-const topic = `/market/ticker:BTC-USDT`;
-const callbackId = datafeed.subscribe(topic, (message) => {
-  if (message.topic === topic) {
-    console.log(message.data);
-  }
-});
+### API.websocket.Level2
 
-console.log(`subscribe id: ${callbackId}`);
-setTimeout(() => {
-  // unsubscribe
-  datafeed.unsubscribe(topic, callbackId);
-  console.log(`unsubscribed: ${topic} ${callbackId}`);  
-}, 5000);
+Get realtime orderbook in level2 datafeed.
 
-```
+DEMO: [demo/level2_demo.js](demo/level2_demo.js)
+
+
+### API.websocket.Level3
+
+// TODO
 
 ## LICENSE
 
