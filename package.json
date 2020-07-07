@@ -1,11 +1,16 @@
 {
   "name": "kucoin-node-sdk",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "KuCoin API SDK for Node.js language",
   "main": "src/index.js",
   "scripts": {
     "dev": "cross-env PRODUCTION=dev nodemon demo/index.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Kucoin/kucoin-node-sdk"
+  },
+  "license": "Apache-2.0",
   "dependencies": {
     "event-emitter": "^0.3.5",
     "lodash": "^4.17.15",

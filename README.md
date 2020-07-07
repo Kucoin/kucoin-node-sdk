@@ -149,13 +149,13 @@ Signature is not required for this part
 
 Manage websocket connect/private/subscribe/unsubscribe and get realtime datafeed.
 
-DEMO: [demo/ticker_demo.js](demo/ticker_demo.js)
+DEMO: [demo/ticker_demo.js](https://github.com/Kucoin/kucoin-node-sdk/blob/master/demo/ticker_demo.js)
 
 ### API.websocket.Level2
 
 Get realtime orderbook in level2 datafeed.
 
-DEMO: [demo/level2_demo.js](demo/level2_demo.js)
+DEMO: [demo/level2_demo.js](https://github.com/Kucoin/kucoin-node-sdk/blob/master/demo/level2_demo.js)
 
 
 ### API.websocket.Level3
@@ -164,5 +164,5 @@ DEMO: [demo/level2_demo.js](demo/level2_demo.js)
 
 ## LICENSE
 
-[Apache License](LICENSE)
+[Apache-2.0 License](https://github.com/Kucoin/kucoin-node-sdk/blob/master/LICENSE)
 
