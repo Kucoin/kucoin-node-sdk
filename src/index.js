@@ -43,3 +43,8 @@ exports.rest = {
   },
   Others: require('./rest/Others'),
 };
+
+/** Exports Datafeed */
+exports.websocket = {
+  Datafeed: require('./lib/datafeed'),
+};
