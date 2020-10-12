@@ -304,7 +304,7 @@ class Datafeed {
       this._maxId = 0;
     }
     const client = new WebSocket(url, {
-      handshakeTimeout: 30,
+      // handshakeTimeout: 30,
     });
     client._maxId = this._maxId;
     return client;
