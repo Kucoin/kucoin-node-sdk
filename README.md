@@ -78,11 +78,13 @@ Signature is required for this part.
 - [x] postOrder
 - [x] postMultiOrders
 - [x] cancelOrder
+- [x] cancelOrderByClientOid
 - [x] cancelAllOrders
 - [x] getOrdersList
 - [x] getV1HistoricalOrdersList
 - [x] getRecentOrders
 - [x] getOrderByID
+- [x] getSingleActiveOrderByClientOid
 #### Rest/Trade/StopOrder
 - [x] postStopOrder
 - [x] cancelOrder
@@ -90,6 +92,7 @@ Signature is required for this part.
 - [x] getOrder
 - [x] getStopOrderList
 - [x] getOrderByClientOid
+- [x] cancelSingleOrderByClientOid
 #### Rest/Trade/Fills
 - [x] getFillsList
 - [x] getRecentFills

@@ -83,8 +83,8 @@ exports.getAccountInformation = async function getAccountInformation(accountId) 
 /**
  * @name getAccountLedgers
  * @description Get Account Ledgers.
- * @param {string} accountId - ID of the account
  * @param {Object}
+ *   - {string} currency - [Optional] Currency ( you can choose more than one currency). You can specify 10 currencies at most for one time. If not specified, all currencies will be inquired by default.
  *   - {string} direction - [Optional] Side: in - Receive, out - Send
  *   - {string} bizType - [Optional] Business type: DEPOSIT, WITHDRAW, TRANSFER, SUB_TRANSFER,TRADE_EXCHANGE, MARGIN_EXCHANGE, KUCOIN_BONUS.
  *   - {number} startAt - [Optional] Start time (milisecond)
@@ -92,8 +92,8 @@ exports.getAccountInformation = async function getAccountInformation(accountId) 
  * @return {Object} { code, success, data }
  */
 exports.getAccountLedgers = async function getAccountLedgers(
-  accountId,
   {
+    currency,
     direction,
     bizType,
     startAt,
@@ -104,58 +104,63 @@ exports.getAccountLedgers = async function getAccountLedgers(
   {
     "code": "200000",     
     "data": {
-        "currentPage": 1,
-        "pageSize": 10,
-        "totalNum": 3,
-        "totalPage": 1,
-        "items": [{
-                "id": "5bc7f080b39c5c03486eef8c",//unique key
-                "currency": "KCS",  //Currency
-                "amount": "0.0998", //Change amount of the funds
-                "fee": "0",  //Deposit or withdrawal fee
-                "balance": "0",  //Total assets of a currency
-                "bizType": "Withdraw",  //business type
-                "direction": "in",     //side, in or out 
-                "createdAt": 1540296039000,  //Creation time
-                "context": {          //Business core parameters
-                    "orderId": "5bc7f080b39c5c03286eef8a",
-                    "txId": "bf848bfb6736780b930e12c68721ea57f8b0484a4af3f30db75c93ecf16905c9"
-                }
-            },
-            {
-                "id": "5bc7f080b39c5c03486def8c",//unique key
-                "currency": "KCS",
-                "amount": "0.0998",
-                "fee": "0",
-                "balance": "0",
-                "bizType": "Deposit",
-                "direction": "in",
-                "createdAt": 1540296039000,
-                "context": {
-                    "orderId": "5bc7f080b39c5c03286eef8a",
-                    "txId": "bf848bfb6736780b930e12c68721ea57f8b0484a4af3f30db75c93ecf16905c9"
-                }
-            },
-            {
-                "id": "5bc7f080b39c5c03486def8a",//unique key
-                "currency": "KCS",
-                "amount": "0.0998",
-                "fee": "0",
-                "balance": "0",
-                "bizType": "trade exchange",
-                "direction": "in",
-                "createdAt": 1540296039000,
-                "context": {
-                    "orderId": "5bc7f080b39c5c03286eef8e",
-                    "tradeId": "5bc7f080b3949c03286eef8a",
-                    "symbol": "BTC-USD"
-                }
-            }
-        ]
+      "currentPage": 1,
+      "pageSize": 10,
+      "totalNum": 3,
+      "totalPage": 1,
+      "items": [
+          {
+              "id": "5bc7f080b39c5c03486eef8c",//unique key
+              "currency": "KCS",  //Currency
+              "amount": "0.0998", //Change amount of the funds
+              "fee": "0",  //Deposit or withdrawal fee
+              "balance": "0",  //Total assets of a currency
+              "bizType": "Withdraw",  //business type
+              "direction": "in",     //side, in or out
+              "createdAt": 1540296039000,  //Creation time
+              "context": {          //Business core parameters
+
+                  "orderId": "5bc7f080b39c5c03286eef8a",
+                  "txId": "bf848bfb6736780b930e12c68721ea57f8b0484a4af3f30db75c93ecf16905c9"
+              }
+          },
+          {
+              "id": "5bc7f080b39c5c03486def8c",//unique key
+              "currency": "KCS",
+              "amount": "0.0998",
+              "fee": "0",
+              "balance": "0",
+              "bizType": "Deposit",
+              "direction": "in",
+              "createdAt": 1540296039000,
+              "context": {
+
+                  "orderId": "5bc7f080b39c5c03286eef8a",
+                  "txId": "bf848bfb6736780b930e12c68721ea57f8b0484a4af3f30db75c93ecf16905c9"
+              }
+          },
+          {
+              "id": "5bc7f080b39c5c03486def8a",//unique key
+              "currency": "KCS",
+              "amount": "0.0998",
+              "fee": "0",
+              "balance": "0",
+              "bizType": "trade exchange",
+              "direction": "in",
+              "createdAt": 1540296039000,
+              "context": {
+
+                  "tradeId": "5bc7f080b3949c03286eef8a",
+                  "orderId": "5bc7f080b39c5c03286eef8e",
+                  "symbol": "BTC-USD"
+              }
+          }
+      ]
     }
   }
   */
-  return await Http().GET(`/api/v1/accounts/${accountId}/ledgers`, {
+  return await Http().GET(`/api/v1/accounts/ledgers`, {
+    currency,
     direction,
     bizType,
     startAt,

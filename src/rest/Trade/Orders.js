@@ -153,6 +153,25 @@ exports.cancelAllOrders = async function cancelAllOrders({ symbol, tradeType } =
 
 
 /**
+ * @name cancelOrderByClientOid
+ * @description Request via this interface to cancel an order via the clientOid.
+ * @param {String} clientOid
+ * @return {Object} { code, success, data }
+ */
+exports.cancelOrderByClientOid = async function cancelOrderByClientOid({ symbol, tradeType } = {}) {
+  /*
+  {
+    "code": "200000",     
+    "data": {
+      "cancelledOrderId": "5f311183c9b6d539dc614db3",
+      "clientOid": "6d539dc614db3"
+    }
+  }
+  */
+  return await Http().DEL(`/api/v1/order/client-order/${clientOid}`);
+};
+
+/**
  * @name getOrdersList
  * @description List Orders
  * @param {string} tradeType - The type of trading : TRADE（Spot Trading）, MARGIN_TRADE (Margin Trading).
@@ -356,4 +375,51 @@ exports.getOrderByID = async function getOrderByID(orderId) {
   }
   */
   return await Http().GET(`/api/v1/orders/${orderId}`);
+};
+
+/**
+ * @name getSingleActiveOrderByClientOid
+ * @description Request via this interface to check the information of a single active order via clientOid. The system will prompt that the order does not exists if the order does not exist or has been settled.
+ * @param {string} clientOid - Unique order id created by users to identify their orders
+ * @return {Object} { code, success, data }
+ */
+exports.getSingleActiveOrderByClientOid = async function getSingleActiveOrderByClientOid(clientOid) {
+  /*
+  {
+    "code": "200000",     
+    "data": {
+      "id": "5f3113a1c9b6d539dc614dc6",
+      "symbol": "KCS-BTC",
+      "opType": "DEAL",
+      "type": "limit",
+      "side": "buy",
+      "price": "0.00001",
+      "size": "1",
+      "funds": "0",
+      "dealFunds": "0",
+      "dealSize": "0",
+      "fee": "0",
+      "feeCurrency": "BTC",
+      "stp": "",
+      "stop": "",
+      "stopTriggered": false,
+      "stopPrice": "0",
+      "timeInForce": "GTC",
+      "postOnly": false,
+      "hidden": false,
+      "iceberg": false,
+      "visibleSize": "0",
+      "cancelAfter": 0,
+      "channel": "API",
+      "clientOid": "6d539dc614db312",
+      "remark": "",
+      "tags": "",
+      "isActive": true,
+      "cancelExist": false,
+      "createdAt": 1597051810000,
+      "tradeType": "TRADE"
+    }
+  }
+  */
+  return await Http().GET(`/api/v1/order/client-order/${clientOid}`);
 };

@@ -73,31 +73,24 @@ exports.getAllTickers = async function getAllTickers() {
       "time": 1550653727731,
       "ticker": [
         {
-          "symbol": "BTC-USDT",
-          "symbolName": "BTC-USDT",
-          "buy": "0.00001191",
-          "sell": "0.00001206",
-          "changeRate": "0.057",
-          "changePrice": "0.00000065",
-          "high": "0.0000123",
-          "low": "0.00001109",
-          "vol": "45161.5073",
-          "volValue": "2127.28693026”, 
-          "last": "0.00001204"
+          "time": 1602832092060,  // time
+          "symbol": "BTC-USDT",   // symbol
+          "symbolName":"BTC-USDT", // Name of trading pairs, it would change after renaming
+          "buy": "11328.9",   // bestAsk
+          "sell": "11329",    // bestBid
+          "changeRate": "-0.0055",    // 24h change rate
+          "changePrice": "-63.6", // 24h change price
+          "high": "11610",    // 24h highest price
+          "low": "11200", // 24h lowest price
+          "vol": "2282.70993217", // 24h volume，the aggregated trading volume in BTC
+          "volValue": "25984946.157790431",   // 24h total, the trading volume in quote currency of last 24 hours
+          "last": "11328.9",  // last price
+          "averagePrice": "11360.66065903",   // 24h average transaction price yesterday
+          "takerFeeRate": "0.001",    // Basic Taker Fee
+          "makerFeeRate": "0.001",    // Basic Maker Fee
+          "takerCoefficient": "1",    // Taker Fee Coefficient
+          "makerCoefficient": "1" // Maker Fee Coefficient
         },
-        {
-          "symbol": "BCD-BTC",
-          "symbolName": "BCD-BTC",
-          "buy": "0.00018564",
-          "sell": "0.0002",
-          "changeRate": "-0.0753",
-          "changePrice": "-0.00001522",
-          "high": "0.00021489",
-          "low": "0.00018351",
-          "vol": "72.99679763",
-          "volValue": "2127.28693026”, 
-          "last": "0.00018664"
-        }
       ]
     }
   }
@@ -116,18 +109,22 @@ exports.get24hrStats = async function get24hrStats(symbol) {
   {
     "code": "200000",     
     "data": {
-      "symbol": "ETH-BTC",    // symbol
-      "high": "0.03736329",   // 24h highest price
-      "vol": "2127.286930263025",  // 24h volume，the aggregated trading volume in ETH
-      "volValue": "43.58567564",  // 24h total, the trading volume in quote currency of last 24 hours
-      "last": "0.03713983",   // last price
-      "low": "0.03651252",    // 24h lowest price
-      "buy": "0.03712118",    // bestAsk
-      "sell": "0.03713983",   // bestBid
-      "changePrice": "0.00037224",  // 24h change price
-      "averagePrice": "8699.24180977",//24h average transaction price yesterday
-      "time": 1550847784668,  //time
-      "changeRate": "0.0101" // 24h change rate
+      "time": 1602832092060,  // time
+      "symbol": "BTC-USDT",   // symbol
+      "buy": "11328.9",   // bestAsk
+      "sell": "11329",    // bestBid
+      "changeRate": "-0.0055",    // 24h change rate
+      "changePrice": "-63.6", // 24h change price
+      "high": "11610",    // 24h highest price
+      "low": "11200", // 24h lowest price
+      "vol": "2282.70993217", // 24h volume，the aggregated trading volume in BTC
+      "volValue": "25984946.157790431",   // 24h total, the trading volume in quote currency of last 24 hours
+      "last": "11328.9",  // last price
+      "averagePrice": "11360.66065903",   // 24h average transaction price yesterday
+      "takerFeeRate": "0.001",    // Basic Taker Fee
+      "makerFeeRate": "0.001",    // Basic Maker Fee
+      "takerCoefficient": "1",    // Taker Fee Coefficient
+      "makerCoefficient": "1" // Maker Fee Coefficient
     }
   }
   */

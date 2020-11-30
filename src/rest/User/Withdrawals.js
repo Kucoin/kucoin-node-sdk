@@ -188,5 +188,5 @@ exports.cancelWithdrawal = async function cancelWithdrawal(withdrawalId) {
     "code": "200000",
   }
   */
-  return await Http().DELETE(`/api/v1/withdrawals/${withdrawalId}`);
+  return await Http().DEL(`/api/v1/withdrawals/${withdrawalId}`);
 };

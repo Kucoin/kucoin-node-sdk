@@ -164,3 +164,25 @@ exports.getOrderByClientOid = async function getOrderByClientOid(clientOid, symb
     symbol,
   });
 };
+
+
+/**
+ * @name cancelSingleOrderByClientOid
+ * @description Request via this interface to cancel a stop order via the clientOid.
+ * @param {string} clientOid - Unique order id created by users to identify their orders
+ * @param {string} symbol - [Optional] Unique order id created by users to identify their orders
+ * @return {Object} { code, success, data }
+ */
+exports.cancelSingleOrderByClientOid = async function cancelSingleOrderByClientOid(clientOid, symbol) {
+  /*
+  {
+    "code": "200000",     
+    "data": {
+    }
+  }
+  */
+  return await Http().DEL('/api/v1/stop-order/cancelOrderByClientOid', {
+    clientOid,
+    symbol,
+  });
+};
