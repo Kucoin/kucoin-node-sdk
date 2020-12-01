@@ -68,6 +68,9 @@ Signature is required for this part.
 - [x] getWithdrawalQuotas
 - [x] applyWithdraw
 - [x] cancelWithdrawal
+#### Rest/User/TradeFee
+- [x] getBasicUserFee
+- [x] getActualFeeRateBySymbols
 
 ### Rest/Trade
 ```
@@ -111,7 +114,6 @@ Signature is not required for this part
 - [x] getLevel2_20
 - [x] getLevel2_100
 - [x] getLevel2_full
-- [x] getLevel3_full_v1
 - [x] getLevel3_full
 #### Rest/Market/Histories
 - [x] getMarketHistories

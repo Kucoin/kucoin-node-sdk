@@ -3,6 +3,7 @@ const CryptoJS = require('crypto');
 const path =  require('path');
 const fs = require('fs');
 const uuid =  require('uuid');
+const { version } =  require('../../package.json');
 
 function sign(text, secret, outputType = 'base64') {
   return CryptoJS
@@ -21,6 +22,7 @@ function auth(ApiKey, method, url, data) {
     'KC-API-TIMESTAMP': timestamp.toString(),
     'KC-API-PASSPHRASE': ApiKey.passphrase || '',
     'Content-Type': 'application/json',
+    'User-Agent': `KuCoin-Node-SDK/${version}`,
   };
 }
 

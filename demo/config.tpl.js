@@ -7,7 +7,7 @@ module.exports = {
   /**   default baseUrl will be set by `process.env.PRODUCTION` */
   /**   if process.env.PRODUCTION === 'prod', the default value will be https://api.kucoin.io */
   /**   else use sandbox as https://openapi-sandbox.kucoin.io */
-  baseUrl: 'https://openapi-sandbox.kucoin.io',
+  baseUrl: 'https://openapi-sandbox.kucoin.cc',
   /** Auth infos */
   /**   key is API key */
   /**   secret is API secret */

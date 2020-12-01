@@ -25,6 +25,7 @@ exports.rest = {
     Account: require('./rest/User/Account'),
     Deposit: require('./rest/User/Deposit'),
     Withdrawals: require('./rest/User/Withdrawals'),
+    TradeFee: require('./rest/User/TradeFee'),
   },
   Trade: {
     Orders: require('./rest/Trade/Orders'),
