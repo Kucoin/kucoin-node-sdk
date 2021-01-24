@@ -1,5 +1,5 @@
 // type Header
-const fetch = require('node-fetch');
+const fetch = require('node-fetch-h2');
 const _ = require('lodash');
 const Middleware = require('./middleware');
 
