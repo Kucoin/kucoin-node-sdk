@@ -5,7 +5,7 @@ const EventEmitter = require('event-emitter');
 const EventAllOff = require('event-emitter/all-off');
 
 const loop = () => {};
-const generateId = () => '_e_' + Date.now() + (Math.random() * 365).toString(16).slice(4,14) + 'kc';
+const generateId = () => '_e_' + Date.now() + (Math.random() * 365).toString(16).slice(4, 14) + 'kc';
 const getTopicPrefix = topic => topic.split(':')[0];
 // const log = (...args) => {
 //   console.log(...args);
@@ -144,11 +144,11 @@ class Datafeed {
       }
 
       const { id, type } = message;
-      switch(type) {
+      switch (type) {
         case 'welcome':
         case 'ack':
         case 'pong':
-          // log(`emit: welcome_${id}`);
+          log(`emit: welcome_${id}`);
           this.emitter.emit(`${type}_${id}`);
           break;
         case 'message':
@@ -176,6 +176,9 @@ class Datafeed {
         this.connectSocket();
       }, 3000);
     };
+    return new Promise((res) => {
+      this.emitter.once("welcome_" + connectId, res)
+    })
   }
 
   _handleClose() {
@@ -208,7 +211,7 @@ class Datafeed {
    * @param {string} topic 
    * @param {function} hook data callback
    * @param {boolean} _private is topic push private data
-   * @returns {string} hookId is subscribed listener id
+   * @returns {promise} hookId is subscribed listener id
    */
   subscribe(topic, hook = loop, _private = false) {
     this.incrementSubscribeId += 1;
@@ -230,13 +233,13 @@ class Datafeed {
     if (find.length === 0) {
       log(`topic new subscribe: ${topic}`);
       this.topicState.push([topic, _private]);
-      this._sub(topic, _private);
+      return this._sub(topic, _private);
     } else {
       log(`topic already subscribed: ${topic}`);
     }
 
     log('subscribed listener id ', hookId);
-    return hookId;
+    return Promise.resolve(hookId);
   }
 
   /**
@@ -315,8 +318,8 @@ class Datafeed {
     try {
       res = await Http().POST(
         this.privateBullet ?
-            '/api/v1/bullet-private' :
-            '/api/v1/bullet-public'
+          '/api/v1/bullet-private' :
+          '/api/v1/bullet-public'
       );
     } catch (e) {
       log('get bullet error', e);
@@ -327,7 +330,7 @@ class Datafeed {
   _sub(topic, _private = false) {
     if (!this.trustConnected) {
       log('client not connected');
-      return;
+      return Promise.resolve(false)
     }
 
     const id = generateId();
@@ -343,6 +346,9 @@ class Datafeed {
       response: true
     }));
     log(`topic subscribe: ${topic}, send`, id);
+    return new Promise((res, rej) => {
+      this.emitter.once(`ack_${id}`, res);
+    })
   }
 
   _unsub(topic) {
@@ -393,7 +399,7 @@ class Datafeed {
       }, 5000);
 
       // calc ping ms
-      const pingPerform = Date.now(); 
+      const pingPerform = Date.now();
       this.emitter.once(`pong_${id}`, () => {
         this.ping = Date.now() - pingPerform;
         log('ping get pong');
