@@ -148,7 +148,7 @@ class Datafeed {
         case 'welcome':
         case 'ack':
         case 'pong':
-          log(`emit: welcome_${id}`);
+          log(`emit: ${type}_${id}`);
           this.emitter.emit(`${type}_${id}`);
           break;
         case 'message':
@@ -342,7 +342,7 @@ class Datafeed {
       id,
       type: 'subscribe',
       topic,
-      private: _private,
+      privateChannel: _private,
       response: true
     }));
     log(`topic subscribe: ${topic}, send`, id);
