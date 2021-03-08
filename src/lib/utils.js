@@ -3,6 +3,7 @@ const CryptoJS = require('crypto');
 const path =  require('path');
 const fs = require('fs');
 const uuid =  require('uuid');
+const { getConfig } = require('./config');
 const { version } =  require('../../package.json');
 
 function sign(text, secret, outputType = 'base64') {
@@ -13,10 +14,10 @@ function sign(text, secret, outputType = 'base64') {
 }
 
 function auth(ApiKey, method, url, data) {
+  const { authVersion } = getConfig();
   const timestamp = Date.now();
   const signature = sign(timestamp + method.toUpperCase() + url + data, ApiKey.secret);
-
-  return {
+  const returnData = {
     'KC-API-KEY': ApiKey.key,
     'KC-API-SIGN': signature,
     'KC-API-TIMESTAMP': timestamp.toString(),
@@ -24,6 +25,11 @@ function auth(ApiKey, method, url, data) {
     'Content-Type': 'application/json',
     'User-Agent': `KuCoin-Node-SDK/${version}`,
   };
+  if (authVersion && (authVersion === 2 || authVersion === '2')) { // for v2 API-KEY
+    returnData['KC-API-KEY-VERSION'] = 2;
+    returnData['KC-API-PASSPHRASE'] = sign(ApiKey.passphrase || '');
+  }
+  return returnData;
 }
 
 async function readFile(filePath) {
