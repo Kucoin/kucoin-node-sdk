@@ -27,7 +27,7 @@ function auth(ApiKey, method, url, data) {
   };
   if (authVersion && (authVersion === 2 || authVersion === '2')) { // for v2 API-KEY
     returnData['KC-API-KEY-VERSION'] = 2;
-    returnData['KC-API-PASSPHRASE'] = sign(ApiKey.passphrase || '');
+    returnData['KC-API-PASSPHRASE'] = sign(ApiKey.passphrase || '', ApiKey.secret);
   }
   return returnData;
 }
