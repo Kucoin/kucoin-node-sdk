@@ -340,6 +340,7 @@ class Datafeed {
       type: 'subscribe',
       topic,
       private: _private,
+      privateChannel: _private,
       response: true
     }));
     log(`topic subscribe: ${topic}, send`, id);
