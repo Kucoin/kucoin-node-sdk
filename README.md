@@ -139,6 +139,7 @@ Signature is not required for this part
 - [x] getMarkPrice
 - [x] getMarginConfigurationInfo
 - [x] getMarginAccount
+- [x] postMarginOrder
 #### Rest/Margin/BorrowAndLend
 - [x] postBorrowOrder
 - [x] getBorrowOrder
