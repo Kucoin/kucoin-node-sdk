@@ -15,6 +15,7 @@ module.exports = {
   apiAuth: {
     key: '',
     secret: '',
-    passphrase: '',
+    passphrase: ''
   },
+  authVersion: 2
 }
