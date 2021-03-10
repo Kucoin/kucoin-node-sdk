@@ -304,7 +304,7 @@ class Datafeed {
       this._maxId = 0;
     }
     const client = new WebSocket(url, {
-      handshakeTimeout: 30,
+      handshakeTimeout: 30000,
     });
     client._maxId = this._maxId;
     return client;
@@ -340,6 +340,7 @@ class Datafeed {
       type: 'subscribe',
       topic,
       private: _private,
+      privateChannel: _private,
       response: true
     }));
     log(`topic subscribe: ${topic}, send`, id);
