@@ -68,7 +68,7 @@ exports.getLevel2_full = async function getLevel2_full(symbol) {
     }
   }
   */
-  return await Http().GET('/api/v2/market/orderbook/level2', { symbol });
+  return await Http().GET('/api/v3/market/orderbook/level2', { symbol });
 };
 
 
