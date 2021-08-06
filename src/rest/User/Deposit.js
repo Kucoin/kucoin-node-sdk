@@ -52,6 +52,31 @@ exports.getDepositAddress = async function getDepositAddress(currency, { chain }
 };
 
 /**
+ * @name getDepositAddressV2
+ * @description Get Deposit Address V2.
+ * @param {string} currency - Currency
+ * @return {Object} { code, data }
+ */
+ exports.getDepositAddressV2 = async function getDepositAddressV2(currency) {
+  /*
+  {
+    "code": "200000",
+    "data": [
+      {
+        "address": "0x78d3ad1c0aa1bf068e19c94a2d7b16c9c0fcd8b1",
+        "memo": "5c247c8a03aa677cea2a251d", // tag
+        "chain": "OMNI",
+        "contractAddress": ""  // The token contract address.
+      }
+    ]
+  }
+  */
+  return await Http().GET('/api/v2/deposit-addresses', {
+    currency,
+  });
+};
+
+/**
  * @name getDepositList
  * @description Get Deposit List.
  * @param {Object}

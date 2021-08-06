@@ -72,6 +72,7 @@ Signature is required for this part.
 - [x] innerTransfer
 #### Rest/User/Deposit
 - [x] createDepositAddress
+- [x] getDepositAddressV2
 - [x] getDepositAddress
 - [x] getDepositList
 - [x] getV1HistoricalDepositsList
