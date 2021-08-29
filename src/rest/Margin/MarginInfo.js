@@ -91,7 +91,7 @@ exports.getMarginAccount = async function getMarginAccount() {
  *    - {boolean} hidden - [Optional] Order will not be displayed in the order book
  *    - {boolean} iceberg - [Optional] Only aportion of the order is displayed in the order book
  *    - {string} visibleSize - [Optional] The maximum visible size of an iceberg order
- *   LIMIT ORDER PARAMETERS
+ *   MARKET ORDER PARAMETERS
  *    - {string} size - [Optional] Desired amount in base currency
  *    - {string} funds - [Optional] The desired amount of quote currency to use
  * @return {Object} { code, success, data }
