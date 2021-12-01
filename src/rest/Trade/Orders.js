@@ -158,7 +158,7 @@ exports.cancelAllOrders = async function cancelAllOrders({ symbol, tradeType } =
  * @param {String} clientOid
  * @return {Object} { code, success, data }
  */
-exports.cancelOrderByClientOid = async function cancelOrderByClientOid({ symbol, tradeType } = {}) {
+exports.cancelOrderByClientOid = async function cancelOrderByClientOid(clientOid) {
   /*
   {
     "code": "200000",     
