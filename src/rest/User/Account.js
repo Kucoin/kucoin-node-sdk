@@ -89,6 +89,8 @@ exports.getAccountInformation = async function getAccountInformation(accountId) 
  *   - {string} bizType - [Optional] Business type: DEPOSIT, WITHDRAW, TRANSFER, SUB_TRANSFER,TRADE_EXCHANGE, MARGIN_EXCHANGE, KUCOIN_BONUS.
  *   - {number} startAt - [Optional] Start time (milisecond)
  *   - {number} endAt - [Optional] End time (milisecond)
+ *   - {number} currentPage - [Optional] Current request page
+ *   - {number} pageSize - [Optional] Number of results per request. Minimum is 10, maximum is 500.
  * @return {Object} { code, success, data }
  */
 exports.getAccountLedgers = async function getAccountLedgers(
@@ -98,6 +100,8 @@ exports.getAccountLedgers = async function getAccountLedgers(
     bizType,
     startAt,
     endAt,
+    currentPage,
+    pageSize,
   } = {}
 ) {
   /*
@@ -165,6 +169,8 @@ exports.getAccountLedgers = async function getAccountLedgers(
     bizType,
     startAt,
     endAt,
+    currentPage,
+    pageSize,
   });
 };
 
