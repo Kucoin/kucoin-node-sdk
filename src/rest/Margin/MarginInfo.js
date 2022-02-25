@@ -109,3 +109,27 @@ exports.postMarginOrder = async function postMarginOrder(params = {}) {
   */
   return await Http().POST('/api/v1/margin/order', { ...params });
 };
+
+/**
+ * @description Request via this endpoint to get the cross/isolated margin risk limit.
+ * @param {string} marginModel - marginModel
+ * @returns {Object} { code, success, data }
+ */
+exports.getMarginPriceStrategy = async function getMarginPriceStrategy({ marginModel } = {}) {
+  /*
+    {
+      "code": "200000",
+      "data": {
+        [
+          {
+            "currency": "BTC",
+            "borrowMaxAmount": "50",
+            "buyMaxAmount": "50",
+            "precision": 8
+          }
+        ]
+      }
+    }
+    */
+  return await Http().GET('/api/v1/risk/limit/strategy', {marginModel});
+};

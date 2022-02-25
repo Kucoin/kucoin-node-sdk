@@ -141,6 +141,7 @@ Signature is not required for this part
 - [x] getMarginConfigurationInfo
 - [x] getMarginAccount
 - [x] postMarginOrder
+- [x] getMarginPriceStrategy
 #### Rest/Margin/BorrowAndLend
 - [x] postBorrowOrder
 - [x] getBorrowOrder
