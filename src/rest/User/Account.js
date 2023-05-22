@@ -402,3 +402,104 @@ exports.innerTransfer = async function innerTransfer(
     amount,
   });
 };
+
+// owen.guo@kupotech.com update api
+
+/**
+ * @name getAccountSummaryInfo
+ * @description Get Account Summary Info(V2)
+ * @return {Object} { code, success, data }
+ */
+exports.getAccountSummaryInfo = async function getAccountSummaryInfo() {
+  return await Http().GET('/api/v2/user-info');
+}
+
+/**
+ * @name createSubAccount
+ * @description Create Sub-Account(V2)
+ * @param {String} password Password(7-24 characters, must contain letters and numbers, cannot only contain numbers or include special characters)
+ * @param {String} remarks [Optional] Remarks(1~24 characters)
+ * @param {String} subName Sub-account name(must contain 7-32 characters, at least one number and one letter. Cannot contain any spaces.)
+ * @param {String} access Permission (types include Spot, Futures, Margin permissions, which can be used alone or in combination).
+ * @return {Object} { code, success, data }
+ */
+exports.createSubAccount = async function createSubAccount({password,remarks,subName,access}) {
+  return await Http().POST('/api/v2/sub/user/created',{
+    password,remarks,subName,access
+  });
+}
+
+/**
+ * @name getSubAccountSpotApiList
+ * @description Get Sub-Account Spot API List
+ * @param {String} apiKey [Optional] API-Key.
+ * @param {String} subName Sub-account name.
+ * @return {Object} { code, success, data }
+ */
+exports.getSubAccountSpotApiList = async function getSubAccountSpotApiList({apiKey,subName}) {
+  return await Http().GET('/api/v1/sub/api-key',{
+    apiKey,subName
+  });
+}
+
+/**
+ * @name createSpotAPIsForSubAccount
+ * @description Create Spot APIs for Sub-Account
+ * @param {String} subName Sub-account name, create sub account name of API Key.
+ * @param {String} passphrase Password(Must contain 7-32 characters. Cannot contain any spaces.)
+ * @param {String} remark Remarks(1~24 characters)
+ * @param {String} permission [Optional] Permissions(Only "General" and "Trade" permissions can be set, such as "General, Trade". The default is "General")
+ * @param {String} ipWhitelist [Optional] IP whitelist(You may add up to 20 IPs. Use a halfwidth comma to each IP)
+ * @param {String} expire [Optional] API expiration time; Never expire(default)-1，30Day30，90Day90，180Day180，360Day360
+ * @return {Object} { code, success, data }
+ */
+exports.createSpotAPIsForSubAccount = async function createSpotAPIsForSubAccount({subName,passphrase,remark,permission,ipWhitelist,expire}) {
+  return await Http().POST('/api/v1/sub/api-key',{
+    subName,passphrase,remark,permission,ipWhitelist,expire
+  });
+}
+
+/**
+ * @name updateSubAccountSpotApis
+ * @description Modify Sub-Account Spot APIs
+ * @param {String} subName Sub-account name, create sub account name of API Key.
+ * @param {String} apiKey API-Key(Sub-account APIKey)
+ * @param {String} passphrase Password of API key
+ * @param {String} permission [Optional] Permission list.If modified, permissions will be reset.
+ * @param {String} ipWhitelist [Optional] IP whitelist(you may add up to 20 IPs. Use a halfwidth comma to each IP.If modified, the IP will be reset.)
+ * @param {String} expire [Optional] API expiration time; Never expire(default)-1，30Day30，90Day90，180Day180，360Day360
+ * @return {Object} { code, success, data }
+ */
+exports.updateSubAccountSpotApis = async function updateSubAccountSpotApis({subName,apiKey,passphrase,permission,ipWhitelist,expire}) {
+  return await Http().POST('/api/v1/sub/api-key/update',{
+    subName,apiKey,passphrase,permission,ipWhitelist,expire
+  });
+}
+
+/**
+ * @name deleteSubAccountSpotApis
+ * @description Delete Sub-Account Spot APIs
+ * @param {String} apiKey API-Key(API key to be deleted)
+ * @param {String} passphrase Password(Password of the API key)
+ * @param {String} subName Sub-account name(The sub-account name corresponding to the API key)
+ * @return {Object} { code, success, data }
+ */
+
+exports.deleteSubAccountSpotApis = async function deleteSubAccountSpotApis({apiKey,passphrase,subName}) {
+  return await Http().DEL('/api/v1/sub/api-key',{
+    apiKey,passphrase,subName
+  });
+}
+
+/**
+ * @name getPaginatedSubAccountInformation
+ * @description Get Paginated Sub-Account Information.
+ * @param {Int} currentPage [Optional] Current request page. Default is 1
+ * @param {Int} pageSize [Optional] Number of results per request. Minimum is 1, maximum is 100, default is 10.
+ * @return {Object} { code, success, data }
+ */
+exports.getPaginatedSubAccountInformation = async function getPaginatedSubAccountInformation({currentPage,pageSize}) {
+  return await Http().GET('/api/v2/sub-accounts',{
+    currentPage,pageSize
+  });
+}

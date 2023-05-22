@@ -24,3 +24,16 @@ exports.getSubUsers = async function getSubUsers() {
   */
   return await Http().GET('/api/v1/sub/user');
 };
+
+// owen.guo@kupotech.com update api
+
+/**
+ * @name getPaginatedSubUsers
+ * @description Get Paginated List of Sub-Accounts.
+ * @param {Int} currentPage - [Optional] Current request page. Default is 1
+ * @param {Int} pageSize - [Optional] Number of results per request. Minimum is 1, maximum is 100, default is 10.
+ * @return {Object} { code, success, data }
+ */
+exports.getPaginatedSubUsers = async function getPaginatedSubUsers({currentPage,pageSize}) {
+  return await Http().GET('/api/v2/sub/user',{ currentPage,pageSize });
+}

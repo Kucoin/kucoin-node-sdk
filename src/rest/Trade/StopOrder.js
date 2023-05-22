@@ -186,3 +186,26 @@ exports.cancelSingleOrderByClientOid = async function cancelSingleOrderByClientO
     symbol,
   });
 };
+
+
+// owen.guo@kupotech.com update api
+
+/**
+ * @name getSingleStopOrderInfo
+ * @description Get Single Order Info
+ * @param {String} orderId Order ID
+ * @return {Object} { code, success, data }
+ */
+exports.getSingleStopOrderInfo = async function getSingleStopOrderInfo({orderId}) {
+  return await Http().GET(`/api/v1/stop-order/${orderId}`,{ orderId });
+}
+
+/**
+ * @name cancelStopOrder
+ * @description Cancel an Order
+ * @param {String} orderId Order ID
+ * @return {Object} { code, success, data }
+ */
+exports.cancelStopOrder = async function cancelStopOrder({orderId}) {
+  return await Http().DEL(`/api/v1/stop-order/${orderId}`,{ orderId });
+}
