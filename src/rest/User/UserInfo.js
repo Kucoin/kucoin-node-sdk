@@ -30,8 +30,9 @@ exports.getSubUsers = async function getSubUsers() {
 /**
  * @name getPaginatedSubUsers
  * @description Get Paginated List of Sub-Accounts.
- * @param {Int} currentPage - [Optional] Current request page. Default is 1
- * @param {Int} pageSize - [Optional] Number of results per request. Minimum is 1, maximum is 100, default is 10.
+ * @param {Object}
+ * - {Int} currentPage - [Optional] Current request page. Default is 1
+ * - {Int} pageSize - [Optional] Number of results per request. Minimum is 1, maximum is 100, default is 10.
  * @return {Object} { code, success, data }
  */
 exports.getPaginatedSubUsers = async function getPaginatedSubUsers({currentPage,pageSize}) {

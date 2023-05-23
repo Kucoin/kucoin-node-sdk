@@ -98,8 +98,9 @@ exports.getFiatPrice = async function getFiatPrice(params = {}) {
 /**
  * @name getCurrencyDetail
  * @description Get Currency Detail(Recommend)
- * @param {String} currency Path parameter. Currency
- * @param {String} chain [Optional] Support for querying the chain of currency, return the currency details of all chains by default.
+ * @param {Object}
+ * - {String} currency Path parameter. Currency
+ * - {String} chain [Optional] Support for querying the chain of currency, return the currency details of all chains by default.
  * @return {Object} { code, success, data }
  */
 exports.getCurrencyDetail = async function getCurrencyDetail({currency,chain}) {

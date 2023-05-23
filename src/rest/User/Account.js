@@ -417,10 +417,11 @@ exports.getAccountSummaryInfo = async function getAccountSummaryInfo() {
 /**
  * @name createSubAccount
  * @description Create Sub-Account(V2)
- * @param {String} password Password(7-24 characters, must contain letters and numbers, cannot only contain numbers or include special characters)
- * @param {String} remarks [Optional] Remarks(1~24 characters)
- * @param {String} subName Sub-account name(must contain 7-32 characters, at least one number and one letter. Cannot contain any spaces.)
- * @param {String} access Permission (types include Spot, Futures, Margin permissions, which can be used alone or in combination).
+ * @param {Object}
+ * - {String} password Password(7-24 characters, must contain letters and numbers, cannot only contain numbers or include special characters)
+ * - {String} remarks [Optional] Remarks(1~24 characters)
+ * - {String} subName Sub-account name(must contain 7-32 characters, at least one number and one letter. Cannot contain any spaces.)
+ * - {String} access Permission (types include Spot, Futures, Margin permissions, which can be used alone or in combination).
  * @return {Object} { code, success, data }
  */
 exports.createSubAccount = async function createSubAccount({password,remarks,subName,access}) {
@@ -432,8 +433,9 @@ exports.createSubAccount = async function createSubAccount({password,remarks,sub
 /**
  * @name getSubAccountSpotApiList
  * @description Get Sub-Account Spot API List
- * @param {String} apiKey [Optional] API-Key.
- * @param {String} subName Sub-account name.
+ * @param {Object}
+ * - {String} apiKey [Optional] API-Key.
+ * - {String} subName Sub-account name.
  * @return {Object} { code, success, data }
  */
 exports.getSubAccountSpotApiList = async function getSubAccountSpotApiList({apiKey,subName}) {
@@ -445,12 +447,13 @@ exports.getSubAccountSpotApiList = async function getSubAccountSpotApiList({apiK
 /**
  * @name createSpotAPIsForSubAccount
  * @description Create Spot APIs for Sub-Account
- * @param {String} subName Sub-account name, create sub account name of API Key.
- * @param {String} passphrase Password(Must contain 7-32 characters. Cannot contain any spaces.)
- * @param {String} remark Remarks(1~24 characters)
- * @param {String} permission [Optional] Permissions(Only "General" and "Trade" permissions can be set, such as "General, Trade". The default is "General")
- * @param {String} ipWhitelist [Optional] IP whitelist(You may add up to 20 IPs. Use a halfwidth comma to each IP)
- * @param {String} expire [Optional] API expiration time; Never expire(default)-1，30Day30，90Day90，180Day180，360Day360
+ * @param {Object}
+ * - {String} subName Sub-account name, create sub account name of API Key.
+ * - {String} passphrase Password(Must contain 7-32 characters. Cannot contain any spaces.)
+ * - {String} remark Remarks(1~24 characters)
+ * - {String} permission [Optional] Permissions(Only "General" and "Trade" permissions can be set, such as "General, Trade". The default is "General")
+ * - {String} ipWhitelist [Optional] IP whitelist(You may add up to 20 IPs. Use a halfwidth comma to each IP)
+ * - {String} expire [Optional] API expiration time; Never expire(default)-1，30Day30，90Day90，180Day180，360Day360
  * @return {Object} { code, success, data }
  */
 exports.createSpotAPIsForSubAccount = async function createSpotAPIsForSubAccount({subName,passphrase,remark,permission,ipWhitelist,expire}) {
@@ -462,12 +465,13 @@ exports.createSpotAPIsForSubAccount = async function createSpotAPIsForSubAccount
 /**
  * @name updateSubAccountSpotApis
  * @description Modify Sub-Account Spot APIs
- * @param {String} subName Sub-account name, create sub account name of API Key.
- * @param {String} apiKey API-Key(Sub-account APIKey)
- * @param {String} passphrase Password of API key
- * @param {String} permission [Optional] Permission list.If modified, permissions will be reset.
- * @param {String} ipWhitelist [Optional] IP whitelist(you may add up to 20 IPs. Use a halfwidth comma to each IP.If modified, the IP will be reset.)
- * @param {String} expire [Optional] API expiration time; Never expire(default)-1，30Day30，90Day90，180Day180，360Day360
+ * @param {Object}
+ * - {String} subName Sub-account name, create sub account name of API Key.
+ * - {String} apiKey API-Key(Sub-account APIKey)
+ * - {String} passphrase Password of API key
+ * - {String} permission [Optional] Permission list.If modified, permissions will be reset.
+ * - {String} ipWhitelist [Optional] IP whitelist(you may add up to 20 IPs. Use a halfwidth comma to each IP.If modified, the IP will be reset.)
+ * - {String} expire [Optional] API expiration time; Never expire(default)-1，30Day30，90Day90，180Day180，360Day360
  * @return {Object} { code, success, data }
  */
 exports.updateSubAccountSpotApis = async function updateSubAccountSpotApis({subName,apiKey,passphrase,permission,ipWhitelist,expire}) {
@@ -479,9 +483,10 @@ exports.updateSubAccountSpotApis = async function updateSubAccountSpotApis({subN
 /**
  * @name deleteSubAccountSpotApis
  * @description Delete Sub-Account Spot APIs
- * @param {String} apiKey API-Key(API key to be deleted)
- * @param {String} passphrase Password(Password of the API key)
- * @param {String} subName Sub-account name(The sub-account name corresponding to the API key)
+ * @param {Object}
+ * - {String} apiKey API-Key(API key to be deleted)
+ * - {String} passphrase Password(Password of the API key)
+ * - {String} subName Sub-account name(The sub-account name corresponding to the API key)
  * @return {Object} { code, success, data }
  */
 
@@ -494,12 +499,72 @@ exports.deleteSubAccountSpotApis = async function deleteSubAccountSpotApis({apiK
 /**
  * @name getPaginatedSubAccountInformation
  * @description Get Paginated Sub-Account Information.
- * @param {Int} currentPage [Optional] Current request page. Default is 1
- * @param {Int} pageSize [Optional] Number of results per request. Minimum is 1, maximum is 100, default is 10.
+ * @param {Object}
+ * - {Int} currentPage [Optional] Current request page. Default is 1
+ * - {Int} pageSize [Optional] Number of results per request. Minimum is 1, maximum is 100, default is 10.
  * @return {Object} { code, success, data }
  */
 exports.getPaginatedSubAccountInformation = async function getPaginatedSubAccountInformation({currentPage,pageSize}) {
   return await Http().GET('/api/v2/sub-accounts',{
     currentPage,pageSize
+  });
+}
+
+/**
+ * @name transferToHFAccount
+ * @description transferToHFAccount
+ * @param {Object}
+ * - {string} clientOid - Unique order id created by users to identify their orders, e.g. UUID.
+ * - {string} type - The account type: MAIN, TRADE, MARGIN or POOL
+ * - {string} currency - currency https://sandbox-docs.kucoin.com/#Get-Currencies
+ * - {string} from - Account type of payer: main, trade, margin or pool
+ * - {string} to - Account type of payee: main, trade, margin or pool
+ * - {string} amount - Transfer amount, the amount is a positive integer multiple of the currency precision.
+ * @return {Object} { code, success, data }
+ */
+
+
+exports.transferToHFAccount = async function transferToHFAccount({
+  clientOid,
+  currency,
+  from,
+  to,
+  amount,
+  type
+}){
+  try{
+    const innerTransferResult = await this.innerTransfer(clientOid, currency,from,to,amount)
+    console.log(innerTransferResult,"innerTransferResult---")
+    const getTransferableResult = await this.getTransferable(type,currency)
+    if(innerTransferResult?.code==='200000'){
+      return getTransferableResult;
+    } else {
+      return {
+        msg:innerTransferResult?.msg || 'transferToHFAccount-error',
+        code:innerTransferResult?.code || '400000',
+      }
+    }
+
+  } catch(e){
+    console.error(e,"transferToHFAccount-error")
+  }
+}
+
+/**
+ * @name getHighFrequencyAccountLedger
+ * @description Account Ledger in high-frequency trading accounts
+ * @param {Object}
+ * - {string} currency, optional，can select more than one，separate with commas，select no more than 10 currencys，the default will be to query for all currencys if left empty
+ * - {string} direction Direction of transaction (in or out): in-transfer in, out-transfer out
+ * - {string} bizType Transaction type: TRANSFER-transfer funds,TRADE_EXCHANGE-Trade
+ * - {long } lastId The id of the last set of data from the previous batch of data. By default, the latest information is given.
+ * - {int} limit Default100，Max200
+ * - {long } startAt Start time (ms), the conditional limit createdAt
+ * - { long } endAt End time (ms), the conditional limit createdAt
+ * @return {Object} { code, success, data }
+ */
+exports.getHighFrequencyAccountLedger = async function getHighFrequencyAccountLedger({currency,direction,bizType,lastId,limit,startAt,endAt}) {
+  return await Http().GET('/api/v1/hf/accounts/ledgers',{
+    currency,direction,bizType,lastId,limit,startAt,endAt
   });
 }

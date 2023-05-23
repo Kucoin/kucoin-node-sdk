@@ -87,3 +87,22 @@ exports.getRecentFills = async function getRecentFills() {
   */
   return await Http().GET('/api/v1/limit/fills');
 };
+
+// owen.guo@kupotech.com add high-frequency api
+/**
+ * @name getHfTransactionRecords
+ * @description HF transaction records
+ * @param {Object}
+ * - {string} orderId Look up the transaction details pertaining to the order id（IforderId is specified，please ignore the other query parameters）
+ * - {string} symbol Only returns order information for the specified trading pair
+ * - {string} side buy（Buy） or sell（Sell）
+ * - {string} type Order type: limit（limit order）, market(market order)
+ * - {long} startAt Start time（ms），puts a restriction on the transaction(creation) time for the transaction records
+ * - {long} endAt End time（ms），puts a restriction on the transaction(creation) time of the transaction records
+ * - {long} lastId The id of the last data item from the previous batch, defaults to obtaining the latest data
+ * - {int} limit Default100，maximum 200
+ * @return {Object} { code, success, data }
+ */
+exports.getHfTransactionRecords = async function getHfTransactionRecords({orderId,symbol,side,type,startAt,endAt,lastId,limit}) {
+  return await Http().GET('/api/v1/hf/fills',{ orderId,symbol,side,type,startAt,endAt,lastId,limit });
+}

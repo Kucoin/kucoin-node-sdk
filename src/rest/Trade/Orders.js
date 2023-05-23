@@ -423,3 +423,299 @@ exports.getSingleActiveOrderByClientOid = async function getSingleActiveOrderByC
   */
   return await Http().GET(`/api/v1/order/client-order/${clientOid}`);
 };
+
+// owen.guo@kupotech.com add high-frequency api
+
+/**
+ * @name placeHfOrder
+ * @description Place hf order
+ * @param {Object}
+ * - {String} clientOid Client Order Id，unique identifier created by the user, the use of UUID is recommended
+ * - {String} symbol Trading pair, such as, ETH-BTC
+ * - {String} type Order type limit and market
+ * - {String} side buy or sell
+ * - {String} stp Self trade prevention (self trade prevention) is divided into four strategies: CN, CO, CB , and DC
+ * - {String} tags Order tag, cannot exceed 20 characters (ASCII) in length
+ * - {String} remark Order placement remarks, length cannot exceed 20 characters (ASCII) in length
+ * @return {Object} { code, success, data }
+ */
+exports.placeHfOrder = async function placeHfOrder({clientOid,symbol,type,side,stp,tags,remark}) {
+  return await Http().POST('/api/v1/hf/orders',{
+    clientOid,symbol,type,side,stp,tags,remark
+  });
+}
+
+/**
+ * @name syncPlaceHfOrder
+ * @description Sync place hf order
+ * @param {Object}
+ * - {String} clientOid Client Order Id，unique identifier created by the user, the use of UUID is recommended
+ * - {String} symbol Trading pair, such as, ETH-BTC
+ * - {String} type Order type limit and market
+ * - {String} side buy or sell
+ * - {String} stp Self trade prevention (self trade prevention) is divided into four strategies: CN, CO, CB , and DC
+ * - {String} tags Order tag, cannot exceed 20 characters (ASCII) in length
+ * - {String} remark Order placement remarks, length cannot exceed 20 characters (ASCII) in length
+ * @return {Object} { code, success, data }
+ */
+exports.syncPlaceHfOrder = async function syncPlaceHfOrder({clientOid,symbol,type,side,stp,tags,remark}) {
+  return await Http().POST('/api/v1/hf/orders/sync',{
+    clientOid,symbol,type,side,stp,tags,remark
+  });
+}
+
+/**
+ * @name placeMultipleHfOrders
+ * @description Place multiple hf orders
+ * @param {Object}
+ * - {String} clientOid Client Order Id，a unique identifier created by the user，the use of UUID is recommended
+ * - {String} symbol trading pairs such as，ETH-BTC
+ * - {String} type Order type limit and market
+ * - {String} timeInForce [Optional] Time in force GTC, GTT, IOC, FOK (defaults to GTC)
+ * - {String} stp [Optional] Self trade prevention（self trade prevention）is divided into CN, CO, CB , and DC strategies
+ * - {String} side buy（buy） or sell（sell）
+ * - {String} price Specify price for currency
+ * - {String} size Specify quantity of currency
+ * - {long} cancelAfter [Optional] Cancels in n seconds, with GTT as the time in force strategy
+ * - {boolean} postOnly [Optional] Post only identifier, invalid when the time in force strategy is IOC or FOK
+ * - {boolean} hidden [Optional] Hidden or not（not shown in order book）
+ * - {boolean} iceberg [Optional] Whether iceberg orders only show visible portions of orders
+ * - {String} visibleSize	[Optional] The maximum visible size for iceberg orders
+ * - {String} tags [Optional] The order identifier length cannot exceed 20 characters（ASCII）
+ * - {String} remark [Optional] Order placement remarks cannot exceed a length of 20 characters（ASCII）
+ * @return {Object} { code, success, data }
+ */
+exports.placeMultipleHfOrders = async function placeMultipleHfOrders({clientOid,symbol,type,timeInForce,stp,side,price,size,cancelAfter,postOnly,hidden,iceberg,visibleSize,tags,remark}) {
+  return await Http().POST('/api/v1/hf/orders/multi',{
+    clientOid,symbol,type,timeInForce,stp,side,price,size,cancelAfter,postOnly,hidden,iceberg,visibleSize,tags,remark
+  });
+}
+
+/**
+ * @name syncPlaceMultipleHfOrders
+ * @description Sync place multiple hf orders
+ * @param {Object}
+ * - {String} clientOid Client Order Id，a unique identifier created by the user，the use of UUID is recommended
+ * - {String} symbol trading pairs such as，ETH-BTC
+ * - {String} type Order type limit and market
+ * - {String} timeInForce [Optional] Time in force GTC, GTT, IOC, FOK (defaults to GTC)
+ * - {String} stp [Optional] Self trade prevention（self trade prevention）is divided into CN, CO, CB , and DC strategies
+ * - {String} side buy（buy） or sell（sell）
+ * - {String} price Specify price for currency
+ * - {String} size Specify quantity of currency
+ * - {long} cancelAfter [Optional] Cancels in n seconds, with GTT as the time in force strategy
+ * - {boolean} postOnly [Optional] Post only identifier, invalid when the time in force strategy is IOC or FOK
+ * - {boolean} hidden [Optional] Hidden or not（not shown in order book）
+ * - {boolean} iceberg [Optional] Whether iceberg orders only show visible portions of orders
+ * - {String} visibleSize	[Optional] The maximum visible size for iceberg orders
+ * - {String} tags [Optional] The order identifier length cannot exceed 20 characters（ASCII）
+ * - {String} remark [Optional] Order placement remarks cannot exceed a length of 20 characters（ASCII）
+ * @return {Object} { code, success, data }
+ */
+exports.syncPlaceMultipleHfOrders = async function syncPlaceMultipleHfOrders({clientOid,symbol,type,timeInForce,stp,side,price,size,cancelAfter,postOnly,hidden,iceberg,visibleSize,tags,remark}) {
+  return await Http().POST('/api/v1/hf/orders/multi/sync',{
+    clientOid,symbol,type,timeInForce,stp,side,price,size,cancelAfter,postOnly,hidden,iceberg,visibleSize,tags,remark
+  });
+}
+
+/**
+ * @name modifyOrder
+ * @description Modify order
+ * @param {Object}
+ * - {String} symbol trading pairs such as，ETH-BTC
+ * - {String} clientOid Client Order Id，a unique identifier created by the user，the use of UUID is recommended
+ * - {String} orderId other id
+ * - {String} newPrice The modified price of the new order
+ * - {String} newSize The modified size of the new order
+ * @return {Object} { code, success, data }
+ */
+
+exports.modifyOrder = async function modifyOrder({symbol,clientOid,orderId,newPrice,newSize}) {
+  return await Http().POST('/api/v1/hf/orders/alter',{
+    symbol,clientOid,orderId,newPrice,newSize
+  });
+}
+
+/**
+ * @name cancelOrdersByOrderId
+ * @description Cancel orders by orderId
+ * @param {Object}
+ * - {String} orderId Path parameter，Order Id unique identifier
+ * - {String} symbol Trading pair, such as ETH-BTC
+ * @return {Object} { code, success, data }
+ */
+exports.cancelOrdersByOrderId = async function cancelOrdersByOrderId({orderId,symbol}) {
+  return await Http().DEL(`/api/v1/hf/orders/${orderId}`,{
+    orderId,symbol
+  });
+}
+
+/**
+ * @name syncCancelOrdersByOrderId
+ * @description Sync cancel orders by orderId
+ * @param {Object}
+ * - {String} orderId Path parameter，Order Id unique identifier
+ * - {String} symbol Trading pair, such as ETH-BTC
+ * @return {Object} { code, success, data }
+ */
+exports.syncCancelOrdersByOrderId = async function syncCancelOrdersByOrderId({orderId,symbol}) {
+  return await Http().DEL(`/api/v1/hf/orders/sync/${orderId}`,{
+    orderId,symbol
+  });
+}
+
+/**
+ * @name cancelOrderByClientOid
+ * @description Cancel order by clientOid
+ * @param {Object}
+ * - {String} clientOid Path parameter，an identifier created by the
+ * - {String} symbol Trading pair such as ETH-BTC
+ * @return {Object} { code, success, data }
+ */
+
+exports.cancelOrderByClientOid = async function cancelOrderByClientOid({clientOid,symbol}) {
+  return await Http().DEL(`/api/v1/hf/orders/client-order/${clientOid}`,{
+    clientOid,symbol
+  });
+}
+
+/**
+ * @name syncCancelOrdersByClientOid
+ * @description Sync cancel orders by clientOid
+ * @param {Object}
+ * - {String} clientOid Path parameter，an identifier created by the
+ * - {String} symbol Trading pair such as ETH-BTC
+ * @return {Object} { code, success, data }
+ */
+
+exports.syncCancelOrdersByClientOid = async function syncCancelOrdersByClientOid({clientOid,symbol}) {
+  return await Http().DEL(`/api/v1/hf/orders/sync/client-order/${clientOid}`,{
+    clientOid,symbol
+  });
+}
+
+/**
+ * @name cancelSpecifiedNumberOfOrdersByOrderId
+ * @description Cancel specified number of orders by orderId
+ * @param {Object}
+ * - {String} orderId Order id of the cancelled order
+ * - {String} symbol Trading pair such as ETH-BTC
+ * - {String} cancelSize canceled size
+ * @return {Object} { code, success, data }
+ */
+exports.cancelSpecifiedNumberOfOrdersByOrderId = async function cancelSpecifiedNumberOfOrdersByOrderId({orderId,symbol,cancelSize	}) {
+  return await Http().DEL(`/api/v1/hf/orders/cancel/${orderId}`,{
+    orderId,symbol,cancelSize	
+  });
+}
+
+/**
+ * @name cancelAllHfOrdersBySymbol
+ * @description Cancel all HF orders by symbol
+ * @param {Object}
+ * - {String} symbol Cancel open orders pertaining to the specified trading pair
+ * @return {Object} { code, success, data }
+ */
+
+exports.cancelAllHfOrdersBySymbol = async function cancelAllHfOrdersBySymbol({symbol}) {
+  return await Http().DEL('/api/v1/hf/orders',{
+   symbol
+  });
+}
+
+/**
+ * @name obtainListOfActiveHfOrders
+ * @description Obtain List of Active HF Orders
+ * @param {Object}
+ * - {String} symbol Only returns order information for the specified trading pair
+ * @return {Object} { code, success, data }
+ */
+
+exports.obtainListOfActiveHfOrders = async function obtainListOfActiveHfOrders({symbol}) {
+  return await Http().GET('/api/v1/hf/orders/active',{
+   symbol
+  });
+}
+
+/**
+ * @name obtainListOfSymbolWithActiveHfOrders
+ * @description Obtain List of symbol with active HF orders
+ * @return {Object} { code, success, data }
+ */
+
+exports.obtainListOfSymbolWithActiveHfOrders = async function obtainListOfSymbolWithActiveHfOrders() {
+  return await Http().GET('/api/v1/hf/orders/active/symbols');
+}
+
+/**
+ * @name obtainListOfFilledHfOrders
+ * @description Obtain List of Filled HF Orders
+ * @param {Object}
+ * - {String} symbol Only returns order information for the specified trading pair
+ * - {String} side buy (Buy) orsell (Sell)
+ * - {String} type Order type: limit (limit order), market(market order)
+ * - {long} startAt Start time (ms)，last update(filled) time of the limit order
+ * - {long} endAt	 End time (ms)，last update(filled) time of limit order
+ * - {long} lastId The id of the last data item from the previous batch，defaults to obtaining the latest data
+ * - {int} limit Default20，maximum100
+ * @return {Object} { code, success, data }
+ */
+exports.obtainListOfFilledHfOrders = async function obtainListOfFilledHfOrders({symbol,side,type,startAt,endAt,lastId,limit}) {
+  return await Http().GET('/api/v1/hf/orders/done',{
+    symbol,side,type,startAt,endAt,lastId,limit
+  });
+}
+
+/**
+ * @name detailsOfAsingleHfOrder
+ * @description Details of a Single HF Order
+ * @param {Object}
+ * - {String} orderId Path parameter，Order Id unique identifier
+ * - {String} symbol Trading pair, such as ETH-BTC
+ * @return {Object} { code, success, data }
+ */
+
+exports.detailsOfAsingleHfOrder = async function detailsOfAsingleHfOrder({orderId,symbol}) {
+  return await Http().GET(`/api/v1/hf/orders/${orderId}`,{
+    orderId,symbol
+  });
+}
+
+/**
+ * @name obtainDetailsOfASingleHfOrder
+ * @description Obtain details of a single HF order using clientOid
+ * @param {Object}
+ * - {String} clientOid Path parameter，an identifier created by the client
+ * - {String} symbol Trading pair such as ETH-BTC
+ * @return {Object} { code, success, data }
+ */
+
+exports.obtainDetailsOfASingleHfOrder = async function obtainDetailsOfASingleHfOrder({clientOid,symbol}) {
+  return await Http().GET(`/api/v1/hf/orders/client-order/${clientOid}`,{
+    clientOid,symbol
+  });
+}
+
+
+/**
+ * @name hfAutoCancelSetting
+ * @description HF auto cancel setting
+ * @param {Object}
+ * - {Int} timeout Auto cancel order trigger setting time, the unit is second. range: timeout=-1 (meaning unset) or 5 <= timeout <= 86400. For example, timeout=5 means that the order will be automatically canceled if no user request is received for more than 5 seconds. When this parameter is changed, the previous setting will be overwritten.
+ * - {String} symbols List of trading pairs. When this parameter is not empty, separate it with commas and support up to 50 trading pairs. Empty means all trading pairs. When this parameter is changed, the previous setting will be overwritten.
+ * @return {Object} { code, success, data }
+ */
+exports.hfAutoCancelSetting = async function hfAutoCancelSetting({ timeout,symbols}) {
+  return await Http().POST('/api/v1/hf/orders/dead-cancel-all',{
+    timeout,symbols
+  });
+}
+
+/**
+ * @name queryHfAutoCancelOrderSetting
+ * @description HF auto cancel order setting query
+ * @return {Object} { code, success, data }
+ */
+exports.queryHfAutoCancelOrderSetting = async function queryHfAutoCancelOrderSetting() {
+  return await Http().GET('/api/v1/hf/orders/dead-cancel-all/query');
+}

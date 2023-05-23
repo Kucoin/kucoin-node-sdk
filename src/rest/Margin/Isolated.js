@@ -13,7 +13,8 @@ exports.queryIsolatedMarginTradingPairConfiguration = async function queryIsolat
 /**
  * @name queryIsolatedMarginAccountInfo
  * @description Query Isolated Margin Account Info
- * @param {string} balanceCurrency - [Optional] The pricing coin, currently only supports USDT, KCS, and BTC. Defaults to BTC if no value is passed.
+ * @param {Object}
+ * - {string} balanceCurrency - [Optional] The pricing coin, currently only supports USDT, KCS, and BTC. Defaults to BTC if no value is passed.
  * @return {Object} { code, success, data }
  */
 exports.queryIsolatedMarginAccountInfo = async function queryIsolatedMarginAccountInfo({balanceCurrency}) {
@@ -23,7 +24,8 @@ exports.queryIsolatedMarginAccountInfo = async function queryIsolatedMarginAccou
 /**
  * @name querySingleIsolatedMarginAccountInfo
  * @description Query Single Isolated Margin Account Info
- * @param {string} symbol - Trading pair, e.g.: BTC-USDT
+ * @param {Object}
+ * - {string} symbol - Trading pair, e.g.: BTC-USDT
  * @return {Object} { code, success, data }
  */
 exports.querySingleIsolatedMarginAccountInfo = async function querySingleIsolatedMarginAccountInfo({symbol}) {
@@ -33,12 +35,13 @@ exports.querySingleIsolatedMarginAccountInfo = async function querySingleIsolate
 /**
  * @name isolatedMarginBorrowing
  * @description Isolated Margin Borrowing
- * @param {string} symbol - Trading pair, e.g.: BTC-USDT
- * @param {string} currency - Borrowed coin type
- * @param {BigDecimal} size - Borrowed amount
- * @param {string} borrowStrategy - Borrowing strategy: FOK, IOC
- * @param {BigDecimal} maxRate - [Optional] Max interest rate, defaults to all interest rates if left blank
- * @param {string} period - [Optional] The term in days. Defaults to all terms if left blank. 7,14,28
+ * @param {Object}
+ * - {string} symbol - Trading pair, e.g.: BTC-USDT
+ * - {string} currency - Borrowed coin type
+ * - {BigDecimal} size - Borrowed amount
+ * - {string} borrowStrategy - Borrowing strategy: FOK, IOC
+ * - {BigDecimal} maxRate - [Optional] Max interest rate, defaults to all interest rates if left blank
+ * - {string} period - [Optional] The term in days. Defaults to all terms if left blank. 7,14,28
  * @return {Object} { code, success, data }
  */
 exports.isolatedMarginBorrowing = async function isolatedMarginBorrowing({symbol,currency,size,borrowStrategy,maxRate,period}) {
@@ -48,10 +51,11 @@ exports.isolatedMarginBorrowing = async function isolatedMarginBorrowing({symbol
 /**
  * @name queryOutstandingRepaymentRecords
  * @description Query Outstanding Repayment Records
- * @param {string} symbol - [Optional] Trading pair, e.g.: BTC-USDT
- * @param {string} currency - [Optional] Coin type
- * @param {Int} pageSize - [Optional] Page size [10-50]
- * @param {Int} currentPage - [Optional] Current page number [1-100]
+ * @param {Object}
+ * - {string} symbol - [Optional] Trading pair, e.g.: BTC-USDT
+ * - {string} currency - [Optional] Coin type
+ * - {Int} pageSize - [Optional] Page size [10-50]
+ * - {Int} currentPage - [Optional] Current page number [1-100]
  * @return {Object} { code, success, data }
  */
 exports.queryOutstandingRepaymentRecords = async function queryOutstandingRepaymentRecords({symbol,currency,pageSize,currentPage}) {
@@ -62,10 +66,11 @@ exports.queryOutstandingRepaymentRecords = async function queryOutstandingRepaym
 /**
  * @name queryRepaymentRecords
  * @description Query Repayment Records
- * @param {string} symbol - [Optional] Trading pair, e.g.: BTC-USDT
- * @param {string} currency - [Optional] Coin type
- * @param {Int} pageSize - [Optional] Page size [10-50]
- * @param {Int} currentPage - [Optional] Current page number [1-100]
+ * @param {Object}
+ * - {string} symbol - [Optional] Trading pair, e.g.: BTC-USDT
+ * - {string} currency - [Optional] Coin type
+ * - {Int} pageSize - [Optional] Page size [10-50]
+ * - {Int} currentPage - [Optional] Current page number [1-100]
  * @return {Object} { code, success, data }
  */
 exports.queryRepaymentRecords = async function queryRepaymentRecords({symbol,currency,pageSize,currentPage}) {
@@ -75,10 +80,11 @@ exports.queryRepaymentRecords = async function queryRepaymentRecords({symbol,cur
 /**
  * @name quickRepayment
  * @description Quick Repayment
- * @param {string} symbol - [Optional] Trading pair, e.g.: BTC-USDT
- * @param {string} currency - [Optional] Coin type
- * @param {BigDecimal} size Repayment amount
- * @param {string} seqStrategy - Repayment sequence strategy, RECENTLY_EXPIRE_FIRST: Maturity date priority (the loan with the closest maturity is repaid first), HIGHEST_RATE_FIRST: Interest rate priority (the loan with the highest interest rate is repaid first)
+ * @param {Object}
+ * - {string} symbol - [Optional] Trading pair, e.g.: BTC-USDT
+ * - {string} currency - [Optional] Coin type
+ * - {BigDecimal} size Repayment amount
+ * - {string} seqStrategy - Repayment sequence strategy, RECENTLY_EXPIRE_FIRST: Maturity date priority (the loan with the closest maturity is repaid first), HIGHEST_RATE_FIRST: Interest rate priority (the loan with the highest interest rate is repaid first)
  * @return {Object} { code, success, data }
  */
 exports.quickRepayment = async function quickRepayment({symbol,currency,size,seqStrategy} ) {
@@ -88,10 +94,11 @@ exports.quickRepayment = async function quickRepayment({symbol,currency,size,seq
 /**
  * @name singleRepayment
  * @description Single Repayment
- * @param {string} symbol - [Optional] Trading pair, e.g.: BTC-USDT
- * @param {string} currency - [Optional] Coin type
- * @param {BigDecimal} size Repayment amount
- * @param {string} loanId- Trade order number; when this field is configured, the sequence strategy is invalidated
+ * @param {Object}
+ * - {string} symbol - [Optional] Trading pair, e.g.: BTC-USDT
+ * - {string} currency - [Optional] Coin type
+ * - {BigDecimal} size Repayment amount
+ * - {string} loanId- Trade order number; when this field is configured, the sequence strategy is invalidated
  * @return {Object} { code, success, data }
  */
 exports.singleRepayment = async function singleRepayment({symbol,currency,size,loanId}) {

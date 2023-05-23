@@ -193,7 +193,8 @@ exports.cancelSingleOrderByClientOid = async function cancelSingleOrderByClientO
 /**
  * @name getSingleStopOrderInfo
  * @description Get Single Order Info
- * @param {String} orderId Order ID
+ * @param {Object}
+ * - {String} orderId Order ID
  * @return {Object} { code, success, data }
  */
 exports.getSingleStopOrderInfo = async function getSingleStopOrderInfo({orderId}) {
