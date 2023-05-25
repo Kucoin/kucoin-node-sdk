@@ -4,6 +4,7 @@ const Http = require('../../lib/http');
 /**
  * @name getSubUsers
  * @description Get User Info of all Sub-Accounts.
+ * @updateTime 17/02/23 add its response value (uid、access)
  * @return {Object} { code, success, data }
  */
 exports.getSubUsers = async function getSubUsers() {

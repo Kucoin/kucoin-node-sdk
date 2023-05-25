@@ -4,6 +4,7 @@ const Http = require('../../lib/http');
 /**
  * @name getWithdrawalsList
  * @description Get Withdrawals List.
+ * @updateTime 11/01/22
  * @param {Object}
  *  - {string} currency - [Optional] Currency
  *  - {string} status - [Optional] Status. Available value: PROCESSING, WALLET_PROCESSING, SUCCESS, and FAILURE
@@ -141,6 +142,7 @@ exports.getWithdrawalQuotas = async function getWithdrawalQuotas(currency, {
 /**
  * @name applyWithdraw
  * @description Apply Withdraw.
+ * @updateTime 08/03/22
  * @param {string} currency - Currency
  * @param {string} address - Withdrawal address
  * @param {number} amount - Withdrawal amount, a positive number which is a multiple of the amount precision (fees excluded)

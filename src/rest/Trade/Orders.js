@@ -241,6 +241,7 @@ exports.getOrdersList = async function getOrdersList(tradeType, optional = {}) {
 /**
  * @name getV1HistoricalOrdersList
  * @description Get V1 Historical Orders List
+ * @updateTime 01/25/22
  * @param params
  *   - {number} currentPage - [Optional] The current page.
  *   - {number} pageSize - [Optional] Number of entries per page.
@@ -429,6 +430,7 @@ exports.getSingleActiveOrderByClientOid = async function getSingleActiveOrderByC
 /**
  * @name placeHfOrder
  * @description Place hf order
+ * @updateTime 02/03/23
  * @param {Object}
  * - {String} clientOid Client Order Id，unique identifier created by the user, the use of UUID is recommended
  * - {String} symbol Trading pair, such as, ETH-BTC
@@ -448,6 +450,7 @@ exports.placeHfOrder = async function placeHfOrder({clientOid,symbol,type,side,s
 /**
  * @name syncPlaceHfOrder
  * @description Sync place hf order
+ * @updateTime 02/03/23
  * @param {Object}
  * - {String} clientOid Client Order Id，unique identifier created by the user, the use of UUID is recommended
  * - {String} symbol Trading pair, such as, ETH-BTC
@@ -467,6 +470,7 @@ exports.syncPlaceHfOrder = async function syncPlaceHfOrder({clientOid,symbol,typ
 /**
  * @name placeMultipleHfOrders
  * @description Place multiple hf orders
+ * @updateTime 02/03/23
  * @param {Object}
  * - {String} clientOid Client Order Id，a unique identifier created by the user，the use of UUID is recommended
  * - {String} symbol trading pairs such as，ETH-BTC
@@ -494,6 +498,7 @@ exports.placeMultipleHfOrders = async function placeMultipleHfOrders({clientOid,
 /**
  * @name syncPlaceMultipleHfOrders
  * @description Sync place multiple hf orders
+ * @updateTime 02/03/23
  * @param {Object}
  * - {String} clientOid Client Order Id，a unique identifier created by the user，the use of UUID is recommended
  * - {String} symbol trading pairs such as，ETH-BTC
@@ -521,6 +526,7 @@ exports.syncPlaceMultipleHfOrders = async function syncPlaceMultipleHfOrders({cl
 /**
  * @name modifyOrder
  * @description Modify order
+ * @updateTime 02/03/23
  * @param {Object}
  * - {String} symbol trading pairs such as，ETH-BTC
  * - {String} clientOid Client Order Id，a unique identifier created by the user，the use of UUID is recommended
@@ -539,6 +545,7 @@ exports.modifyOrder = async function modifyOrder({symbol,clientOid,orderId,newPr
 /**
  * @name cancelOrdersByOrderId
  * @description Cancel orders by orderId
+ * @updateTime 02/03/23
  * @param {Object}
  * - {String} orderId Path parameter，Order Id unique identifier
  * - {String} symbol Trading pair, such as ETH-BTC
@@ -553,6 +560,7 @@ exports.cancelOrdersByOrderId = async function cancelOrdersByOrderId({orderId,sy
 /**
  * @name syncCancelOrdersByOrderId
  * @description Sync cancel orders by orderId
+ * @updateTime 02/03/23
  * @param {Object}
  * - {String} orderId Path parameter，Order Id unique identifier
  * - {String} symbol Trading pair, such as ETH-BTC
@@ -567,6 +575,7 @@ exports.syncCancelOrdersByOrderId = async function syncCancelOrdersByOrderId({or
 /**
  * @name cancelOrderByClientOid
  * @description Cancel order by clientOid
+ * @updateTime 02/03/23
  * @param {Object}
  * - {String} clientOid Path parameter，an identifier created by the
  * - {String} symbol Trading pair such as ETH-BTC
@@ -582,6 +591,7 @@ exports.cancelOrderByClientOid = async function cancelOrderByClientOid({clientOi
 /**
  * @name syncCancelOrdersByClientOid
  * @description Sync cancel orders by clientOid
+ * @updateTime 02/03/23
  * @param {Object}
  * - {String} clientOid Path parameter，an identifier created by the
  * - {String} symbol Trading pair such as ETH-BTC
@@ -597,6 +607,7 @@ exports.syncCancelOrdersByClientOid = async function syncCancelOrdersByClientOid
 /**
  * @name cancelSpecifiedNumberOfOrdersByOrderId
  * @description Cancel specified number of orders by orderId
+ * @updateTime 02/03/23
  * @param {Object}
  * - {String} orderId Order id of the cancelled order
  * - {String} symbol Trading pair such as ETH-BTC
@@ -612,6 +623,7 @@ exports.cancelSpecifiedNumberOfOrdersByOrderId = async function cancelSpecifiedN
 /**
  * @name cancelAllHfOrdersBySymbol
  * @description Cancel all HF orders by symbol
+ * @updateTime 02/03/23
  * @param {Object}
  * - {String} symbol Cancel open orders pertaining to the specified trading pair
  * @return {Object} { code, success, data }
@@ -626,6 +638,7 @@ exports.cancelAllHfOrdersBySymbol = async function cancelAllHfOrdersBySymbol({sy
 /**
  * @name obtainListOfActiveHfOrders
  * @description Obtain List of Active HF Orders
+ * @updateTime 02/03/23
  * @param {Object}
  * - {String} symbol Only returns order information for the specified trading pair
  * @return {Object} { code, success, data }
@@ -640,6 +653,7 @@ exports.obtainListOfActiveHfOrders = async function obtainListOfActiveHfOrders({
 /**
  * @name obtainListOfSymbolWithActiveHfOrders
  * @description Obtain List of symbol with active HF orders
+ * @updateTime 02/03/23
  * @return {Object} { code, success, data }
  */
 
@@ -650,6 +664,7 @@ exports.obtainListOfSymbolWithActiveHfOrders = async function obtainListOfSymbol
 /**
  * @name obtainListOfFilledHfOrders
  * @description Obtain List of Filled HF Orders
+ * @updateTime 02/03/23
  * @param {Object}
  * - {String} symbol Only returns order information for the specified trading pair
  * - {String} side buy (Buy) orsell (Sell)
@@ -669,6 +684,7 @@ exports.obtainListOfFilledHfOrders = async function obtainListOfFilledHfOrders({
 /**
  * @name detailsOfAsingleHfOrder
  * @description Details of a Single HF Order
+ * @updateTime 02/03/23
  * @param {Object}
  * - {String} orderId Path parameter，Order Id unique identifier
  * - {String} symbol Trading pair, such as ETH-BTC
@@ -684,6 +700,7 @@ exports.detailsOfAsingleHfOrder = async function detailsOfAsingleHfOrder({orderI
 /**
  * @name obtainDetailsOfASingleHfOrder
  * @description Obtain details of a single HF order using clientOid
+ * @updateTime 02/03/23
  * @param {Object}
  * - {String} clientOid Path parameter，an identifier created by the client
  * - {String} symbol Trading pair such as ETH-BTC
@@ -700,6 +717,7 @@ exports.obtainDetailsOfASingleHfOrder = async function obtainDetailsOfASingleHfO
 /**
  * @name hfAutoCancelSetting
  * @description HF auto cancel setting
+ * @updateTime 02/03/23
  * @param {Object}
  * - {Int} timeout Auto cancel order trigger setting time, the unit is second. range: timeout=-1 (meaning unset) or 5 <= timeout <= 86400. For example, timeout=5 means that the order will be automatically canceled if no user request is received for more than 5 seconds. When this parameter is changed, the previous setting will be overwritten.
  * - {String} symbols List of trading pairs. When this parameter is not empty, separate it with commas and support up to 50 trading pairs. Empty means all trading pairs. When this parameter is changed, the previous setting will be overwritten.
@@ -714,6 +732,7 @@ exports.hfAutoCancelSetting = async function hfAutoCancelSetting({ timeout,symbo
 /**
  * @name queryHfAutoCancelOrderSetting
  * @description HF auto cancel order setting query
+ * @updateTime 02/03/23
  * @return {Object} { code, success, data }
  */
 exports.queryHfAutoCancelOrderSetting = async function queryHfAutoCancelOrderSetting() {

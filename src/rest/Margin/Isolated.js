@@ -4,6 +4,7 @@ const Http = require('../../lib/http');
 /**
  * @name queryIsolatedMarginTradingPairConfiguration
  * @description Query Isolated Margin Trading Pair Configuration
+ * @updateTime 07/05/22
  * @return {Object} { code, success, data }
  */
 exports.queryIsolatedMarginTradingPairConfiguration = async function queryIsolatedMarginTradingPairConfiguration() {
@@ -13,6 +14,7 @@ exports.queryIsolatedMarginTradingPairConfiguration = async function queryIsolat
 /**
  * @name queryIsolatedMarginAccountInfo
  * @description Query Isolated Margin Account Info
+ * @updateTime 07/05/22
  * @param {Object}
  * - {string} balanceCurrency - [Optional] The pricing coin, currently only supports USDT, KCS, and BTC. Defaults to BTC if no value is passed.
  * @return {Object} { code, success, data }
@@ -24,6 +26,7 @@ exports.queryIsolatedMarginAccountInfo = async function queryIsolatedMarginAccou
 /**
  * @name querySingleIsolatedMarginAccountInfo
  * @description Query Single Isolated Margin Account Info
+ * @updateTime 07/05/22
  * @param {Object}
  * - {string} symbol - Trading pair, e.g.: BTC-USDT
  * @return {Object} { code, success, data }
@@ -35,6 +38,7 @@ exports.querySingleIsolatedMarginAccountInfo = async function querySingleIsolate
 /**
  * @name isolatedMarginBorrowing
  * @description Isolated Margin Borrowing
+ * @updateTime 07/05/22
  * @param {Object}
  * - {string} symbol - Trading pair, e.g.: BTC-USDT
  * - {string} currency - Borrowed coin type
@@ -51,6 +55,7 @@ exports.isolatedMarginBorrowing = async function isolatedMarginBorrowing({symbol
 /**
  * @name queryOutstandingRepaymentRecords
  * @description Query Outstanding Repayment Records
+ * @updateTime 07/05/22
  * @param {Object}
  * - {string} symbol - [Optional] Trading pair, e.g.: BTC-USDT
  * - {string} currency - [Optional] Coin type
@@ -66,6 +71,7 @@ exports.queryOutstandingRepaymentRecords = async function queryOutstandingRepaym
 /**
  * @name queryRepaymentRecords
  * @description Query Repayment Records
+ * @updateTime 07/05/22
  * @param {Object}
  * - {string} symbol - [Optional] Trading pair, e.g.: BTC-USDT
  * - {string} currency - [Optional] Coin type
@@ -80,6 +86,7 @@ exports.queryRepaymentRecords = async function queryRepaymentRecords({symbol,cur
 /**
  * @name quickRepayment
  * @description Quick Repayment
+ * @updateTime 07/05/22
  * @param {Object}
  * - {string} symbol - [Optional] Trading pair, e.g.: BTC-USDT
  * - {string} currency - [Optional] Coin type
@@ -94,6 +101,7 @@ exports.quickRepayment = async function quickRepayment({symbol,currency,size,seq
 /**
  * @name singleRepayment
  * @description Single Repayment
+ * @updateTime 07/05/22
  * @param {Object}
  * - {string} symbol - [Optional] Trading pair, e.g.: BTC-USDT
  * - {string} currency - [Optional] Coin type

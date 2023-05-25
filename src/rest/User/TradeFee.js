@@ -4,6 +4,7 @@ const Http = require('../../lib/http');
 /**
  * @name getBasicUserFee
  * @description This interface is for the basic fee rate of users.
+ * @updateTime 08/03/22
  * @return {Object} { code, success, data }
  */
 exports.getBasicUserFee = async function getBasicUserFee() {

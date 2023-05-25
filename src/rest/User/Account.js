@@ -4,6 +4,7 @@ const Http = require('../../lib/http');
 /**
  * @name createAccount
  * @description Create an Account.
+ * @updateTime 11/08/22
  * @param {string} type - Account type: main, trade, margin
  * @param {string} currency - currency https://sandbox-docs.kucoin.com/#get-currencies
  * @return {Object} { code, success, data }
@@ -303,6 +304,7 @@ exports.getAggregatedBalanceOfAllSubAccounts = async function getAggregatedBalan
 /**
  * @name getTransferable
  * @description Get the Transferable.
+ * @updateTime 07/05/22
  * @param {string} type - The account type: MAIN, TRADE, MARGIN or POOL
  * @param {string} currency - currency https://sandbox-docs.kucoin.com/#Get-Currencies
  * @return {Object} { code, success, data }
@@ -372,6 +374,7 @@ exports.transferBetweenMasterUserAndSubUser = async function transferBetweenMast
 /**
  * @name innerTransfer
  * @description Inner Transfer
+ * @updateTime 07/05/22
  * @param {string} clientOid - Unique order id created by users to identify their orders, e.g. UUID.
  * @param {string} currency - currency https://sandbox-docs.kucoin.com/#Get-Currencies
  * @param {string} from - Account type of payer: main, trade, margin or pool
@@ -408,6 +411,7 @@ exports.innerTransfer = async function innerTransfer(
 /**
  * @name getAccountSummaryInfo
  * @description Get Account Summary Info(V2)
+ * @updateTime 08/04/23
  * @return {Object} { code, success, data }
  */
 exports.getAccountSummaryInfo = async function getAccountSummaryInfo() {
@@ -417,6 +421,7 @@ exports.getAccountSummaryInfo = async function getAccountSummaryInfo() {
 /**
  * @name createSubAccount
  * @description Create Sub-Account(V2)
+ * @updateTime 08/04/23
  * @param {Object}
  * - {String} password Password(7-24 characters, must contain letters and numbers, cannot only contain numbers or include special characters)
  * - {String} remarks [Optional] Remarks(1~24 characters)
@@ -433,6 +438,7 @@ exports.createSubAccount = async function createSubAccount({password,remarks,sub
 /**
  * @name getSubAccountSpotApiList
  * @description Get Sub-Account Spot API List
+ * @updateTime 08/24/22
  * @param {Object}
  * - {String} apiKey [Optional] API-Key.
  * - {String} subName Sub-account name.
@@ -447,6 +453,7 @@ exports.getSubAccountSpotApiList = async function getSubAccountSpotApiList({apiK
 /**
  * @name createSpotAPIsForSubAccount
  * @description Create Spot APIs for Sub-Account
+ * @updateTime 08/24/22
  * @param {Object}
  * - {String} subName Sub-account name, create sub account name of API Key.
  * - {String} passphrase Password(Must contain 7-32 characters. Cannot contain any spaces.)
@@ -465,6 +472,7 @@ exports.createSpotAPIsForSubAccount = async function createSpotAPIsForSubAccount
 /**
  * @name updateSubAccountSpotApis
  * @description Modify Sub-Account Spot APIs
+ * @updateTime 08/24/22
  * @param {Object}
  * - {String} subName Sub-account name, create sub account name of API Key.
  * - {String} apiKey API-Key(Sub-account APIKey)
@@ -483,6 +491,7 @@ exports.updateSubAccountSpotApis = async function updateSubAccountSpotApis({subN
 /**
  * @name deleteSubAccountSpotApis
  * @description Delete Sub-Account Spot APIs
+ * @updateTime 09/22/22
  * @param {Object}
  * - {String} apiKey API-Key(API key to be deleted)
  * - {String} passphrase Password(Password of the API key)

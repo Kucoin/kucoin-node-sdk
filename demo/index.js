@@ -23,6 +23,7 @@ const main = async () => {
   /**
  * @name getAccountSummaryInfo
  * @description Get Account Summary Info(V2)
+ * @updateTime 08/04/23
  * @return {Object} { code, success, data }
  */
   const getAccountSummaryInfoResult = await API.rest.User.Account.getAccountSummaryInfo();
@@ -31,6 +32,7 @@ const main = async () => {
   /**
  * @name createSubAccount
  * @description Create Sub-Account(V2)
+ * @updateTime 08/04/23
  * @param {Object}
  * - {String} password Password(7-24 characters, must contain letters and numbers, cannot only contain numbers or include special characters)
  * - {String} remarks [Optional] Remarks(1~24 characters)
@@ -44,6 +46,7 @@ const main = async () => {
   /**
  * @name getSubAccountSpotApiList
  * @description Get Sub-Account Spot API List
+ * @updateTime 08/24/22
  * @param {Object}
  * - {String} apiKey [Optional] API-Key.
  * - {String} subName Sub-account name.
@@ -55,6 +58,7 @@ const main = async () => {
   /**
  * @name createSpotAPIsForSubAccount
  * @description Create Spot APIs for Sub-Account
+ * @updateTime 08/24/22
  * @param {Object}
  * - {String} subName Sub-account name, create sub account name of API Key.
  * - {String} passphrase Password(Must contain 7-32 characters. Cannot contain any spaces.)
@@ -71,6 +75,7 @@ const main = async () => {
 /**
  * @name updateSubAccountSpotApis
  * @description Modify Sub-Account Spot APIs
+ * @updateTime 08/24/22
  * @param {Object}
  * - {String} subName Sub-account name, create sub account name of API Key.
  * - {String} apiKey API-Key(Sub-account APIKey)
@@ -86,6 +91,7 @@ const main = async () => {
   /**
  * @name deleteSubAccountSpotApis
  * @description Delete Sub-Account Spot APIs
+ * @updateTime 09/22/22
  * @param {Object}
  * - {String} apiKey API-Key(API key to be deleted)
  * - {String} passphrase Password(Password of the API key)
@@ -180,6 +186,7 @@ console.log(transferToHFAccountResult ,"transferToHFAccountResult---");
 /**
  * @name queryIsolatedMarginAccountInfo
  * @description Query Isolated Margin Account Info
+ * @updateTime 07/05/22
  * @param {Object}
  * - {string} balanceCurrency - [Optional] The pricing coin, currently only supports USDT, KCS, and BTC. Defaults to BTC if no value is passed.
  * @return {Object} { code, success, data }
@@ -190,6 +197,7 @@ console.log(queryIsolatedMarginAccountInfoResult ,"queryIsolatedMarginAccountInf
 /**
  * @name querySingleIsolatedMarginAccountInfo
  * @description Query Single Isolated Margin Account Info
+ * @updateTime 07/05/22
  * @param {Object}
  * - {string} symbol - Trading pair, e.g.: BTC-USDT
  * @return {Object} { code, success, data }
@@ -215,6 +223,7 @@ console.log(isolatedMarginBorrowingResult ,"isolatedMarginBorrowingResult---");
 /**
  * @name queryOutstandingRepaymentRecords
  * @description Query Outstanding Repayment Records
+ * @updateTime 07/05/22
  * @param {Object}
  * - {string} symbol - [Optional] Trading pair, e.g.: BTC-USDT
  * - {string} currency - [Optional] Coin type
@@ -228,6 +237,7 @@ console.log(queryOutstandingRepaymentRecordsResult ,"queryOutstandingRepaymentRe
 /**
  * @name queryRepaymentRecords
  * @description Query Repayment Records
+ * @updateTime 07/05/22
  * @param {Object}
  * - {string} symbol - [Optional] Trading pair, e.g.: BTC-USDT
  * - {string} currency - [Optional] Coin type
@@ -241,6 +251,7 @@ console.log(queryRepaymentRecordsResult ,"queryRepaymentRecordsResult---");
 /**
  * @name quickRepayment
  * @description Quick Repayment
+ * @updateTime 07/05/22
  * @param {Object}
  * - {string} symbol - [Optional] Trading pair, e.g.: BTC-USDT
  * - {string} currency - [Optional] Coin type
@@ -254,6 +265,7 @@ console.log(quickRepaymentResult ,"quickRepaymentResult---");
 /**
  * @name singleRepayment
  * @description Single Repayment
+ * @updateTime 07/05/22
  * @param {Object}
  * - {string} symbol - [Optional] Trading pair, e.g.: BTC-USDT
  * - {string} currency - [Optional] Coin type
@@ -270,6 +282,7 @@ console.log(singleRepaymentResult ,"singleRepaymentResult---");
 /**
  * @name innerTransfer
  * @description Inner Transfer
+ * @updateTime 07/05/22
  * @param {string} clientOid - Unique order id created by users to identify their orders, e.g. UUID.
  * @param {string} currency - currency https://sandbox-docs.kucoin.com/#Get-Currencies
  * @param {string} from - Account type of payer: main, trade, margin or pool
@@ -304,6 +317,7 @@ console.log(getAccountInformationResult ,"getAccountInformationResult---");
 /**
  * @name getTransferable
  * @description Get the Transferable.
+ * @updateTime 07/05/22
  * @param {string} type - The account type: MAIN, TRADE, MARGIN or POOL
  * @param {string} currency - currency https://sandbox-docs.kucoin.com/#Get-Currencies
  * @return {Object} { code, success, data }
@@ -340,6 +354,7 @@ console.log(getHighFrequencyAccountLedgerResult ,"getHighFrequencyAccountLedgerR
 /**
  * @name getHfTransactionRecords
  * @description HF transaction records
+ * @updateTime 02/03/23
  * @param {Object}
  * - {string} orderId Look up the transaction details pertaining to the order id（IforderId is specified，please ignore the other query parameters）
  * - {string} symbol Only returns order information for the specified trading pair
@@ -366,6 +381,7 @@ console.log(getHfTransactionRecordsResult ,"getHfTransactionRecordsResult---");
 /**
  * @name placeHfOrder
  * @description Place hf order
+ * @updateTime 02/03/23
  * @param {Object}
  * - {String} clientOid Client Order Id，unique identifier created by the user, the use of UUID is recommended
  * - {String} symbol Trading pair, such as, ETH-BTC
@@ -389,6 +405,7 @@ console.log(placeHfOrderResult ,"placeHfOrderResult---");
 /**
  * @name syncPlaceHfOrder
  * @description Sync place hf order
+ * @updateTime 02/03/23
  * @param {Object}
  * - {String} clientOid Client Order Id，unique identifier created by the user, the use of UUID is recommended
  * - {String} symbol Trading pair, such as, ETH-BTC
@@ -413,6 +430,7 @@ console.log(syncPlaceHfOrderResult ,"syncPlaceHfOrderResult---");
 /**
  * @name placeMultipleHfOrders
  * @description Place multiple hf orders
+ * @updateTime 02/03/23
  * @param {Object}
  * - {String} clientOid Client Order Id，a unique identifier created by the user，the use of UUID is recommended
  * - {String} symbol trading pairs such as，ETH-BTC
@@ -454,6 +472,7 @@ console.log(placeMultipleHfOrdersResult ,"placeMultipleHfOrdersResult---");
 /**
  * @name syncPlaceMultipleHfOrders
  * @description Sync place multiple hf orders
+ * @updateTime 02/03/23
  * @param {Object}
  * - {String} clientOid Client Order Id，a unique identifier created by the user，the use of UUID is recommended
  * - {String} symbol trading pairs such as，ETH-BTC
@@ -494,6 +513,7 @@ console.log(syncPlaceMultipleHfOrdersResult ,"syncPlaceMultipleHfOrdersResult---
 /**
  * @name modifyOrder
  * @description Modify order
+ * @updateTime 02/03/23
  * @param {Object}
  * - {String} symbol trading pairs such as，ETH-BTC
  * - {String} clientOid Client Order Id，a unique identifier created by the user，the use of UUID is recommended
@@ -515,6 +535,7 @@ console.log(modifyOrderResult ,"modifyOrderResult---");
 /**
  * @name cancelOrdersByOrderId
  * @description Cancel orders by orderId
+ * @updateTime 02/03/23
  * @param {Object}
  * - {String} orderId Path parameter，Order Id unique identifier
  * - {String} symbol Trading pair, such as ETH-BTC
@@ -529,6 +550,7 @@ console.log(cancelOrdersByOrderIdResult ,"cancelOrdersByOrderIdResult---");
 /**
  * @name syncCancelOrdersByOrderId
  * @description Sync cancel orders by orderId
+ * @updateTime 02/03/23
  * @param {Object}
  * - {String} orderId Path parameter，Order Id unique identifier
  * - {String} symbol Trading pair, such as ETH-BTC
@@ -543,6 +565,7 @@ console.log(syncCancelOrdersByOrderIdResult ,"syncCancelOrdersByOrderIdResult---
 /**
  * @name cancelOrderByClientOid
  * @description Cancel order by clientOid
+ * @updateTime 02/03/23
  * @param {Object}
  * - {String} clientOid Path parameter，an identifier created by the
  * - {String} symbol Trading pair such as ETH-BTC
@@ -556,6 +579,7 @@ console.log(cancelOrderByClientOidResult ,"cancelOrderByClientOidResult---");
 /**
  * @name syncCancelOrdersByClientOid
  * @description Sync cancel orders by clientOid
+ * @updateTime 02/03/23
  * @param {Object}
  * - {String} clientOid Path parameter，an identifier created by the
  * - {String} symbol Trading pair such as ETH-BTC
@@ -571,6 +595,7 @@ console.log(syncCancelOrdersByClientOidResult ,"syncCancelOrdersByClientOidResul
 /**
  * @name cancelSpecifiedNumberOfOrdersByOrderId
  * @description Cancel specified number of orders by orderId
+ * @updateTime 02/03/23
  * @param {Object}
  * - {String} orderId Order id of the cancelled order
  * - {String} symbol Trading pair such as ETH-BTC
@@ -588,6 +613,7 @@ console.log(cancelSpecifiedNumberOfOrdersByOrderIdResult ,"cancelSpecifiedNumber
 /**
  * @name cancelAllHfOrdersBySymbol
  * @description Cancel all HF orders by symbol
+ * @updateTime 02/03/23
  * @param {Object}
  * - {String} symbol Cancel open orders pertaining to the specified trading pair
  * @return {Object} { code, success, data }
@@ -600,6 +626,7 @@ console.log(cancelAllHfOrdersBySymbolResult ,"cancelAllHfOrdersBySymbolResult---
 /**
  * @name obtainListOfActiveHfOrders
  * @description Obtain List of Active HF Orders
+ * @updateTime 02/03/23
  * @param {Object}
  * - {String} symbol Only returns order information for the specified trading pair
  * @return {Object} { code, success, data }
@@ -612,6 +639,7 @@ console.log(obtainListOfActiveHfOrdersResult ,"obtainListOfActiveHfOrdersResult-
 /**
  * @name obtainListOfSymbolWithActiveHfOrders
  * @description Obtain List of symbol with active HF orders
+ * @updateTime 02/03/23
  * @return {Object} { code, success, data }
  */
 
@@ -621,6 +649,7 @@ console.log(obtainListOfSymbolWithActiveHfOrdersResult ,"obtainListOfSymbolWithA
 /**
  * @name obtainListOfFilledHfOrders
  * @description Obtain List of Filled HF Orders
+ * @updateTime 02/03/23
  * @param {Object}
  * - {String} symbol Only returns order information for the specified trading pair
  * - {String} side buy (Buy) orsell (Sell)
@@ -645,6 +674,7 @@ console.log(obtainListOfFilledHfOrdersResult ,"obtainListOfFilledHfOrdersResult-
 /**
  * @name detailsOfAsingleHfOrder
  * @description Details of a Single HF Order
+ * @updateTime 02/03/23
  * @param {Object}
  * - {String} orderId Path parameter，Order Id unique identifier
  * - {String} symbol Trading pair, such as ETH-BTC
@@ -660,6 +690,7 @@ console.log(detailsOfAsingleHfOrderResult ,"detailsOfAsingleHfOrderResult---");
 /**
  * @name obtainDetailsOfASingleHfOrder
  * @description Obtain details of a single HF order using clientOid
+ * @updateTime 02/03/23
  * @param {Object}
  * - {String} clientOid Path parameter，an identifier created by the client
  * - {String} symbol Trading pair such as ETH-BTC
@@ -674,6 +705,7 @@ console.log(obtainDetailsOfASingleHfOrderResult ,"obtainDetailsOfASingleHfOrderR
 /**
  * @name hfAutoCancelSetting
  * @description HF auto cancel setting
+ * @updateTime 02/03/23
  * @param {Object}
  * - {Int} timeout Auto cancel order trigger setting time, the unit is second. range: timeout=-1 (meaning unset) or 5 <= timeout <= 86400. For example, timeout=5 means that the order will be automatically canceled if no user request is received for more than 5 seconds. When this parameter is changed, the previous setting will be overwritten.
  * - {String} symbols List of trading pairs. When this parameter is not empty, separate it with commas and support up to 50 trading pairs. Empty means all trading pairs. When this parameter is changed, the previous setting will be overwritten.
@@ -688,6 +720,7 @@ console.log(hfAutoCancelSettingResult ,"hfAutoCancelSettingResult---");
 /**
  * @name queryHfAutoCancelOrderSetting
  * @description HF auto cancel order setting query
+ * @updateTime 02/03/23
  * @return {Object} { code, success, data }
  */
 

@@ -157,6 +157,7 @@ exports.getMarketList = async function getMarketList() {
 /**
  * @name getSymbolsList
  * @description Get Symbols List
+ * @updateTime 10/20/22
  * @param {Object}
  * - {String} market [Optional] The trading market.
  * @return {Object} { code, success, data }

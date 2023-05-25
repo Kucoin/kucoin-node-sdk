@@ -92,6 +92,7 @@ exports.getRecentFills = async function getRecentFills() {
 /**
  * @name getHfTransactionRecords
  * @description HF transaction records
+ * @updateTime 02/03/23
  * @param {Object}
  * - {string} orderId Look up the transaction details pertaining to the order id（IforderId is specified，please ignore the other query parameters）
  * - {string} symbol Only returns order information for the specified trading pair

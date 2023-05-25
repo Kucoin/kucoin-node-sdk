@@ -79,6 +79,7 @@ exports.getDepositAddress = async function getDepositAddress(currency, { chain }
 /**
  * @name getDepositList
  * @description Get Deposit List.
+ * @updateTime 11/01/22
  * @param {Object}
  *   - {string} currency - [Optional] Currency
  *   - {number} startAt - [Optional] Start time (milisecond)
