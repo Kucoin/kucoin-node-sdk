@@ -33,9 +33,11 @@ const main = async () => {
   console.log(getTimestampRl.data);
 };
 
-/** Run Demo */
-main();
+/** Run Demo for all api */
+DEMO: [demo/index.js](https://github.com/Kucoin/kucoin-node-sdk/blob/master/demo/index.js)
+yarn dev
 ```
+
 
 ### Init Configure
 ```
@@ -59,6 +61,7 @@ Signature is required for this part.
 
 #### Rest/User/UserInfo
 - [x] getSubUsers
+- [x] getPaginatedSubUsers
 #### Rest/User/Account
 - [x] createAccount
 - [x] getAccountsList
@@ -70,6 +73,16 @@ Signature is required for this part.
 - [x] getTransferable
 - [x] transferBetweenMasterUserAndSubUser
 - [x] innerTransfer
+- [x] getAccountSummaryInfo
+- [x] createSubAccount
+- [x] getSubAccountSpotApiList
+- [x] createSpotAPIsForSubAccount
+- [x] updateSubAccountSpotApis
+- [x] deleteSubAccountSpotApis
+- [x] getPaginatedSubAccountInformation
+- [x] transferToHFAccount
+- [x] getHighFrequencyAccountLedger
+
 #### Rest/User/Deposit
 - [x] createDepositAddress
 - [x] getDepositAddressV2
@@ -102,6 +115,24 @@ Signature is required for this part.
 - [x] getRecentOrders
 - [x] getOrderByID
 - [x] getSingleActiveOrderByClientOid
+- [x] placeHfOrder
+- [x] syncPlaceHfOrder
+- [x] placeMultipleHfOrders
+- [x] syncPlaceMultipleHfOrders
+- [x] modifyOrder
+- [x] cancelOrdersByOrderId
+- [x] syncCancelOrdersByOrderId
+- [x] cancelOrderByClientOid
+- [x] syncCancelOrdersByClientOid
+- [x] cancelSpecifiedNumberOfOrdersByOrderId
+- [x] cancelAllHfOrdersBySymbol
+- [x] obtainListOfActiveHfOrders
+- [x] obtainListOfSymbolWithActiveHfOrders
+- [x] obtainListOfFilledHfOrders
+- [x] detailsOfAsingleHfOrder
+- [x] obtainDetailsOfASingleHfOrder
+- [x] hfAutoCancelSetting
+- [x] queryHfAutoCancelOrderSetting
 #### Rest/Trade/StopOrder
 - [x] postStopOrder
 - [x] cancelOrder
@@ -110,9 +141,12 @@ Signature is required for this part.
 - [x] getStopOrderList
 - [x] getOrderByClientOid
 - [x] cancelSingleOrderByClientOid
+- [x] getSingleStopOrderInfo
+- [x] cancelStopOrder
 #### Rest/Trade/Fills
 - [x] getFillsList
 - [x] getRecentFills
+- [x] getHfTransactionRecords
 
 ### Rest/Market
 ```
@@ -124,6 +158,7 @@ Signature is not required for this part
 - [x] getAllTickers
 - [x] get24hrStats
 - [x] getMarketList
+- [x] getSymbolsList
 #### Rest/Market/OrderBook
 - [x] getLevel2_20
 - [x] getLevel2_100
@@ -136,6 +171,7 @@ Signature is not required for this part
 - [x] getCurrencies
 - [x] getCurrencyDetail
 - [x] getFiatPrice
+- [x] getCurrencyDetail
 #### Rest/Margin/MarginInfo
 - [x] getMarkPrice
 - [x] getMarginConfigurationInfo
@@ -159,6 +195,15 @@ Signature is not required for this part
 - [x] getAccountLendRecord
 - [x] getLendingMarketData
 - [x] getMarginFillsTradeData
+#### Rest/Margin/Isolated
+- [x] queryIsolatedMarginTradingPairConfiguration
+- [x] queryIsolatedMarginAccountInfo
+- [x] querySingleIsolatedMarginAccountInfo
+- [x] isolatedMarginBorrowing
+- [x] queryOutstandingRepaymentRecords
+- [x] queryRepaymentRecords
+- [x] quickRepayment
+- [x] singleRepayment
 
 #### Rest/Others
 - [x] getTimestamp
