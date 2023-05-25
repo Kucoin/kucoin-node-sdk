@@ -11,7 +11,7 @@ const constructHttp = () => {
     let _baseUrl = baseUrl;
     if (!_baseUrl) {
       _baseUrl = process.env.PRODUCTION === 'prod'
-        ? 'https://api.kucoin.io'
+        ? 'https://openapi-v2.kucoin.com'
         : 'https://openapi-sandbox.kucoin.io';
     }
     

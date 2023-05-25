@@ -1,5 +1,9 @@
-# kucoin-node-sdk
+# kucoin-node-sdk for KuCoin API
 KuCoin API SDK for Node.js language
+
+The detailed document [https://docs.kucoin.com](https://docs.kucoin.com).
+
+[![Latest Version](https://img.shields.io/github/v/release/Kucoin/kucoin-node-sdk.svg?style=flat-square)(https://github.com/Kucoin/kucoin-node-sdk/releases)
 
 ## Env
 
@@ -17,6 +21,26 @@ npm install kucoin-node-sdk
 yarn add kucoin-node-sdk
 ```
 
+
+## Init Configure
+```
+{
+  baseUrl: '',
+  apiAuth: {
+    key: '', // KC-API-KEY
+    secret: '', // API-Secret
+    passphrase: '', // KC-API-PASSPHRASE
+  },
+  authVersion: 2, // KC-API-KEY-VERSION. Notice: for v2 API-KEY, not required for v1 version.
+}
+```
+You can use `baseUrl` method to change evironment.
+| **Environment** | **BaseUri** |
+| -------- | -------- |
+| *Production* `DEFAULT` | https://openapi-v2.kucoin.com |
+| *Sandbox* | https://openapi-sandbox.kucoin.com |
+
+If you only need to use the public web socket client or REST client public method, you can igonre `withApiKey` method. To customize your own API implementation, you may use the `with*API` method we provided for you.
 
 ## Usage
 
@@ -36,20 +60,6 @@ const main = async () => {
 /** Run Demo for all api */
 DEMO: [demo/index.js](https://github.com/Kucoin/kucoin-node-sdk/blob/master/demo/index.js)
 yarn dev
-```
-
-
-### Init Configure
-```
-{
-  baseUrl: '',
-  apiAuth: {
-    key: '', // KC-API-KEY
-    secret: '', // API-Secret
-    passphrase: '', // KC-API-PASSPHRASE
-  },
-  authVersion: 2, // KC-API-KEY-VERSION. Notice: for v2 API-KEY, not required for v1 version.
-}
 ```
 
 ## API Modules
