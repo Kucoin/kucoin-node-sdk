@@ -4,7 +4,8 @@
   "description": "KuCoin API SDK for Node.js language",
   "main": "src/index.js",
   "scripts": {
-    "dev": "cross-env PRODUCTION=dev nodemon demo/index.js"
+    "dev": "cross-env PRODUCTION=dev nodemon demo/index.js",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
   },
   "repository": {
     "type": "git",
