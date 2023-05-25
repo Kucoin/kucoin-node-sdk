@@ -57,10 +57,14 @@ const main = async () => {
   console.log(getTimestampRl.data);
 };
 
-/** Run Demo for all api */
-DEMO: [demo/index.js](https://github.com/Kucoin/kucoin-node-sdk/blob/master/demo/index.js)
+/** Run Demo for all apis */
 yarn dev
 ```
+
+## Demo SDK for all APIS
+
+DEMO: [demo/index.js](https://github.com/Kucoin/kucoin-node-sdk/blob/master/demo/index.js)
+
 
 ## API Modules
 
