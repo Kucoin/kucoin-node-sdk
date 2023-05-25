@@ -3,7 +3,7 @@ KuCoin API SDK for Node.js language
 
 The detailed document [https://docs.kucoin.com](https://docs.kucoin.com).
 
-[![Latest Version](https://img.shields.io/github/v/release/Kucoin/kucoin-node-sdk.svg?style=flat-square)(https://github.com/Kucoin/kucoin-node-sdk/releases)
+[![Latest Version](https://img.shields.io/github/v/release/Kucoin/kucoin-node-sdk.svg?style=flat-square)](https://github.com/Kucoin/kucoin-node-sdk/releases)
 
 ## Env
 
