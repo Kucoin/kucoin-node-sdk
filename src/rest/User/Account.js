@@ -380,8 +380,8 @@ exports.transferBetweenMasterUserAndSubUser = async function transferBetweenMast
  * @param {string} from - Account type of payer: main, trade, margin or pool
  * @param {string} to - Account type of payee: main, trade, margin or pool
  * @param {string} amount - Transfer amount, the amount is a positive integer multiple of the currency precision.
- * @param {string} fromTag [Optional] Trading pair, required when the payment account type is isolated, e.g.: BTC-USDT
- * @param {string} toTag [Optional] Trading pair, required when the receiving account type is isolated, e.g.: BTC-USDT
+//  * @param {string} fromTag [Optional] Trading pair, required when the payment account type is isolated, e.g.: BTC-USDT
+//  * @param {string} toTag [Optional] Trading pair, required when the receiving account type is isolated, e.g.: BTC-USDT
  * @return {Object} { code, success, data }
  */
 exports.innerTransfer = async function innerTransfer(
@@ -389,9 +389,7 @@ exports.innerTransfer = async function innerTransfer(
   currency,
   from,
   to,
-  amount,
-  fromTag = '',
-  toTag = ''
+  amount
 ) {
   /*
   {
@@ -406,9 +404,7 @@ exports.innerTransfer = async function innerTransfer(
     currency,
     from,
     to,
-    amount,
-    fromTag,
-    toTag
+    amount
   });
 };
 
