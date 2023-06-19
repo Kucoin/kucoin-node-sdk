@@ -5,6 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "dev": "cross-env PRODUCTION=dev nodemon demo/index.js",
+    "dev-ws": "cross-env PRODUCTION=dev nodemon demo/ticker_demo.js",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
   },
   "repository": {

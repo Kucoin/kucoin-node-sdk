@@ -58,7 +58,11 @@ const main = async () => {
 };
 
 /** Run Demo for all apis */
-yarn dev
+REST API: yarn dev
+SW:  yarn dev-ws (you can opt the params for different sw demo in demo,such as follow exp)
+
+"dev-ws": "cross-env PRODUCTION=dev nodemon demo/xxx_demo.js",
+
 ```
 
 ## Demo SDK for all APIS
