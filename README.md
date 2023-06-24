@@ -244,6 +244,12 @@ DEMO: [demo/level2_demo.js](https://github.com/Kucoin/kucoin-node-sdk/blob/maste
 
 ### API.websocket.Level3
 
+### test exp
+```
+yarn test
+
+```
+
 // TODO
 
 ## LICENSE

@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "cross-env PRODUCTION=dev nodemon demo/index.js",
     "dev-ws": "cross-env PRODUCTION=dev nodemon demo/ticker_demo.js",
-    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -26,6 +27,7 @@
   },
   "devDependencies": {
     "cross-env": "^7.0.2",
+    "jest": "^29.5.0",
     "nodemon": "^1.19.4"
   }
 }
