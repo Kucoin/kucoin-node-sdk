@@ -1,5 +1,5 @@
 module.exports = {
-  baseUrl: '',
+  baseUrl: 'https://openapi-v2.kucoin.com',
   apiAuth: {
     key: '', // KC-API-KEY
     secret: '', // API-Secret

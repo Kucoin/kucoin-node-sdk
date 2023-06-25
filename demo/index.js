@@ -7,7 +7,7 @@ const main = async () => {
   console.log(getTimestampRl.data);
 
   const res = await API.rest.User.Deposit.getDepositAddressV2('BTC');
-  // 新增接口example
+  // add new api example
   /////////////////////User//////////////////////////////////////////////////////
   /**
  * @name getPaginatedSubUsers

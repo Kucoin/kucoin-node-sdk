@@ -4,7 +4,6 @@ API.init(require('./config'));
 
 const datafeed = new API.websocket.Datafeed();
 
-// 撮合執行數據
 // close callback
 datafeed.onClose(() => {
   console.log('ws closed, status ', datafeed.trustConnected);
