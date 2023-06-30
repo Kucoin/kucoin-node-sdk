@@ -5,7 +5,7 @@ const API = require('../src');
 const config = require('./config');
 API.init({
   ...config,
-  baseUrl: 'https://api.kucoin.io',
+  baseUrl: 'https://openapi-v2.kucoin.com',
 });
 
 // ws demo

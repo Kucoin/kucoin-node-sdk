@@ -210,7 +210,7 @@ class Level2 {
       log('ws closed, status ', this.datafeed.trustConnected);
       this.rebuild();
     });
-
+    // @updateTime 09/22/22
     const topic = `/market/level2:${this.symbol}`;
     this.datafeed.subscribe(topic, (message) => {
       if (message.topic === topic) {

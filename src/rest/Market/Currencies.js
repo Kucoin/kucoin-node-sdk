@@ -91,3 +91,21 @@ exports.getFiatPrice = async function getFiatPrice(params = {}) {
   */
   return await Http().GET('/api/v1/prices', { ...params });
 };
+
+
+// owen.guo@kupotech.com update api
+
+/**
+ * @name getCurrencyDetail
+ * @description Get Currency Detail(Recommend)
+ * @updateTime 08/03/22
+ * @param {Object}
+ * - {String} currency Path parameter. Currency
+ * - {String} chain [Optional] Support for querying the chain of currency, return the currency details of all chains by default.
+ * @return {Object} { code, success, data }
+ */
+exports.getCurrencyDetail = async function getCurrencyDetail({currency,chain}) {
+  return await Http().GET(`/api/v2/currencies/${currency}`,{
+    currency,chain
+  });
+}

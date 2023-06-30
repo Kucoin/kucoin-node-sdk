@@ -244,6 +244,7 @@ exports.setAutoLend = async function setAutoLend(currency, isEnable, retainSize,
 /**
  * @name getActiveOrder
  * @description Get Active Order. This endpoint requires the "Trade" permission..
+ * @updateTime 02/03/23 change it as common right.
  * @param {string} currency - [Optional] Currency
  * @param {Object}
  *   - {number} currentPage

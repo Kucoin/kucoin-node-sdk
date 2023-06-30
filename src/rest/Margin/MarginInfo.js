@@ -72,6 +72,7 @@ exports.getMarginAccount = async function getMarginAccount() {
 /**
  * @name postMarginOrder
  * @description Post Margin Order. This endpoint requires the "Trade" permission.
+ * @updateTime 07/05/22
  * @param params https://docs.kucoin.cc/#place-a-margin-order
  *   Parameters
  *    - {string} clientOid - Unique order id created by users to identify their orders, e.g. UUID.

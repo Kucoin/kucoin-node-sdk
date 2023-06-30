@@ -150,3 +150,20 @@ exports.getMarketList = async function getMarketList() {
   */
   return await Http().GET('/api/v1/markets');
 };
+
+
+// owen.guo@kupotech.com update api
+
+/**
+ * @name getSymbolsList
+ * @description Get Symbols List
+ * @updateTime 10/20/22
+ * @param {Object}
+ * - {String} market [Optional] The trading market.
+ * @return {Object} { code, success, data }
+ */
+exports.getSymbolsList = async function getSymbolsList({market}) {
+  return await Http().GET('/api/v2/symbols',{
+    market
+  });
+}

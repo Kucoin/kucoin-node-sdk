@@ -1,5 +1,9 @@
-# kucoin-node-sdk
+# kucoin-node-sdk for KuCoin API
 KuCoin API SDK for Node.js language
+
+The detailed document [https://docs.kucoin.com](https://docs.kucoin.com).
+
+[![Latest Version](https://img.shields.io/github/v/release/Kucoin/kucoin-node-sdk.svg?style=flat-square)](https://github.com/Kucoin/kucoin-node-sdk/releases)
 
 ## Env
 
@@ -18,6 +22,26 @@ yarn add kucoin-node-sdk
 ```
 
 
+## Init Configure
+```
+{
+  baseUrl: '',
+  apiAuth: {
+    key: '', // KC-API-KEY
+    secret: '', // API-Secret
+    passphrase: '', // KC-API-PASSPHRASE
+  },
+  authVersion: 2, // KC-API-KEY-VERSION. Notice: for v2 API-KEY, not required for v1 version.
+}
+```
+You can use `baseUrl` method to change evironment.
+| **Environment** | **BaseUri** |
+| -------- | -------- |
+| *Production* `DEFAULT` | https://openapi-v2.kucoin.com |
+| *Sandbox* | https://openapi-sandbox.kucoin.com |
+
+If you only need to use the public web socket client or REST client public method, you can igonre `withApiKey` method. To customize your own API implementation, you may use the `with*API` method we provided for you.
+
 ## Usage
 
 ```
@@ -33,22 +57,18 @@ const main = async () => {
   console.log(getTimestampRl.data);
 };
 
-/** Run Demo */
-main();
+/** Run Demo for all apis */
+REST API: yarn dev
+SW:  yarn dev-ws (you can opt the params for different sw demo in demo,such as follow exp)
+
+"dev-ws": "cross-env PRODUCTION=dev nodemon demo/xxx_demo.js",
+
 ```
 
-### Init Configure
-```
-{
-  baseUrl: '',
-  apiAuth: {
-    key: '', // KC-API-KEY
-    secret: '', // API-Secret
-    passphrase: '', // KC-API-PASSPHRASE
-  },
-  authVersion: 2, // KC-API-KEY-VERSION. Notice: for v2 API-KEY, not required for v1 version.
-}
-```
+## Demo SDK for all APIS
+
+DEMO: [demo/index.js](https://github.com/Kucoin/kucoin-node-sdk/blob/master/demo/index.js)
+
 
 ## API Modules
 
@@ -59,6 +79,7 @@ Signature is required for this part.
 
 #### Rest/User/UserInfo
 - [x] getSubUsers
+- [x] getPaginatedSubUsers
 #### Rest/User/Account
 - [x] createAccount
 - [x] getAccountsList
@@ -70,6 +91,16 @@ Signature is required for this part.
 - [x] getTransferable
 - [x] transferBetweenMasterUserAndSubUser
 - [x] innerTransfer
+- [x] getAccountSummaryInfo
+- [x] createSubAccount
+- [x] getSubAccountSpotApiList
+- [x] createSpotAPIsForSubAccount
+- [x] updateSubAccountSpotApis
+- [x] deleteSubAccountSpotApis
+- [x] getPaginatedSubAccountInformation
+- [x] transferToHFAccount
+- [x] getHighFrequencyAccountLedger
+
 #### Rest/User/Deposit
 - [x] createDepositAddress
 - [x] getDepositAddressV2
@@ -102,6 +133,24 @@ Signature is required for this part.
 - [x] getRecentOrders
 - [x] getOrderByID
 - [x] getSingleActiveOrderByClientOid
+- [x] placeHfOrder
+- [x] syncPlaceHfOrder
+- [x] placeMultipleHfOrders
+- [x] syncPlaceMultipleHfOrders
+- [x] modifyOrder
+- [x] cancelOrdersByOrderId
+- [x] syncCancelOrdersByOrderId
+- [x] cancelOrderByClientOid
+- [x] syncCancelOrdersByClientOid
+- [x] cancelSpecifiedNumberOfOrdersByOrderId
+- [x] cancelAllHfOrdersBySymbol
+- [x] obtainListOfActiveHfOrders
+- [x] obtainListOfSymbolWithActiveHfOrders
+- [x] obtainListOfFilledHfOrders
+- [x] detailsOfAsingleHfOrder
+- [x] obtainDetailsOfASingleHfOrder
+- [x] hfAutoCancelSetting
+- [x] queryHfAutoCancelOrderSetting
 #### Rest/Trade/StopOrder
 - [x] postStopOrder
 - [x] cancelOrder
@@ -110,9 +159,12 @@ Signature is required for this part.
 - [x] getStopOrderList
 - [x] getOrderByClientOid
 - [x] cancelSingleOrderByClientOid
+- [x] getSingleStopOrderInfo
+- [x] cancelStopOrder
 #### Rest/Trade/Fills
 - [x] getFillsList
 - [x] getRecentFills
+- [x] getHfTransactionRecords
 
 ### Rest/Market
 ```
@@ -124,6 +176,7 @@ Signature is not required for this part
 - [x] getAllTickers
 - [x] get24hrStats
 - [x] getMarketList
+- [x] getSymbolsList
 #### Rest/Market/OrderBook
 - [x] getLevel2_20
 - [x] getLevel2_100
@@ -136,6 +189,7 @@ Signature is not required for this part
 - [x] getCurrencies
 - [x] getCurrencyDetail
 - [x] getFiatPrice
+- [x] getCurrencyDetail
 #### Rest/Margin/MarginInfo
 - [x] getMarkPrice
 - [x] getMarginConfigurationInfo
@@ -159,6 +213,15 @@ Signature is not required for this part
 - [x] getAccountLendRecord
 - [x] getLendingMarketData
 - [x] getMarginFillsTradeData
+#### Rest/Margin/Isolated
+- [x] queryIsolatedMarginTradingPairConfiguration
+- [x] queryIsolatedMarginAccountInfo
+- [x] querySingleIsolatedMarginAccountInfo
+- [x] isolatedMarginBorrowing
+- [x] queryOutstandingRepaymentRecords
+- [x] queryRepaymentRecords
+- [x] quickRepayment
+- [x] singleRepayment
 
 #### Rest/Others
 - [x] getTimestamp
@@ -180,6 +243,12 @@ DEMO: [demo/level2_demo.js](https://github.com/Kucoin/kucoin-node-sdk/blob/maste
 
 
 ### API.websocket.Level3
+
+### test exp
+```
+yarn test
+
+```
 
 // TODO
 
