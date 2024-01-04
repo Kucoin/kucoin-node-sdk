@@ -24,7 +24,7 @@ yarn add kucoin-node-sdk
 
 ## Init Configure
 ```
-{
+module.exports = {
   baseUrl: '',
   apiAuth: {
     key: '', // KC-API-KEY
@@ -32,7 +32,7 @@ yarn add kucoin-node-sdk
     passphrase: '', // KC-API-PASSPHRASE
   },
   authVersion: 2, // KC-API-KEY-VERSION. Notice: for v2 API-KEY, not required for v1 version.
-}
+};
 ```
 You can use `baseUrl` method to change evironment.
 | **Environment** | **BaseUri** |
