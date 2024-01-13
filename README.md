@@ -151,6 +151,7 @@ Signature is required for this part.
 - [x] obtainDetailsOfASingleHfOrder
 - [x] hfAutoCancelSetting
 - [x] queryHfAutoCancelOrderSetting
+- [x] cancelAllHfOrders
 #### Rest/Trade/StopOrder
 - [x] postStopOrder
 - [x] cancelOrder
@@ -165,6 +166,13 @@ Signature is required for this part.
 - [x] getFillsList
 - [x] getRecentFills
 - [x] getHfTransactionRecords
+#### Rest/Trade/OCOOrder
+- [x] placeOrder
+- [x] cancelOrder
+- [x] cancelAllOrders
+- [x] getOrders
+- [x] getOrderDetails
+- [x] getOrderByClientOid
 
 ### Rest/Market
 ```
@@ -196,6 +204,8 @@ Signature is not required for this part
 - [x] getMarginAccount
 - [x] postMarginOrder
 - [x] getMarginPriceStrategy
+- [x] getMarginCurrencies
+- [x] getEtfInfo
 #### Rest/Margin/BorrowAndLend
 - [x] postBorrowOrder
 - [x] getBorrowOrder

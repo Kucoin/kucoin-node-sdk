@@ -30,6 +30,7 @@ exports.rest = {
   Trade: {
     Orders: require('./rest/Trade/Orders'),
     StopOrder: require('./rest/Trade/StopOrder'),
+    OCOOrder: require('./rest/Trade/OCOOrder'),
     Fills: require('./rest/Trade/Fills'),
   },
   Market: {

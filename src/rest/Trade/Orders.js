@@ -738,3 +738,13 @@ exports.hfAutoCancelSetting = async function hfAutoCancelSetting({ timeout,symbo
 exports.queryHfAutoCancelOrderSetting = async function queryHfAutoCancelOrderSetting() {
   return await Http().GET('/api/v1/hf/orders/dead-cancel-all/query');
 }
+
+/**
+* @name cancelAllHfOrders
+* @description Cancel all high-frequency orders
+* @updateTime 02/03/23
+* @return {Object} { code, success, data }
+*/
+exports.cancelAllHfOrders = async function cancelAllHfOrders() {
+  return await Http().DELETE('/api/v1/hf/orders/cancelAll');
+}

@@ -134,3 +134,27 @@ exports.getMarginPriceStrategy = async function getMarginPriceStrategy({ marginM
     */
   return await Http().GET('/api/v1/risk/limit/strategy', {marginModel});
 };
+
+/**
+* @name getMarginCurrencies
+* @description Get margin currencies
+* @updateTime 01/12/24
+* @param {Boolean} isIsolated - true for isolated, false for cross; default is false (Mandatory)
+* @param {String} symbol - Symbol, required for isolated margin accounts (Optional)
+* @param {String} currency - Currency (Optional)
+* @return {Object} { code, success, data }
+*/
+exports.getMarginCurrencies = async function getMarginCurrencies({isIsolated, symbol, currency}) {  
+  return await Http().GET('/api/v3/margin/currencies', {isIsolated, symbol, currency});
+}
+
+/**
+* @name getEtfInfo
+* @description Get ETF information
+* @updateTime 02/03/23
+* @param {String} currency - Currency, if empty query all currencies (Optional)
+* @return {Object} { code, success, data }
+*/
+exports.getEtfInfo = async function getEtfInfo({currency}) {  
+  return await Http().GET('/api/v3/etf/info', {currency});
+}
