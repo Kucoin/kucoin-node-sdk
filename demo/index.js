@@ -161,7 +161,7 @@ console.log(transferToHFAccountResult ,"transferToHFAccountResult---");
  * @return {Object} { code, success, data }
  */
 
- const getSymbolsListResult = await API.rest.Market.Symbols.getSymbolsList({market:"market"});
+ const getSymbolsListResult = await API.rest.Market.Symbols.getSymbolsList({market:"BTC"});
  console.log(getSymbolsListResult ,"getSymbolsListResult---");
 
  /**
