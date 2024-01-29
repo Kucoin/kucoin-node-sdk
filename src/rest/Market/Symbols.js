@@ -128,9 +128,7 @@ exports.getMarketList = async function getMarketList() {
  * - {String} market [Optional] The trading market.
  * @return {Object} { code, success, data }
  */
-exports.getSymbolsList = async function getSymbolsList({
-  market = "BTC",
-} = {}) {
+exports.getSymbolsList = async function getSymbolsList({ market = undefined } = {}) {
   return await Http().GET("/api/v2/symbols", {
     market,
   });
