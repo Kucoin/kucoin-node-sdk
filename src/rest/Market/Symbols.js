@@ -2,40 +2,6 @@
 const Http = require('../../lib/http');
 
 /**
- * @name getSymbolsList
- * @description Get Symbols List
- * @param {string} market - [Optional] The trading market.
- * @return {Object} { code, success, data }
- */
-exports.getSymbolsList = async function getSymbolsList(market) {
-  /*
-  {
-    "code": "200000",     
-    "data": [
-      {
-        "symbol": "BTC-USDT",
-        "name": "BTC-USDT",
-        "baseCurrency": "BTC",
-        "quoteCurrency": "USDT",
-        "baseMinSize": "0.00000001",
-        "quoteMinSize": "0.01",
-        "baseMaxSize": "10000",
-        "quoteMaxSize": "100000",
-        "baseIncrement": "0.00000001",
-        "quoteIncrement": "0.01",
-        "priceIncrement": "0.00000001",
-        "feeCurrency": "USDT",
-        "enableTrading": true,
-        "isMarginEnabled": true,
-        "priceLimitRate": "0.1"
-      }
-    ]
-  }
-  */
-  return await Http().GET('/api/v1/symbols', { market });
-};
-
-/**
  * @name getTicker
  * @description Get Ticker
  * @param {string} symbol - symbol
@@ -162,8 +128,8 @@ exports.getMarketList = async function getMarketList() {
  * - {String} market [Optional] The trading market.
  * @return {Object} { code, success, data }
  */
-exports.getSymbolsList = async function getSymbolsList({market}) {
-  return await Http().GET('/api/v2/symbols',{
-    market
+exports.getSymbolsList = async function getSymbolsList({ market = undefined } = {}) {
+  return await Http().GET("/api/v2/symbols", {
+    market,
   });
-}
+};
