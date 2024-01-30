@@ -1,11 +1,3 @@
-/*
- * @Owner: gannicus.zhou@kupotech.com
- * @Date: 2024-01-29 20:17:01
- * @LastEditors: gannicus Gannicus.Zhou@kupotech.com
- * @LastEditTime: 2024-01-29 22:02:52
- * @FilePath: /kucoin-node-sdk/demo/order_oco_demo.js
- * @Description: 
- */
 const API = require('../src');
 
 API.init(require('./config'));
