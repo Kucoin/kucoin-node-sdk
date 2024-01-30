@@ -1,3 +1,16 @@
+## [1.0.7] - 2024-01-29
+### Added
+- Added `placeOrder` API endpoint for placing a new order.
+- Added `cancelOrder` API endpoint for cancelling an order by orderId.
+- Added `cancelOrderByClientOid` API endpoint for cancelling an order by clientOid.
+- Added `cancelAllOrders` API endpoint for cancelling all orders.
+- Added `getOrder` API endpoint for getting an order by orderId.
+- Added `getOrderByClientOid` API endpoint for getting an order by clientOid.
+- Added `getOrders` API endpoint for getting all orders.
+- Added `getOrderDetails` API endpoint for getting order details by orderId.
+- Added `cancelAllHfOrders` Cancel all high-frequency orders
+- Added `getMarginCurrencies` Get margin currencies
+- Added `getEtfInfo` Get ETF information
 ## [1.0.5-beta](https://github.com/Kucoin/kucoin-node-sdk/compare/v1.0.4...v1.0.5-beta) (2023-06-25)
 
 
