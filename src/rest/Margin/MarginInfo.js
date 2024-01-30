@@ -158,3 +158,42 @@ exports.getMarginCurrencies = async function getMarginCurrencies({isIsolated, sy
 exports.getEtfInfo = async function getEtfInfo({currency}) {  
   return await Http().GET('/api/v3/etf/info', {currency});
 }
+
+/**
+* @name getMarginAccounts
+* @description Get margin accounts
+* @updateTime 01/12/24
+* @param {String} quoteCurrency - Quote currency, currently only supports USDT, KCS, BTC, USDT as default (Optional)
+* @param {String} queryType - Query account type (default MARGIN), MARGIN - only query low frequency cross margin account, MARGIN_V2-only query high frequency cross margin account, ALL - consistent aggregate query with the web side (Optional)
+* @return {Object} { code, success, data } Returns the margin accounts data
+*/
+exports.getMarginAccounts = async function getMarginAccounts({
+  quoteCurrency = 'USDT',
+  queryType = 'MARGIN',
+}) {
+  return await Http().GET("/api/v3/margin/accounts", {
+    quoteCurrency,
+    queryType,
+  });
+};
+
+/**
+* @name getIsolatedAccounts
+* @description Get the info of the isolated margin account
+* @updateTime 01/12/24
+* @param {String} symbol - For isolated trading pairs, query all without passing (Optional)
+* @param {String} quoteCurrency - Quote currency, currently only supports USDT, KCS, BTC, default is USDT (Optional)
+* @param {String} queryType - Query account type (default MARGIN), ISOLATED - only query low frequency isolated margin account, ISOLATED_V2-only query high frequency isolated margin account, ALL - consistent aggregate query with the web side (Optional)
+* @return {Object} { code, success, data } Returns the isolated margin accounts data
+*/
+exports.getIsolatedAccounts = async function getIsolatedAccounts({
+  symbol,
+  quoteCurrency = 'USDT',
+  queryType = 'MARGIN',
+}) {
+  return await Http().GET("/api/v3/isolated/accounts", {
+    symbol,
+    quoteCurrency,
+    queryType,
+  });
+};
