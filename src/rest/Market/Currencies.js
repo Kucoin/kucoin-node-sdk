@@ -1,12 +1,3 @@
-/*
- * @Owner: gannicus.zhou@kupotech.com
- * @Date: 2024-01-04 15:31:20
- * @LastEditors: gannicus Gannicus.Zhou@kupotech.com
- * @LastEditTime: 2024-04-15 18:11:35
- * @FilePath: /kucoin-node-sdk/src/rest/Market/Currencies.js
- * @Description: 
- */
-
 const Http = require('../../lib/http');
 
 /**
