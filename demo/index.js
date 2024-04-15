@@ -172,10 +172,21 @@ console.log(transferToHFAccountResult ,"transferToHFAccountResult---");
  * - {String} chain [Optional] Support for querying the chain of currency, return the currency details of all chains by default.
  * @return {Object} { code, success, data }
  */
- const getCurrencyDetailResult = await API.rest.Market.Currencies.getCurrencyDetail({currency:"BTC",chain:"chain"});
+ const getCurrencyDetailResult = await API.rest.Market.Currencies.getCurrencyDetail({currency:"BTC"});
  console.log(getCurrencyDetailResult ,"getCurrencyDetailResult---");
+ 
+ /**
+* @name getCurrencyDetail_V3
+* @description Request via this endpoint to get the currency details of a specified currency
+* @updateTime 04/15/24
+* @param {String} currency - Path parameter, Currency (Mandatory)
+* @param {String} chain - Support for querying the chain of currency, e.g. The available value for USDT are OMNI, ERC20, TRC20. This only apply for multi-chain currency, and there is no need for single chain currency. (Optional)
+* @return {Object} { code, success, data }
+*/
+ const getCurrencyDetailResult_V3 = await API.rest.Market.Currencies.getCurrencyDetail_V3({currency:"BTC"});
+ console.log(getCurrencyDetailResult_V3 ,"getCurrencyDetailResult_V3---");
 
-//   /////////////////////Margin//////////////////////////////////////////////////////
+  /////////////////////Margin//////////////////////////////////////////////////////
   /**
  * @name queryIsolatedMarginTradingPairConfiguration
  * @description Query Isolated Margin Trading Pair Configuration
