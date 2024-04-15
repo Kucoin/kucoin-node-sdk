@@ -1,3 +1,7 @@
+## [1.0.8] - 2024-04-15
+### Added
+- Added `getCurrencyDetail_V3` Request via this endpoint to get the currency details of a specified currency.
+
 ## [1.0.7] - 2024-01-29
 ### Added
 - Added `placeOrder` API endpoint for placing a new order.

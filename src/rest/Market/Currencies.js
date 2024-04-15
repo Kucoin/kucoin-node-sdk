@@ -1,3 +1,11 @@
+/*
+ * @Owner: gannicus.zhou@kupotech.com
+ * @Date: 2024-01-04 15:31:20
+ * @LastEditors: gannicus Gannicus.Zhou@kupotech.com
+ * @LastEditTime: 2024-04-15 18:11:35
+ * @FilePath: /kucoin-node-sdk/src/rest/Market/Currencies.js
+ * @Description: 
+ */
 
 const Http = require('../../lib/http');
 
@@ -42,34 +50,6 @@ exports.getCurrencies = async function getCurrencies() {
 };
 
 /**
- * @name getCurrencyDetail
- * @description Get Currency Detail
- * @param {string} currency - Path parameter. Currency
- * @param {string} chain - [Optional] Support for querying the chain of currency, e.g. The available value for USDT are OMNI, ERC20, TRC20. This only apply for multi-chain currency, and there is no need for single chain currency.
- * @return {Object} { code, success, data }
- */
-exports.getCurrencyDetail = async function getCurrencyDetail(currency, chain) {
-  /*
-  {
-    "code": "200000",     
-    "data": {
-      "currency": "BTC",
-      "name": "BTC",
-      "fullName": "Bitcoin",
-      "precision": 8,
-      "withdrawalMinSize": "0.002",
-      "withdrawalMinFee": "0.0005",
-      "isWithdrawEnabled": true,
-      "isDepositEnabled": true,
-      "isMarginEnabled": true,
-      "isDebitEnabled": true
-    }
-  }
-  */
-  return await Http().GET(`/api/v1/currencies/${currency}`, { chain });
-};
-
-/**
  * @name getFiatPrice
  * @description Request via this endpoint to get the fiat price of the currencies for the available trading pairs.
  * @param params
@@ -106,6 +86,21 @@ exports.getFiatPrice = async function getFiatPrice(params = {}) {
  */
 exports.getCurrencyDetail = async function getCurrencyDetail({currency,chain}) {
   return await Http().GET(`/api/v2/currencies/${currency}`,{
+    currency,chain
+  });
+}
+
+
+/**
+* @name getCurrencyDetail_V3
+* @description Request via this endpoint to get the currency details of a specified currency
+* @updateTime 04/15/24
+* @param {String} currency - Path parameter, Currency (Mandatory)
+* @param {String} chain - Support for querying the chain of currency, e.g. The available value for USDT are OMNI, ERC20, TRC20. This only apply for multi-chain currency, and there is no need for single chain currency. (Optional)
+* @return {Object} { code, success, data }
+*/
+exports.getCurrencyDetail_V3 = async function getCurrencyDetail_V3({currency,chain}) {
+  return await Http().GET(`/api/v3/currencies/${currency}`,{
     currency,chain
   });
 }

@@ -197,7 +197,7 @@ Signature is not required for this part
 - [x] getCurrencies
 - [x] getCurrencyDetail
 - [x] getFiatPrice
-- [x] getCurrencyDetail
+- [x] getCurrencyDetail_V3
 #### Rest/Margin/MarginInfo
 - [x] getMarkPrice
 - [x] getMarginConfigurationInfo
