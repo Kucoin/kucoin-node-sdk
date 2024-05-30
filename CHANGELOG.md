@@ -1,3 +1,64 @@
+## [1.0.9] - 2024-05-30
+
+### Added APIs
+#### Universal Transfer API
+- **Added**: `POST /api/v3/accounts/universal-transfer`
+
+#### Margin Borrowing APIs
+- **Added**: `POST /api/v3/margin/borrow`
+- **Added**: `GET /api/v3/margin/borrow`
+
+#### Margin Repayment APIs
+- **Added**: `POST /api/v3/margin/repay`
+- **Added**: `GET /api/v3/margin/repay`
+
+#### Margin Interest APIs
+- **Added**: `GET /api/v3/margin/interest`
+
+#### Project APIs
+- **Added**: `GET /api/v3/project/list`
+- **Added**: `GET /api/v3/project/marketInterestRate`
+
+#### Purchase APIs
+- **Added**: `POST /api/v3/purchase`
+- **Added**: `POST /api/v3/redeem`
+- **Added**: `POST /api/v3/lend/purchase/update`
+- **Added**: `GET /api/v3/redeem/orders`
+- **Added**: `GET /api/v3/purchase/orders`
+
+#### Test Order APIs
+- **Added**: `POST /api/v1/hf/orders/test`
+- **Added**: `POST /api/v1/margin/order/test`
+- **Added**: `POST /api/v1/orders/test`
+
+### Deprecated APIs
+#### Margin Borrowing APIs
+- **Deprecated**: Publish Borrow Order, deprecated `POST /api/v1/margin/borrow`
+- **Deprecated**: Query Borrow Orders, deprecated `GET /api/v1/margin/borrow`
+- **Deprecated**: Query Repaid Records, deprecated `GET /api/v1/margin/borrow/repaid`
+- **Deprecated**: One-Click Repayment, deprecated `POST /api/v1/margin/repay/all`
+- **Deprecated**: Single Repayment, deprecated `POST /api/v1/margin/repay/single`
+
+#### Margin Lending APIs
+- **Deprecated**: Publish Lend Order, deprecated `POST /api/v1/margin/lend`
+- **Deprecated**: Cancel Lend Order, deprecated `DELETE /api/v1/margin/lend/{orderId}`
+- **Deprecated**: Set Auto-Lend, deprecated `POST /api/v1/margin/toggle-auto-lend`
+- **Deprecated**: Query Active Lend Orders, deprecated `GET /api/v1/margin/lend/active`
+- **Deprecated**: Query Historical Lend Orders, deprecated `GET /api/v1/margin/lend/done`
+- **Deprecated**: Query Unsettled Lend Records, deprecated `GET /api/v1/margin/lend/trade/unsettled`
+- **Deprecated**: Query Settled Lend Records, deprecated `GET /api/v1/margin/lend/trade/settled`
+- **Deprecated**: Asset Lend Records, deprecated `GET /api/v1/margin/lend/assets`
+- **Deprecated**: Lend Market Information, deprecated `GET /api/v1/margin/market`
+- **Deprecated**: Lending Market Transaction Information, deprecated `GET /api/v1/margin/trade/last`
+
+#### Isolated Margin Borrowing APIs
+- **Deprecated**: Isolated Borrowing, deprecated `POST /api/v1/isolated/borrow`
+- **Deprecated**: One-Click Repayment, deprecated `POST /api/v1/isolated/repay/all`
+- **Deprecated**: Single Repayment, deprecated `POST /api/v1/isolated/repay/single`
+- **Deprecated**: Query Repaid Records, deprecated `GET /api/v1/isolated/borrow/repaid`
+- **Deprecated**: Query Outstanding Isolated Borrow Records, deprecated `GET /api/v1/isolated/borrow/outstanding`
+- **Deprecated**: Query Outstanding Borrow Records, deprecated `GET /api/v1/margin/borrow/outstanding`
+
 ## [1.0.8] - 2024-04-15
 ### Added
 - Added `getCurrencyDetail_V3` Request via this endpoint to get the currency details of a specified currency.
