@@ -43,6 +43,7 @@ exports.rest = {
     MarginInfo: require('./rest/Margin/MarginInfo'),
     BorrowAndLend: require('./rest/Margin/BorrowAndLend'),
     Isolated:require('./rest/Margin/Isolated'),
+    MarginV3:require('./rest/Margin/MarginV3'),
   },
   Others: require('./rest/Others'),
 };

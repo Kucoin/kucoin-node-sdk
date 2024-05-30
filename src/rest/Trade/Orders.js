@@ -748,3 +748,58 @@ exports.queryHfAutoCancelOrderSetting = async function queryHfAutoCancelOrderSet
 exports.cancelAllHfOrders = async function cancelAllHfOrders() {
   return await Http().DELETE('/api/v1/hf/orders/cancelAll');
 }
+
+/**
+* @name placeOrderTest
+* @description Place a new order. This endpoint requires the "Trade" permission.
+* @param baseParams
+*   - {string} clientOid - Unique order id created by users to identify their orders, e.g. UUID.
+*   - {string} side - buy or sell
+*   - {string} symbol - a valid trading symbol code. e.g. ETH-BTC
+*   - {string} type - [Optional] limit or market (default is limit)
+*   - {string} remark - [Optional] remark for the order, length cannot exceed 100 utf8 characters
+*   - {string} stop - [Optional] Either loss or entry. Requires stopPrice to be defined
+*   - {string} stopPrice - [Optional] Need to be defined if stop is specified.
+*   - {string} stp - [Optional] self trade prevention , CN, CO, CB or DC
+*   - {string} tradeType - [Optional] The type of trading : TRADE（Spot Trade）, MARGIN_TRADE (Margin Trade). Default is TRADE
+* @param orderParams
+*   LIMIT ORDER PARAMETERS
+*   - {string} price - price per base currency
+*   - {string} size - amount of base currency to buy or sell
+*   - {string} timeInForce - [Optional] GTC, GTT, IOC, or FOK (default is GTC), read Time In Force.
+*   - {number} cancelAfter - [Optional] cancel after n seconds, requires timeInForce to be GTT
+*   - {boolean} postOnly - [Optional] Post only flag, invalid when timeInForce is IOC or FOK
+*   - {boolean} hidden - [Optional] Order will not be displayed in the order book
+*   - {boolean} iceberg - [Optional] Only aportion of the order is displayed in the order book
+*   - {string} visibleSize - [Optional] The maximum visible size of an iceberg order
+* 
+*   MARKET ORDER PARAMETERS / It is required that you use one of the two parameters, size or funds.
+*   - {string} size [Optional] - Desired amount in base currency
+*   - {string} funds [Optional] - The desired amount of quote currency to use
+* @return {Object} { code, success, data }
+*/
+exports.placeOrderTest = async function placeOrderTest(params = {}) {
+  return await Http().POST('/api/v1/orders/test',{
+     ...params
+  });
+};
+
+/**
+ * @name placeHfOrderTest
+ * @description Place hf order
+ * @updateTime 02/03/23
+ * @param {Object}
+ * - {String} clientOid Client Order Id，unique identifier created by the user, the use of UUID is recommended
+ * - {String} symbol Trading pair, such as, ETH-BTC
+ * - {String} type Order type limit and market
+ * - {String} side buy or sell
+ * - {String} stp Self trade prevention (self trade prevention) is divided into four strategies: CN, CO, CB , and DC
+ * - {String} tags Order tag, cannot exceed 20 characters (ASCII) in length
+ * - {String} remark Order placement remarks, length cannot exceed 20 characters (ASCII) in length
+ * @return {Object} { code, success, data }
+ */
+exports.placeHfOrderTest = async function placeHfOrderTest({clientOid,symbol,type,side,stp,tags,remark}) {
+  return await Http().POST('/api/v1/hf/orders/test',{
+    clientOid,symbol,type,side,stp,tags,remark
+  });
+}

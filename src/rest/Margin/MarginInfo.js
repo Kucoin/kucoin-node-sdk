@@ -197,3 +197,71 @@ exports.getIsolatedAccounts = async function getIsolatedAccounts({
     queryType,
   });
 };
+
+/**
+* @name postMarginOrderTest
+* @description Place a margin order with the specified parameters
+* @updateTime 05/30/24
+* @param {String} clientOid - Client Order Id, a unique identifier created by the client (recommended to use UUID)
+* @param {String} side - buy (for buying) or sell (for selling)
+* @param {String} symbol - Trading pair, e.g., ETH-BTC
+* @param {String} type - Order type: limit or market (default is limit)
+* @param {String} remark - Order description (Optional, maximum length is 50 characters, encoding supports ASCII)
+* @param {String} stp - Self-trade prevention strategy: CN, CO, CB, DC (Optional)
+* @param {String} marginModel - Margin trading mode: cross (cross margin) or isolated (isolated margin) (default is cross)
+* @param {boolean} autoBorrow - Automatically borrow coins for the order (Optional, only supported for cross margin)
+* @param {boolean} autoRepay - Automatically repay borrowed coins after order execution (Optional, only supported for cross margin)
+* @param {String} price - Price for limit orders (Mandatory for limit orders)
+* @param {String} size - Quantity for limit orders (Mandatory for limit orders)
+* @param {String} timeInForce - Order time-in-force strategy: GTC, GTT, IOC, FOK (default is GTC) (Optional)
+* @param {long} cancelAfter - Cancel after n seconds, applicable when timeInForce is GTT (Optional)
+* @param {boolean} postOnly - Flag for post-only orders, invalid when timeInForce is IOC or FOK (Optional)
+* @param {boolean} hidden - Whether to hide the order (not displayed in the order book) (Optional)
+* @param {boolean} iceberg - Whether to display only the visible part of the iceberg order (Optional)
+* @param {String} visibleSize - Maximum display quantity for iceberg orders (Optional)
+* @param {String} funds - Funds for market orders (Optional, either size or funds must be specified)
+* @return {Object} { orderId, borrowSize, loanApplyId }
+*/
+exports.postMarginOrderTest = async function postMarginOrderTest({
+  clientOid,
+  side,
+  symbol,
+  type,
+  remark,
+  stp,
+  marginModel,
+  autoBorrow,
+  autoRepay,
+  price,
+  size,
+  timeInForce,
+  cancelAfter,
+  postOnly,
+  hidden,
+  iceberg,
+  visibleSize,
+  funds
+}) {
+  // Implementation logic for placing a margin order goes here
+  // ...
+  return await Http().POST('/api/v1/margin/order/test', {
+    clientOid,
+    side,
+    symbol,
+    type,
+    remark,
+    stp,
+    marginModel,
+    autoBorrow,
+    autoRepay,
+    price,
+    size,
+    timeInForce,
+    cancelAfter,
+    postOnly,
+    hidden,
+    iceberg,
+    visibleSize,
+    funds
+  });
+}
