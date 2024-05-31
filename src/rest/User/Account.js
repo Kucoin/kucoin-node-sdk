@@ -587,3 +587,49 @@ exports.getHighFrequencyAccountLedger = async function getHighFrequencyAccountLe
     currency,direction,bizType,lastId,limit,startAt,endAt
   });
 }
+
+/**
+
+ * @name universalTransfer
+ * @description Request via this endpoint to perform a universal transfer between accounts
+ * @updateTime 05/29/24
+ * @param {String} clientOid - Client Order Id, a unique identifier created by the client, recommended to use UUID, maximum length is 128 characters (Mandatory)
+ * @param {String} currency - Currency (Mandatory)
+ * @param {String} amount - Transfer amount, must be an integer multiple of the currency precision (Mandatory)
+ * @param {String} fromUserId - User ID from which the funds are transferred, required when transferring from sub-account to main account, optional for internal transfers (Optional)
+ * @param {String} fromAccountType - Account type from which the funds are transferred: MAIN, TRADE, CONTRACT, MARGIN, ISOLATED, TRADE_HF, MARGIN_V2, ISOLATED_V2 (Mandatory)
+ * @param {String} fromAccountTag - Trading pair, required when the account type is ISOLATED or ISOLATED_V2, e.g., BTC-USDT (Optional)
+ * @param {String} type - Transfer type: INTERNAL (internal transfer), PARENT_TO_SUB (main account to sub-account), SUB_TO_PARENT (sub-account to main account) (Mandatory)
+ * @param {String} toUserId - User ID to which the funds are transferred, required when transferring from main account to sub-account, optional for internal transfers (Optional)
+ * @param {String} toAccountType - Account type to which the funds are transferred: MAIN, TRADE, CONTRACT, MARGIN, ISOLATED, TRADE_HF, MARGIN_V2, ISOLATED_V2 (Mandatory)
+ * @param {String} toAccountTag - Trading pair, required when the account type is ISOLATED or ISOLATED_V2, e.g., BTC-USDT (Optional)
+ * @return {Object} { code, success, data }
+ */
+exports.universalTransfer = async function universalTransfer({
+  clientOid,
+  currency,
+  amount,
+  fromUserId,
+  fromAccountType,
+  fromAccountTag,
+  type,
+  toUserId,
+  toAccountType,
+  toAccountTag,
+}) {
+  // Construct the request payload
+  const payload = {
+    clientOid,
+    currency,
+    amount,
+    fromUserId,
+    fromAccountType,
+    fromAccountTag,
+    type,
+    toUserId,
+    toAccountType,
+    toAccountTag,
+  };
+  // Make the POST request to the API endpoint
+  return await Http().POST("/api/v3/accounts/universal-transfer", payload);
+};

@@ -232,6 +232,19 @@ Signature is not required for this part
 - [x] queryRepaymentRecords
 - [x] quickRepayment
 - [x] singleRepayment
+#### Rest/Margin/MarginV3
+- [x] marginBorrowV3
+- [x] getBorrowHistoryV3
+- [x] repayMarginLoanV3
+- [x] getRepayHistoryV3
+- [x] getMarginInterestRecordsV3
+- [x] getLendingCurrencyInfoV3
+- [x] getMarketInterestRateV3
+- [x] initiatePurchaseV3
+- [x] getPurchaseOrdersV3
+- [x] redeemMarketV3
+- [x] getRedemptionOrdersV3
+- [x] updatePurchaseOrderInterestRateV3
 
 #### Rest/Others
 - [x] getTimestamp
