@@ -274,7 +274,7 @@ const marginMain = async () => {
    * @updateTime 05/29/24
    * @param {String} currency - Currency (Mandatory)
    * @param {String} redeemOrderNo - Redemption order number (Optional)
-   * @param {String} status - Status (Mandatory, values: DONE-已完結; PENDING-結算中)
+   * @param {String} status - Status (Mandatory, values: DONE; PENDING)
    * @param {Int} currentPage - Current page (Optional, default: 1)
    * @param {Int} pageSize - Page size (Optional, default: 50, range: 1<=pageSize<=100)
    * @return {Object} { currency, purchaseOrderNo, redeemOrderNo, redeemSize, receiptSize, applyTime, status }
