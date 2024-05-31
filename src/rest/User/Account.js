@@ -592,7 +592,7 @@ exports.getHighFrequencyAccountLedger = async function getHighFrequencyAccountLe
 
  * @name universalTransfer
  * @description Request via this endpoint to perform a universal transfer between accounts
- * @updateTime 04/15/24
+ * @updateTime 05/29/24
  * @param {String} clientOid - Client Order Id, a unique identifier created by the client, recommended to use UUID, maximum length is 128 characters (Mandatory)
  * @param {String} currency - Currency (Mandatory)
  * @param {String} amount - Transfer amount, must be an integer multiple of the currency precision (Mandatory)

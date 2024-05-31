@@ -248,7 +248,7 @@ const marginMain = async () => {
   /**
    * @name redeemMarket_V3
    * @description Initiates a redemption in the lending market
-   * @updateTime 04/15/24
+   * @updateTime 05/29/24
    * @param {String} currency - Currency (Mandatory)
    * @param {String} size - Redemption amount (Mandatory)
    * @param {String} purchaseOrderNo - Purchase order number (Mandatory)
@@ -271,7 +271,7 @@ const marginMain = async () => {
   /**
    * @name getRedemptionOrders_V3
    * @description Retrieve redemption orders from the lending market (paginated)
-   * @updateTime 04/15/24
+   * @updateTime 05/29/24
    * @param {String} currency - Currency (Mandatory)
    * @param {String} redeemOrderNo - Redemption order number (Optional)
    * @param {String} status - Status (Mandatory, values: DONE-已完結; PENDING-結算中)
@@ -297,7 +297,7 @@ const marginMain = async () => {
   /**
    * @name updatePurchaseOrderInterestRateV3
    * @description Update the interest rate for a lending market purchase order (effective at the next whole hour)
-   * @updateTime 04/15/24
+   * @updateTime 05/29/24
    * @param {String} currency - Currency (Mandatory)
    * @param {String} purchaseOrderNo - Purchase order number (Mandatory)
    * @param {String} interestRate - Updated purchase interest rate (Mandatory)

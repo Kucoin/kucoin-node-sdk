@@ -26,18 +26,15 @@ exports.marginBorrowV3 = async function marginBorrowV3({
     isHf,
   };
 
-  // 对于逐仓账户，symbol 是必填的
   if (isIsolated && !symbol) {
     throw new Error("Symbol is required for isolated margin accounts.");
   }
 
-  // 如果是逐仓模式，则需要添加 symbol 参数
   if (isIsolated) {
     payload.symbol = symbol;
   }
 
   try {
-    // 发起 POST 请求
     return await Http().POST("/api/v3/margin/borrow", payload);
   } catch (error) {
     console.error("Error borrowing margin:", error);
@@ -182,7 +179,7 @@ exports.getPurchaseOrdersV3 = async function getPurchaseOrdersV3({ currency, sta
 /**
  * @name redeemMarket_V3
  * @description Initiates a redemption in the lending market
- * @updateTime 04/15/24
+ * @updateTime 05/29/24
  * @param {String} currency - Currency (Mandatory)
  * @param {String} size - Redemption amount (Mandatory)
  * @param {String} purchaseOrderNo - Purchase order number (Mandatory)
@@ -199,7 +196,7 @@ exports.redeemMarketV3 = async function redeemMarketV3({ currency, size, purchas
 /**
  * @name getRedemptionOrders_V3
  * @description Retrieve redemption orders from the lending market (paginated)
- * @updateTime 04/15/24
+ * @updateTime 05/29/24
  * @param {String} currency - Currency (Mandatory)
  * @param {String} redeemOrderNo - Redemption order number (Optional)
  * @param {String} status - Status (Mandatory, values: DONE-已完結; PENDING-結算中)
@@ -220,7 +217,7 @@ exports.getRedemptionOrdersV3 = async function getRedemptionOrdersV3({ currency,
 /**
  * @name updatePurchaseOrderInterestRate_V3
  * @description Update the interest rate for a lending market purchase order (effective at the next whole hour)
- * @updateTime 04/15/24
+ * @updateTime 05/29/24
  * @param {String} currency - Currency (Mandatory)
  * @param {String} purchaseOrderNo - Purchase order number (Mandatory)
  * @param {String} interestRate - Updated purchase interest rate (Mandatory)

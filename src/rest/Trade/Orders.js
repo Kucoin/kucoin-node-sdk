@@ -787,7 +787,7 @@ exports.placeOrderTest = async function placeOrderTest(params = {}) {
 /**
  * @name placeHfOrderTest
  * @description Place hf order
- * @updateTime 02/03/23
+ * @updateTime 05/29/24
  * @param {Object}
  * - {String} clientOid Client Order Id，unique identifier created by the user, the use of UUID is recommended
  * - {String} symbol Trading pair, such as, ETH-BTC
