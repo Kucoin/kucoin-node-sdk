@@ -18,7 +18,8 @@ exports.postBorrowOrder = async function postBorrowOrder(params = {}) {
     "code": "200000",     
     "data": {
       "orderId": "a2111213",
-      "currency": "USDT"
+      "currency": "USDT",
+      "actualSize": "10"
     }
   }
   */
