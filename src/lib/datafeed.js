@@ -33,8 +33,10 @@ datafeed.subscribe(topic, (message) => {
  * Datafeed connect/subscribe manager
  */
 class Datafeed {
-  constructor(privateBullet = false) {
+  constructor(privateBullet = false, specific = false) {
     /** public */
+    // use specific topics or just topicPrefix's
+    this.specific = !!specific;
     // use private bullet link
     this.privateBullet = !!privateBullet;
     // real connected status
@@ -47,7 +49,7 @@ class Datafeed {
     this.topicState = [];
     // topic listener record
     this.topicListener = {
-      // topicPrefix => [...hooks],
+      // topic(Prefix) => [...hooks],
     };
     // subscribed id, auto inc
     this.incrementSubscribeId = 0;
@@ -218,7 +220,8 @@ class Datafeed {
 
     const hookId = this.incrementSubscribeId;
     const listener = { hook, id: hookId };
-    const prefix = getTopicPrefix(topic);
+    const prefix = this.specific?topic:getTopicPrefix(topic);
+    
     if (this.topicListener[prefix]) {
       this.topicListener[prefix].push(listener);
     } else {
@@ -247,7 +250,7 @@ class Datafeed {
    * @param {boolean} _private is close topic that push private data
    */
   unsubscribe(topic, hookId, _private = false) {
-    const prefix = getTopicPrefix(topic);
+    const prefix = this.specific?topic:getTopicPrefix(topic);
     if (this.topicListener[prefix]) {
       const deleted = this.topicListener[prefix].filter(item => item.id !== hookId);
       if (deleted.length === 0) {
@@ -265,7 +268,7 @@ class Datafeed {
   _distribute(message) {
     const { topic } = message;
     if (topic) {
-      const prefix = getTopicPrefix(topic);
+      const prefix = this.specific?topic:getTopicPrefix(topic);
       const listeners = this.topicListener[prefix];
       if (listeners) {
         _.each(listeners, ({ hook }) => {
