@@ -246,6 +246,34 @@ Signature is not required for this part
 - [x] getRedemptionOrdersV3
 - [x] updatePurchaseOrderInterestRateV3
 
+- [x] getCrossMarginTradingPairs
+- [x] updateLeverageMultiplier
+- [x] placeHfMarginOrder
+- [x] testHfMarginOrder
+- [x] cancelHfMarginOrder
+- [x] cancelHfMarginOrderByClientOid
+- [x] cancelAllHfMarginOrdersBySymbol
+- [x] getActiveHfMarginOrders
+- [x] getFilledHfMarginOrders
+- [x] getHfOrderDetails
+- [x] getHfOrderDetailsByClientOid
+- [x] getHfTransactionRecords
+- [x] getActiveHfOrderSymbols
+#### Rest/Earn/General
+- [x] subscribeToEarnFixedIncomeProducts
+- [x] redeemByEarnHoldingId
+- [x] getEarnRedeemPreviewByHoldingId
+#### Rest/Earn/KucoinEarn
+- [x] getEarnSavingsProducts
+- [x] getEarnFixedIncomeCurrentHoldings
+- [x] getEarnPromotionProducts
+#### Rest/Earn/Staking
+- [x] getKcsStakingProducts
+- [x] getEarnStakingProducts
+- [x] getEthStakingProducts
+#### Rest/VIPLending
+- [x] getOtcLoanInformation
+- [x] getOtcLoanAccounts
 #### Rest/Others
 - [x] getTimestamp
 - [x] getStatus

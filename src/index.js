@@ -45,6 +45,14 @@ exports.rest = {
     Isolated:require('./rest/Margin/Isolated'),
     MarginV3:require('./rest/Margin/MarginV3'),
   },
+  Earn: {
+    General: require('./rest/Earn/General'),
+    KucoinEarn: require('./rest/Earn/KucoinEarn'),
+    Staking:require('./rest/Earn/Staking'),
+  },
+  VIPLending: {
+    OtcLoan:require('./rest/VIPLending'),
+  },
   Others: require('./rest/Others'),
 };
 
