@@ -1,11 +1,3 @@
-/*
- * @Owner: gannicus.zhou@kupotech.com
- * @Date: 2024-07-10 11:12:57
- * @LastEditors: gannicus Gannicus.Zhou@kupotech.com
- * @LastEditTime: 2024-07-15 19:56:12
- * @FilePath: /kucoin-node-sdk/demo/vip_lending.js
- * @Description:
- */
 const API = require("../src");
 
 API.init(require("./config"));

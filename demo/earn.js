@@ -1,11 +1,3 @@
-/*
- * @Owner: gannicus.zhou@kupotech.com
- * @Date: 2024-07-10 11:12:57
- * @LastEditors: gannicus Gannicus.Zhou@kupotech.com
- * @LastEditTime: 2024-07-12 17:43:28
- * @FilePath: /kucoin-node-sdk/demo/earn.js
- * @Description:
- */
 const API = require("../src");
 
 API.init(require("./config"));

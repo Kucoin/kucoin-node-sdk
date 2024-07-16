@@ -1,11 +1,3 @@
-/*
- * @Owner: gannicus.zhou@kupotech.com
- * @Date: 2024-01-04 15:31:20
- * @LastEditors: gannicus Gannicus.Zhou@kupotech.com
- * @LastEditTime: 2024-07-12 09:52:24
- * @FilePath: /kucoin-node-sdk/demo/constants.js
- * @Description: 
- */
 const tickerTopics = {
   'symbolTicker':"/market/ticker:BTC-USDT",
   'allSymbolsTicker':"/market/ticker:all",

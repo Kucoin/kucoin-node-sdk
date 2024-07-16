@@ -1,11 +1,3 @@
-/*
- * @Owner: gannicus.zhou@kupotech.com
- * @Date: 2024-07-10 17:16:36
- * @LastEditors: gannicus Gannicus.Zhou@kupotech.com
- * @LastEditTime: 2024-07-12 17:47:19
- * @FilePath: /kucoin-node-sdk/demo/websocket/margin.js
- * @Description:
- */
 const API = require("../../src");
 
 const { isolatedTopics } = require("../constants");

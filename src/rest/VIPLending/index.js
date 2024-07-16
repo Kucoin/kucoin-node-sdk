@@ -1,11 +1,3 @@
-/*
- * @Owner: gannicus.zhou@kupotech.com
- * @Date: 2024-07-10 12:03:22
- * @LastEditors: gannicus Gannicus.Zhou@kupotech.com
- * @LastEditTime: 2024-07-12 17:35:37
- * @FilePath: /kucoin-node-sdk/src/rest/VIPLending/index.js
- * @Description: 
- */
 const Http = require('../../lib/http');
 
 /**

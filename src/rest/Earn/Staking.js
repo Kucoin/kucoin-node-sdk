@@ -1,11 +1,3 @@
-/*
- * @Owner: gannicus.zhou@kupotech.com
- * @Date: 2024-07-10 11:40:45
- * @LastEditors: gannicus Gannicus.Zhou@kupotech.com
- * @LastEditTime: 2024-07-15 15:56:04
- * @FilePath: /kucoin-node-sdk/src/rest/Earn/Staking.js
- * @Description:
- */
 const Http = require("../../lib/http");
 
 /**
