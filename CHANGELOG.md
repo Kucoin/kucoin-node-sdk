@@ -1,3 +1,40 @@
+## [1.0.10] - 2024-06-15
+
+### Added APIs
+- `GET /api/v3/hf/margin/order/active/symbols`
+- `GET /api/v3/margin/symbols`
+- `POST /api/v3/position/update-user-leverage`
+- `GET /api/v1/otc-loan/loan`
+- `GET /api/v1/otc-loan/accounts`
+- `POST /api/v1/earn/orders`
+- `DELETE /api/v1/earn/orders`
+- `GET /api/v1/earn/redeem-preview`
+- `GET /api/v1/earn/saving/products`
+- `GET /api/v1/earn/hold-assets`
+- `GET /api/v1/earn/promotion/products`
+- `GET /api/v1/earn/kcs-staking/products`
+- `GET /api/v1/earn/staking/products`
+- `GET /api/v1/earn/eth-staking/products`
+- `POST /api/v3/hf/margin/order`
+- `POST /api/v3/hf/margin/order/test`
+- `DELETE /api/v3/hf/margin/orders/{orderId}`
+- `DELETE /api/v3/hf/margin/orders/client-order/{clientOid}`
+- `DELETE /api/v3/hf/margin/orders`
+- `GET /api/v3/hf/margin/orders/active`
+- `GET /api/v3/hf/margin/orders/done`
+- `GET /api/v3/hf/margin/orders/{orderId}`
+- `GET /api/v3/hf/margin/orders/client-order/{clientOid}`
+- `GET /api/v3/hf/margin/fills`
+
+- **TOPIC**: `/margin/isolatedPosition` (Isolated Margin Position Push)
+
+### Modified APIs
+- `POST /api/v3/margin/borrow` - Added `isHf` field
+- `POST /api/v3/margin/repay` - Added `isHf` field
+
+### Deprecated APIs
+- **TOPIC**: `/margin/fundingBook`
+
 ## [1.0.9] - 2024-05-30
 
 ### Added APIs

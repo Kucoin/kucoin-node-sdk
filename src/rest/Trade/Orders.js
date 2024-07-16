@@ -746,7 +746,7 @@ exports.queryHfAutoCancelOrderSetting = async function queryHfAutoCancelOrderSet
 * @return {Object} { code, success, data }
 */
 exports.cancelAllHfOrders = async function cancelAllHfOrders() {
-  return await Http().DELETE('/api/v1/hf/orders/cancelAll');
+  return await Http().DEL('/api/v1/hf/orders/cancelAll');
 }
 
 /**

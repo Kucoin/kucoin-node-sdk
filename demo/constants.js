@@ -21,8 +21,12 @@ const priceTopics = {
  "indexPrice" :"/indicator/index:USDT-BTC",
  "markPrice" :"/indicator/markPrice:USDT-BTC"
 }
+//orderBookChange deprecated
 const orderBookTopics = {
-  "orderBookChange":"/margin/fundingBook:BTC"
+  "orderBookChange":"/margin/fundingBook:BTC" 
+}
+const isolatedTopics = {
+  "isolatedPosition":"/margin/isolatedPosition:BTC-USDT"
 }
 module.exports = {
   tickerTopics,
@@ -31,5 +35,6 @@ module.exports = {
   klineTopics,
   matchTopics,
   priceTopics,
-  orderBookTopics
+  orderBookTopics,
+  isolatedTopics
 }

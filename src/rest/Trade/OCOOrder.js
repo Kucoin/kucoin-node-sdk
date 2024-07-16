@@ -47,7 +47,7 @@ exports.placeOrder = async function placeOrder({
  * @return {Object} { code, success, data }
  */
 exports.cancelOrder = async function cancelOrder(orderId) {
-  return await Http().DELETE(`/api/v3/oco/order/${orderId}`);
+  return await Http().DEL(`/api/v3/oco/order/${orderId}`);
 };
 
 /**
@@ -60,7 +60,7 @@ exports.cancelOrder = async function cancelOrder(orderId) {
 exports.cancelOrderByClientOid = async function cancelOrderByClientOid(
   clientOid
 ) {
-  return await Http().DELETE(`/api/v3/oco/client-order/${clientOid}`);
+  return await Http().DEL(`/api/v3/oco/client-order/${clientOid}`);
 };
 
 /**
@@ -72,7 +72,7 @@ exports.cancelOrderByClientOid = async function cancelOrderByClientOid(
  * @return {Object} { code, success, data }
  */
 exports.cancelAllOrders = async function cancelAllOrders({ orderIds, symbol }) {
-  return await Http().DELETE("/api/v3/oco/orders", { orderIds, symbol });
+  return await Http().DEL("/api/v3/oco/orders", { orderIds, symbol });
 };
 
 /**
