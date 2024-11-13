@@ -164,6 +164,10 @@ console.log(transferToHFAccountResult ,"transferToHFAccountResult---");
  const getSymbolsListResult = await API.rest.Market.Symbols.getSymbolsList({market:"BTC"});
  console.log(getSymbolsListResult ,"getSymbolsListResult---");
 
+
+ const getSymbolDetail = await API.rest.Market.Symbols.getSymbolDetail("BTC-USDT");
+ console.log(getSymbolDetail,"getSymbolDetailResult---");
+
  /**
  * @name getCurrencyDetail
  * @description Get Currency Detail(Recommend)
@@ -361,6 +365,11 @@ const getHighFrequencyAccountLedgerResult = await API.rest.User.Account.getHighF
   endAt:1685460597110
 });
 console.log(getHighFrequencyAccountLedgerResult ,"getHighFrequencyAccountLedgerResult---");
+
+
+const getUserTypeResult = await API.rest.User.Account.getUserType();
+console.log("User Type:", getUserTypeResult.data ? "High-Frequency" : "Low-Frequency");
+
 
 /**
  * @name getHfTransactionRecords

@@ -151,6 +151,10 @@ exports.getWithdrawalQuotas = async function getWithdrawalQuotas(currency, {
  *  - {boolean} isInner - [Optional] Internal withdrawal or not. Default setup: false
  *  - {string} remark - [Optional] Remark
  *  - {string} chain - [Optional] The chain name of currency, e.g. The available value for USDT are OMNI, ERC20, TRC20, default is ERC20. This only apply for multi-chain currency, and there is no need for single chain currency.
+ *  - {string} feeDeductType - [Optional] Withdrawal fee deduction type: INTERNAL or EXTERNAL or not specified
+1. INTERNAL- deduct the transaction fees from your withdrawal amount
+2. EXTERNAL- deduct the transaction fees from your main account
+3. If you don't specify the feeDeductType parameter, when the balance in your main account is sufficient to support the withdrawal, the system will initially deduct the transaction fees from your main account. But if the balance in your main account is not sufficient to support the withdrawal, the system will deduct the fees from your withdrawal amount. For example: Suppose you are going to withdraw 1 BTC from the KuCoin platform (transaction fee: 0.0001BTC), if the balance in your main account is insufficient, the system will deduct the transaction fees from your withdrawal amount. In this case, you will be receiving 0.9999BTC.
  * @return {Object} { code, success, data }
  */
 exports.applyWithdraw = async function applyWithdraw(currency, address, amount, {
@@ -158,6 +162,7 @@ exports.applyWithdraw = async function applyWithdraw(currency, address, amount, 
   isInner,
   remark,
   chain,
+  feeDeductType
 } = {}) {
   /*
   {
@@ -175,6 +180,7 @@ exports.applyWithdraw = async function applyWithdraw(currency, address, amount, 
     isInner,
     remark,
     chain,
+    feeDeductType
   });
 };
 
