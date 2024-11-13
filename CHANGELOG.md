@@ -1,4 +1,21 @@
-## [1.0.10] - 2024-06-15
+## [1.1.1] - 2024-11-12
+
+### Added
+- **Spot High-Frequency Upgrade**: All users can now use high-frequency interfaces without a whitelist. The system is more stable, and the rate limits are more relaxed.
+- **User Type API**: Added `GET /api/v1/hf/accounts/opened` to determine the user type.
+- **Fetch Announcements** API: Added `GET /api/v3/announcements` to retrieve news and announcements.
+
+### Modified
+- **Get Currency Details API**: `GET /api/v3/currencies/{currency}` now includes additional fields: `withdrawPrecision`, `needTag`, `maxWithdraw`, and `maxDeposit`.
+- **Get Currency List API**: `GET /api/v3/currencies` now includes additional fields: `withdrawPrecision`, `needTag`, `maxWithdraw`, and `maxDeposit`.
+
+### Deprecated
+- **Get Deposit Address API**: Deprecated `GET /api/v1/deposit-addresses`, replaced by `GET /api/v3/deposit-addresses`.
+- **Get Deposit Address API (V2)**: Deprecated `GET /api/v2/deposit-addresses`, replaced by `GET /api/v3/deposit-addresses`.
+- **Apply for Deposit Address API**: Deprecated `POST /api/v1/deposit-addresses`, replaced by `POST /api/v3/deposit-address/create`.
+- **Apply for Withdrawal API**: Deprecated `POST /api/v1/withdrawals`, replaced by `POST /api/v3/withdrawals`.
+
+## [1.1.0] - 2024-06-15
 
 ### Added APIs
 - `GET /api/v3/hf/margin/order/active/symbols`

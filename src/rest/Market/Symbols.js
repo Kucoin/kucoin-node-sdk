@@ -133,3 +133,14 @@ exports.getSymbolsList = async function getSymbolsList({ market = undefined } = 
     market,
   });
 };
+
+/**
+ * @name getSymbolDetail
+ * @description Request via this endpoint to get detail currency pairs for trading.
+ * @param {String} symbol - Symbol (e.g., BTC-USDT)
+ * @return {Object} { code, success, data }
+ */
+exports.getSymbolDetail = async function getSymbolDetail(symbol) {
+  // Make the GET request to the API endpoint
+  return await Http().GET(`/api/v2/symbols/${symbol}`);
+};

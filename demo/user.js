@@ -42,6 +42,42 @@ const userMain = async () => {
     }
   }
   universalTransfer();
+
+
+  /**
+ * @name getAnnouncements
+ * @description Get the latest news announcements
+ * @updateTime 11/13/24
+ * @param {Object} params
+ * @param {Number} [params.currentPage] - Page number (Optional)
+ * @param {Number} [params.pageSize] - Page size (Optional)
+ * @param {String} [params.annType] - Announcement types: latest-announcements, activities, new-listings, product-updates, vip, maintenance-updates, delistings, others, api-campaigns (Optional)
+ * @param {String} [params.lang] - Language type, default is en_US (Optional)
+ * @param {Number} [params.startTime] - Announcement online start time (milliseconds) (Optional)
+ * @param {Number} [params.endTime] - Announcement online end time (milliseconds) (Optional)
+ * @return {Promise} { code, data: { totalNum, items, currentPage, pageSize, totalPage } } 
+ */
+  async function getAnnouncementsDemo() {
+    try {
+      const response = await API.rest.Others.getAnnouncements({
+        currentPage: 1,
+        pageSize: 10,
+        annType: 'latest-announcements',
+        lang: 'en_US'
+      });
+      
+      console.log("Announcements:", response);
+      
+      if (response.data && response.data.items) {
+        console.log("Total announcements:", response.data.totalNum);
+        console.log("First announcement title:", response.data.items[0].annTitle);
+      }
+    } catch (error) {
+      console.error("Error fetching announcements:", error);
+    }
+  }
+  
+  getAnnouncementsDemo();
 };
 
 // run rest userMain

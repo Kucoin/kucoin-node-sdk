@@ -589,6 +589,16 @@ exports.getHighFrequencyAccountLedger = async function getHighFrequencyAccountLe
 }
 
 /**
+ * @name getUserType
+ * @description Determines whether the current user is a spot high-frequency user or a spot low-frequency user.
+ * @return {Object} { code, success, data }
+ */
+exports.getUserType = async function getUserType() {
+  return await Http().GET('/api/v1/hf/accounts/opened');
+};
+
+
+/**
 
  * @name universalTransfer
  * @description Request via this endpoint to perform a universal transfer between accounts
