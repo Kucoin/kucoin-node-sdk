@@ -100,6 +100,7 @@ Signature is required for this part.
 - [x] getPaginatedSubAccountInformation
 - [x] transferToHFAccount
 - [x] getHighFrequencyAccountLedger
+- [x] getUserType
 
 #### Rest/User/Deposit
 - [x] createDepositAddress
@@ -184,7 +185,8 @@ Signature is not required for this part
 - [x] getAllTickers
 - [x] get24hrStats
 - [x] getMarketList
-- [x] getSymbolsList
+- [x] getSymbolDetail
+
 #### Rest/Market/OrderBook
 - [x] getLevel2_20
 - [x] getLevel2_100
@@ -277,6 +279,7 @@ Signature is not required for this part
 #### Rest/Others
 - [x] getTimestamp
 - [x] getStatus
+- [x] getAnnouncements
 
 ## Websocket Datafeed
 
